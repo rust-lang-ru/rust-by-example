@@ -65,6 +65,6 @@ Rust на примерах - это набор исполняемых приме
 
 - [Unsafe Operations](unsafe.md)
 
-- [Compatibility](compatibility.md)
+- [Совместимость](compatibility.md)
 
 - [Meta](meta.html) - Документация, Бенчмаркинг.

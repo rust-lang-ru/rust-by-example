@@ -1,0 +1,20 @@
+sudo: false
+language: rust
+cache: cargo
+rust:
+  - nightly
+branches:
+  only:
+  - master
+before_script:
+  - npm install yaspeller -g
+  - cargo install --version=0.3.0 mdbook --force || true
+script:
+  - yaspeller --only-errors src/**/*.md
+  - mdbook build
+  - mdbook test
+after_success:
+  - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash deploy.sh
+env:
+  global:
+  - secure: hueiOpMNOpjn4QKkR4LQ48FCkdfl6YEVS8Y5uHZE+UcQnp2cECXQmHPdOKdWpQJunjHGlmI9h1q7m/aNfEt4t5gemRQWxalhTjnraA39uANtcWnBVH7lF7viJcMUXn5CgPNHE+0ybDISaSw2/dDdh/FcyHxdIncUSoXsZ8O7mCcwzekEQa8IBiR9siUzr+psYE7GI1E0Bfi1vMo3Rgnn/wwYYokbEJc6i1S5EZOpy36v9i5ou3YTgnmZITKQN9iH1osqxidyjWMRqHesSjEHNXQla8K4+nlh7Nhe/dPklnQFJCynmt3D3GuRVJYZzTxYuHvs3c0yfs2I+grXnTOYckCZjj0x9Q11nYtQhG9rWDfOZkD/dcfWSFjotu9X0ezoslTFGpzDDCI+0MdOLSshDdr7bXXze4v2WfWXVY+wpFcEP/1LhwSsPIHvfo6zlI5h4q3HkKUWaHmoae3tS5H9SrwNj/ErZQBqWUs72aUaCf0bNK996y04LV3xliOLmJxgfxTb0RIKPeClYMEtQOTwdnMPiJJYUofu9NrwDO48kDiNWA0dobhV6nqH6c72tSCN7vPuu+EyL5biM1c/0vpC3rQHjWQnXjFS3hrYpaeIBRhVbWXodRnjpzQ5oUSehykJbGoPgw02DUCm6OcOvCzIpBLXOq6++liDkdRLZiwJgpQ=

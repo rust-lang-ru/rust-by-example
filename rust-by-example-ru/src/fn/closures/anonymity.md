@@ -2,7 +2,7 @@
 
 Замыкания временно захватывают переменные из окружающих областей видимости.
 Имеет ли это какие-либо последствия? Конечно. Как видите, использование
-замыкания в аргументах функции требует [обобщённых типов][generics] из-за
+замыкания в аргументах функции требует [обобщённых типов](generics.html) из-за
 особенностей реализации замыканий:
 
 ```rust
@@ -47,11 +47,5 @@ fn main() {
 
 ### Смотрите также:
 
-[Подробный разбор][thorough_analysis], [`Fn`][fn], [`FnMut`][fn_mut],
-and [`FnOnce`][fn_once]
-
-[generics]: generics.html
-[fn]: https://doc.rust-lang.org/std/ops/trait.Fn.html
-[fn_mut]: https://doc.rust-lang.org/std/ops/trait.FnMut.html
-[fn_once]: https://doc.rust-lang.org/std/ops/trait.FnOnce.html
-[thorough_analysis]: https://huonw.github.io/blog/2015/05/finding-closure-in-rust/
+[Подробный разбор](https://huonw.github.io/blog/2015/05/finding-closure-in-rust/), [`Fn`](https://doc.rust-lang.org/std/ops/trait.Fn.html), [`FnMut`](https://doc.rust-lang.org/std/ops/trait.FnMut.html),
+и [`FnOnce`](https://doc.rust-lang.org/std/ops/trait.FnOnce.html)

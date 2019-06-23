@@ -16,6 +16,6 @@ rm -rf "${ORIGINAL_DIR}/.git"
 
 git add -A "${ORIGINAL_DIR}"
 git commit -m 'update original'
-#git push origin master
+git push origin master
 
 #

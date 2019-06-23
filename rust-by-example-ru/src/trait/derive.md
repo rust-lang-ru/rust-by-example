@@ -1,20 +1,19 @@
-# Атрибут Derive
+# Атрибут `Derive`
 
 Компилятор способен предоставить основные реализации для некоторых типажей
-с помощью [атрибута][attribute] `#[derive]`. Эти типажи могут быть
+с помощью [атрибута](attribute.html) `#[derive]`. Эти типажи могут быть
 реализованы вручную, если необходимо более сложное поведение.
 
 Ниже приводится список выводимых типажей:
-* Типажи сравнения:
-  [`Eq`][eq], [`PartialEq`][partial-eq], [`Ord`][ord], [`PartialOrd`][partial-ord]
-* [`Clone`][clone], для создания `T` из `&T` с помощью копии.
-* [`Copy`][copy], чтобы создать тип семантикой копирования, вместо семантики перемещения.
-* [`Hash`][hash], чтобы вычислить хеш из `&T`.
-* [`Default`][default], чтобы создать пустой экземпляр типа данных.
-* `Zero`, для создания нулевого экземпляра числового типа данных.
-* [`Debug`][debug], чтобы отформатировать значение с помощью `{:?}`.
- 
-```rust,example
+
+- Типажи сравнения:[`Eq`](https://doc.rust-lang.org/std/cmp/trait.Eq.html), [`PartialEq`](https://doc.rust-lang.org/std/cmp/trait.PartialEq.html), [`Ord`](https://doc.rust-lang.org/std/cmp/trait.Ord.html), [`PartialOrd`](https://doc.rust-lang.org/std/cmp/trait.PartialOrd.html)
+- [`Clone`](https://doc.rust-lang.org/std/clone/trait.Clone.html), для создания `T` из `&T` с помощью копии.
+- [`Copy`](https://doc.rust-lang.org/core/marker/trait.Copy.html), чтобы создать тип семантикой копирования, вместо семантики перемещения.
+- [`Hash`](https://doc.rust-lang.org/std/hash/trait.Hash.html), чтобы вычислить хеш из `&T`.
+- [`Default`](https://doc.rust-lang.org/std/default/trait.Default.html), чтобы создать пустой экземпляр типа данных.
+- [`Debug`](https://doc.rust-lang.org/std/fmt/trait.Debug.html), чтобы отформатировать значение с помощью `{:?}`.
+
+```rust,editable
 // `Centimeters`, кортежная структура, которую можно сравнить
 #[derive(PartialEq, PartialOrd)]
 struct Centimeters(f64);
@@ -63,16 +62,5 @@ fn main() {
 ```
 
 ### Смотрите также:
-[`derive`][derive]
 
-[attribute]: attribute.html
-[eq]: https://doc.rust-lang.org/std/cmp/trait.Eq.html
-[partial-eq]: https://doc.rust-lang.org/std/cmp/trait.PartialEq.html
-[ord]: https://doc.rust-lang.org/std/cmp/trait.Ord.html
-[partial-ord]: https://doc.rust-lang.org/std/cmp/trait.PartialOrd.html
-[clone]: https://doc.rust-lang.org/std/clone/trait.Clone.html
-[copy]: https://doc.rust-lang.org/core/marker/trait.Copy.html
-[hash]: https://doc.rust-lang.org/std/hash/trait.Hash.html
-[default]: https://doc.rust-lang.org/std/default/trait.Default.html
-[debug]: https://doc.rust-lang.org/std/fmt/trait.Debug.html
-[derive]: https://doc.rust-lang.org/reference/attributes.html#derive
+[`derive`](https://doc.rust-lang.org/reference/attributes.html#derive)

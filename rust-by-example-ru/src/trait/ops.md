@@ -7,7 +7,7 @@
 Метод `add` является частью типажа `Add`.
 Следовательно, оператор `+` могут использовать все, кто реализуют типаж `Add`.
 
-Список типажей, таких как `Add`, которые перегружают операторы, доступен [здесь][ops].
+Список типажей, таких как `Add`, которые перегружают операторы, доступен [здесь](https://doc.rust-lang.org/core/ops/).
 
 ```rust,editable
 use std::ops;
@@ -55,10 +55,6 @@ fn main() {
 }
 ```
 
-###Смотрите также
+### Смотрите также:
 
-[Add][add], [Syntax Index][syntax]
-
-[add]: https://doc.rust-lang.org/core/ops/trait.Add.html
-[ops]: https://doc.rust-lang.org/core/ops/
-[syntax]:https://doc.rust-lang.org/book/second-edition/appendix-02-operators.html
+[Add](https://doc.rust-lang.org/core/ops/trait.Add.html), [Syntax Index](https://doc.rust-lang.org/book/second-edition/appendix-02-operators.html)

@@ -40,7 +40,7 @@ test test_foo ... ok
 test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
 ```
 
-You can also run tests whose name matches a pattern:
+Вы также можете запустить тесты, чье имя соответствует шаблону:
 
 ```sh
 cargo test test_foo
@@ -59,6 +59,4 @@ test test_foo_bar ... ok
 test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out
 ```
 
-One word of caution: Cargo may run multiple tests concurrently, so make sure
-that they don't race with each other. For example, if they all output to a
-file, you should make them write to different files.
+Одно слово предостережения: Cargo может выполнять несколько тестов одновременно, поэтому убедитесь, что они не участвуют в гонках друг с другом. Например, если они все выводят в файл, вы должны заставить их записывать в разные файлы.

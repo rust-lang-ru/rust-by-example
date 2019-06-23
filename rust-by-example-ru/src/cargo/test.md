@@ -3,9 +3,7 @@
 Как мы знаем, тестирование является неотъемлемой частью любого программного обеспечения! Rust имеет первокласную поддержку модульного и интеграционного тестирования (см.
 [главу TRPL](https://doc.rust-lang.org/book/ch11-00-testing.html)).
 
-From the testing chapters linked above, we see how to write unit tests and
-integration tests. Organizationally, we can place unit tests in the modules they
-test and integration tests in their own `tests/` directory:
+Из разделов тестирования, приведенных выше, мы видим, как писать модульные и интеграционные тесты. Организационно, мы можем расположить модульные тесты в модулях, которые они тестируют, а интеграционные - в собственном каталоге `tests/`:
 
 ```txt
 foo

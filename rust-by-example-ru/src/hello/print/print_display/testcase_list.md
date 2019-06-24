@@ -14,9 +14,7 @@
 write!(f, "{}", value)?;
 ```
 
-Кроме того, Вы также можете использовать макрос `try!', который работает так же. 
-Это немного более подробно и больше не рекомендуется, но вы все равно можете увидеть его в
-старом коде на Rust. Использование `try!` выглядит так:
+Кроме того, Вы также можете использовать макрос `try!', который работает так же. Это немного более подробно и больше не рекомендуется, но вы все равно можете увидеть его в старом коде на Rust. Использование`try!` выглядит так:
 
 ```rust,ignore
 try!(write!(f, "{}", value));
@@ -70,12 +68,5 @@ fn main() {
 
 ### Смотрите также
 
-[`for`][for], [`ref`][ref], [`Result`][result], [`struct`][struct],
-[`?`][q_mark], and [`vec!`][vec]
-
-[for]: flow_control/for.html
-[result]: std/result.html
-[ref]: scope/borrow/ref.html
-[struct]: custom_types/structs.html
-[q_mark]: std/result/question_mark.html
-[vec]: std/vec.html
+[`for`](../../../flow_control/for.md), [`ref`](../../../scope/borrow/ref.md), [`Result`](../../../std/result.md), [`struct`](../../../custom_types/structs.md),
+[`?`](../../../std/result/question_mark.md), и [`vec!`](../../../std/vec.md)

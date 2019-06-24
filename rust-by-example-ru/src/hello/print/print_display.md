@@ -2,7 +2,7 @@
 
 `fmt::Debug` выглядит не очень компактно и красиво,
 поэтому полезно настраивать внешний вид информации, которая будет напечатана.
-Это можно сделать реализовав `типаж` [`fmt::Display`][fmt] вручную,
+Это можно сделать реализовав `типаж` [`fmt::Display`](https://doc.rust-lang.org/std/fmt/) вручную,
 который использует маркер `{}` для печати. Его реализация выглядит следующим образом:
 
 ```rust
@@ -33,8 +33,8 @@ impl fmt::Display for Structure {
 Например, если `стандартная библиотека (std)` предоставляет единый стиль вывода для
 `Vec<T>`, каким этот вывод должен быть? Любой из этих двух?
 
-* `Vec<path>`: `/:/etc:/home/username:/bin` (разделитель `:`)
-* `Vec<number>`: `1,2,3` (разделитель `,`)
+- `Vec<path>`: `/:/etc:/home/username:/bin` (разделитель `:`)
+- `Vec<number>`: `1,2,3` (разделитель `,`)
 
 Нет, потому что не существует идеального стиля вывода для всех типов, поэтому
 `стандартная библиотека std` не может его предоставить. `fmt::Display` не реализован для
@@ -101,9 +101,9 @@ fn main() {
 ```
 
 Итак, `fmt::Display` был реализован, но `fmt::Binary` нет, следовательно не может быть
-использован. `std::fmt` имеет много таких [`типажей`][traits] и
+использован. `std::fmt` имеет много таких [`типажей`](trait.html) и
 каждый из них требует свою реализацию. Это более подробно описано в документации к
-[`std::fmt`][fmt].
+<a href="https://doc.rust-lang.org/std/fmt/" data-md-type="link">`std::fmt`</a>.
 
 ### Задание
 
@@ -117,12 +117,5 @@ Debug: Complex { real: 3.3, imag: 7.2 }
 
 ### Смотрите также
 
-[`derive`][derive], [`std::fmt`][fmt], [macros], [`структуры`][structs],
-[`типажи`][traits], and [use][use]
-
-[derive]: trait/derive.html
-[fmt]: https://doc.rust-lang.org/std/fmt/
-[macros]: macros.html
-[structs]: custom_types/structs.html
-[traits]: trait.html
-[use]: mod/use.html
+[`derive`](../../trait/derive.md), [`std::fmt`](https://doc.rust-lang.org/std/fmt/), [macros](../../macros.md), [`struct`](../../custom_types/structs.md),
+[`trait`](../../trait.md), и [use](../../mod/use.md)

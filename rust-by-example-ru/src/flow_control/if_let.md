@@ -3,24 +3,23 @@
 В некоторых случаях использование `match` выглядит неуклюже. Например:
 
 ```rust
-// Создадим переменную `optional` с типом `Option<i32>`
+// Make `optional` of type `Option<i32>`
 let optional = Some(7);
 
 match optional {
     Some(i) => {
-        println!("Это действительно очень длинная строка и `{:?}`", i);
-        // ^ Необходимо два вложения для того, чтобы просто деструктурировать
-        // `i` из опционального типа.
+        println!("This is a really long string and `{:?}`", i);
+        // ^ Needed 2 indentations just so we could destructure
+        // `i` from the option.
     },
     _ => {},
-    // ^ Требуется, потому что `match` должен учесть все варианты. Вам не кажется
-    // это немного лишним?
+    // ^ Required because `match` is exhaustive. Doesn't it seem
+    // like wasted space?
 };
 
 ```
 
-`if let` намного компактнее и выразительнее для данного случая и, кроме того, 
-позволяет рассмотреть различные варианты ошибок.
+`if let` намного компактнее и выразительнее для данного случая и, кроме того, позволяет рассмотреть различные варианты ошибок.
 
 ```rust,editable
 fn main() {
@@ -94,10 +93,26 @@ fn main() {
 }
 ```
 
+[`enum`](custom_types/enum.html), [`Option`](std/option.html), и [RFC](https://github.com/rust-lang/rfcs/pull/160)
+
+Хотите вызов? Исправьте следующий пример с использованием `if let `:
+
+```rust,editable,ignore
+// This enum purposely doesn't #[derive(PartialEq)],
+// neither we implement PartialEq for it. That's why comparing Foo::Bar==a fails below.
+enum Foo {Bar}
+
+fn main() {
+    let a = Foo::Bar;
+
+    // Variable a matches Foo::Bar
+    if Foo::Bar == a {
+    // ^-- this causes a compile-time error. Use `if let` instead.
+        println!("a is foobar");
+    }
+}
+```
+
 ### Смотрите также:
 
-[`enum`][enum], [`Option`][option], и [RFC][if_let_rfc]
-
-[enum]: custom_types/enum.html
-[if_let_rfc]: https://github.com/rust-lang/rfcs/pull/160
-[option]: std/option.html
+[`enum`](../custom_types/enum.md), [`Option`](../std/option.md), и [RFC](https://github.com/rust-lang/rfcs/pull/160)

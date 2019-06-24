@@ -9,11 +9,9 @@
 
 Возможные типажи для возвращаемых значений немного отличаются от прежних:
 
-* `Fn`: как раньше
-* `FnMut`: как раньше
-* `FnOnce`: здесь присутствуют некоторые неожиданности, поэтому необходим тип
-  [`FnBox`][fnbox], но он нестабилен в настоящее время. В будущем ожидаются
-  изменения этой ситуации.
+- `Fn`: как раньше
+- `FnMut`: как раньше
+- `FnOnce`: здесь присутствуют некоторые неожиданности, поэтому необходим тип[`FnBox`](https://doc.rust-lang.org/std/boxed/trait.FnBox.html), но он нестабилен в настоящее время. В будущем ожидаютсяизменения этой ситуации.
 
 Помимо этого, должно быть использовано ключевое слово `move`, чтобы
 сигнализировать о том, что все переменные захватываются по значению. Это
@@ -44,10 +42,4 @@ fn main() {
 
 ### Смотрите также:
 
-[Упаковка][box], [`Fn`][fn], [`FnMut`][fnmut], and [Обобщённые типы][generics].
-
-[box]: std/box.html
-[fn]: https://doc.rust-lang.org/std/ops/trait.Fn.html
-[fnmut]: https://doc.rust-lang.org/std/ops/trait.FnMut.html
-[fnbox]: https://doc.rust-lang.org/std/boxed/trait.FnBox.html 
-[generics]: generics.html
+[Упаковка](../../std/box.md), [`Fn`](https://doc.rust-lang.org/std/ops/trait.Fn.html), [`FnMut`](https://doc.rust-lang.org/std/ops/trait.FnMut.html), и [Обобщения](../../generics.md).

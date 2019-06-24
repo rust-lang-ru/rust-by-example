@@ -75,11 +75,5 @@ fn main() {
 
 ### Смотрите также
 
-[атрибуты][attributes], [`derive`][derive], [`std::fmt`][fmt],
-and [`структуры`][structs]
-
-[attributes]: https://doc.rust-lang.org/reference/attributes.html
-[derive]: trait/derive.html
-[fmt]: https://doc.rust-lang.org/std/fmt/
-[structs]: custom_types/structs.html
-
+[attributes](https://doc.rust-lang.org/reference/attributes.html), [`derive`](../../trait/derive.md), [`std::fmt`](https://doc.rust-lang.org/std/fmt/),
+и [`struct`](../../custom_types/structs.md)

@@ -6,9 +6,9 @@
 должен быть указан с использованием одного из `типажей`. Вот они, в порядке
 уменьшения ограничений:
 
-* `Fn`: замыкание захватывает по ссылке (`&T`)
-* `FnMut`: замыкание захватывает по изменяемой ссылке (`&mut T`)
-* `FnOnce`: замыкание захватывает по значению (`T`)
+- `Fn`: замыкание захватывает по ссылке (`&T`)
+- `FnMut`: замыкание захватывает по изменяемой ссылке (`&mut T`)
+- `FnOnce`: замыкание захватывает по значению (`T`)
 
 Компилятор стремится захватывать переменные наименее ограничивающим способом.
 
@@ -79,9 +79,4 @@ fn main() {
 
 ### Смотрите также:
 
-[`std::mem::drop`][drop], [`Fn`][fn], [`FnMut`][fnmut], and [`FnOnce`][fnonce]
-
-[drop]: https://doc.rust-lang.org/std/mem/fn.drop.html
-[fn]: https://doc.rust-lang.org/std/ops/trait.Fn.html
-[fnmut]: https://doc.rust-lang.org/std/ops/trait.FnMut.html
-[fnonce]: https://doc.rust-lang.org/std/ops/trait.FnOnce.html
+[`std::mem::drop`](https://doc.rust-lang.org/std/mem/fn.drop.html), [`Fn`](https://doc.rust-lang.org/std/ops/trait.Fn.html), [`FnMut`](https://doc.rust-lang.org/std/ops/trait.FnMut.html), и [`FnOnce`](https://doc.rust-lang.org/std/ops/trait.FnOnce.html)

@@ -3,24 +3,23 @@
 В некоторых случаях использование `match` выглядит неуклюже. Например:
 
 ```rust
-// Создадим переменную `optional` с типом `Option<i32>`
+// Make `optional` of type `Option<i32>`
 let optional = Some(7);
 
 match optional {
     Some(i) => {
-        println!("Это действительно очень длинная строка и `{:?}`", i);
-        // ^ Необходимо два вложения для того, чтобы просто деструктурировать
-        // `i` из опционального типа.
+        println!("This is a really long string and `{:?}`", i);
+        // ^ Needed 2 indentations just so we could destructure
+        // `i` from the option.
     },
     _ => {},
-    // ^ Требуется, потому что `match` должен учесть все варианты. Вам не кажется
-    // это немного лишним?
+    // ^ Required because `match` is exhaustive. Doesn't it seem
+    // like wasted space?
 };
 
 ```
 
-`if let` намного компактнее и выразительнее для данного случая и, кроме того, 
-позволяет рассмотреть различные варианты ошибок.
+`if let` намного компактнее и выразительнее для данного случая и, кроме того, позволяет рассмотреть различные варианты ошибок.
 
 ```rust,editable
 fn main() {
@@ -94,10 +93,26 @@ fn main() {
 }
 ```
 
+Другое преимущество: `if let` позволяет сопоставлять не параметризованные варианты перечисления, даже если перечисление не `#[derive(PartialEq)]`, и мы не имплементировали `PartialEq` для них. В некоторых случаях, классический `if Foo::Bar == a` не работает, потому что такие перечисления не могут быть равны. Однако, `if let` работает.
+
+Хотите вызов? Исправьте следующий пример с использованием `if let `:
+
+```rust,editable,ignore
+// Для это перечисление намеренно не добавлен #[derive(PartialEq)],
+// и мы не реализовывали для него PartialEq. Вот почему сравнение Foo::Bar==a терпит неудачу.
+enum Foo {Bar}
+
+fn main() {
+    let a = Foo::Bar;
+
+    // Переменная соответствует Foo::Bar
+    if Foo::Bar == a {
+    // ^-- это вызовет ошибку компиляции. Используйте `if let` вместо этого.
+        println!("a is foobar");
+    }
+}
+```
+
 ### Смотрите также:
 
-[`enum`][enum], [`Option`][option], и [RFC][if_let_rfc]
-
-[enum]: custom_types/enum.html
-[if_let_rfc]: https://github.com/rust-lang/rfcs/pull/160
-[option]: std/option.html
+[`enum`](../custom_types/enum.md), [`Option`](../std/option.md), и [RFC](https://github.com/rust-lang/rfcs/pull/160)

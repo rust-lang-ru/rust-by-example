@@ -32,8 +32,4 @@ fn main() {
 
 ### Смотрите также:
 
-[`Fn`][fn], [`FnMut`][fn_mut], and [`FnOnce`][fn_once]
-
-[fn]: https://doc.rust-lang.org/std/ops/trait.Fn.html
-[fn_mut]: https://doc.rust-lang.org/std/ops/trait.FnMut.html
-[fn_once]: https://doc.rust-lang.org/std/ops/trait.FnOnce.html
+[`Fn`](https://doc.rust-lang.org/std/ops/trait.Fn.html), [`FnMut`](https://doc.rust-lang.org/std/ops/trait.FnMut.html), и [`FnOnce`](https://doc.rust-lang.org/std/ops/trait.FnOnce.html)

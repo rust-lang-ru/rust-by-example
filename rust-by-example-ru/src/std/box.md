@@ -62,7 +62,7 @@ fn main() {
              mem::size_of_val(&boxed_point));
     println!("Упакованный прямоугольник занимает {} байт на стеке",
              mem::size_of_val(&boxed_rectangle));
-    println!("Упакованная "упаковка" занимает {} байт на стеке",
+    println!("Упакованная 'упаковка' занимает {} байт на стеке",
              mem::size_of_val(&box_in_a_box));
 
     // Копируем данные из `boxed_point` в `unboxed_point`

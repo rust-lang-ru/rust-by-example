@@ -2,10 +2,10 @@
 
 Условная компиляция возможна благодаря двум операторам:
 
-* Атрибуту `cfg`: `#[cfg(...)]`, который указывается на месте атрибута
-* Макросу `cfg!`: `cfg!(...)`, который можно использовать в условных выражениях
+- Атрибуту `cfg`: `#[cfg(...)]`, который указывается на месте атрибута
+- Макросу `cfg!`: `cfg!(...)`, который можно использовать в условных выражениях
 
-Обе инициализации имеют идентичный синтаксис для принятия аргументов.
+Оба имеют идентичный синтаксис для принятия аргументов.
 
 ```rust,editable
 // Эта функция будет скомпилирована только в том случае, если целевая ОС будет linux
@@ -34,8 +34,4 @@ fn main() {
 
 ### Смотрите также:
 
-[the reference][ref], [`cfg!`][cfg], и [macros][macros].
-
-[cfg]: https://doc.rust-lang.org/std/macro.cfg!.html
-[macros]: macros.html
-[ref]: https://doc.rust-lang.org/reference/attributes.html#conditional-compilation
+[the reference](https://doc.rust-lang.org/reference/attributes.html#conditional-compilation), [`cfg!`](https://doc.rust-lang.org/std/macro.cfg!.html), и [macros](macros.html).

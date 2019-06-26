@@ -1,12 +1,9 @@
 # Raw identifiers
 
-Rust, like many programming languages, has the concept of "keywords".
-These identifiers mean something to the language, and so you cannot use them in
-places like variable names, function names, and other places.
-Raw identifiers let you use keywords where they would not normally be allowed.
-This is particularly useful when Rust introduces new keywords, and a library
-using an older edition of Rust has a variable or function with the same name
-as a keyword introduced in a newer edition.
+В Rust, как и во многих других языках программирования, существует концепция "ключевых слов".
+Эти идентификаторы что-то значат для языка и из-за этого вы не можете использовать их в качестве названия переменных, именах функций и других местах.
+Сырые идентификаторы позволяют использовать ключевые слова там, где они обычно не разрешены.
+Это особенно полезно, когда Rust вводит новые ключевые слова и библиотеки, использующие старую редакцию Rust, имеют переменные или функции с таким же именем, как и ключевое слово, введённое в новой редакции.
 
 Например, рассмотрим крейт `foo`, скомпилированный с 2015 редакцией Rust, и который экспортирует функцию с именем `try`. Это ключевое слово зарезервировано для новой функциональности в 2018 редакции, из-за чего без сырых идентификаторов мы не можем назвать так функцию.
 

@@ -32,7 +32,7 @@ fn main() {
 
     match status {
         // Обратите внимание, как используются варианты из перечисления `Status`
-        // все благодаря `use`
+        // благодаря `use`
         Rich => println!("У богатого куча денег!"),
         Poor => println!("У бедняка денег нет, но он держится..."),
     }
@@ -47,7 +47,4 @@ fn main() {
 
 ### Смотрите также:
 
-[`сопоставление с образцом`][match] и [`use`][use]
-
-[use]: mod/use.html
-[match]: flow_control/match.html
+[`match` (сопоставление с образцом)](../../flow_control/match.md) и [`use`](../../mod/use.md)

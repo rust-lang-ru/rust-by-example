@@ -4,12 +4,12 @@
 в любой области видимости, включая глобальную. Оба требуют явной аннотации типа:
 
 - `const`: Неизменяемая переменная (в общем случае).
-- `static`: Возможно, изменяемая переменная с временем жизни [`'static`](scope/lifetime/static_lifetime.html).
+- `static`: Возможно, `изменяемая` переменная с временем жизни [`'static`](../scope/lifetime/static_lifetime.md). Статическое время жизни выводится и не должно быть указано. Доступ или модификация изменяемой статической переменной [небезопасно (см. `unsafe`)](../unsafe.md).
 
 ```rust,editable,ignore,mdbook-runnable
 // Константы объявлены в глобальной области видимости.
-static LANGUAGE: &'static str = "Rust";
-const  THRESHOLD: i32 = 10;
+static LANGUAGE: &str = "Rust";
+const THRESHOLD: i32 = 10;
 
 fn is_big(n: i32) -> bool {
     // Получаем доступ к константе внутри функции

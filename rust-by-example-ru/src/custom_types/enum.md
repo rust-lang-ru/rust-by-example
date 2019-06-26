@@ -1,39 +1,35 @@
 # Перечисления
 
-Ключевое слово `enum` позволяет создавать тип данных, 
-который представляет собой один из нескольких возможных вариантов. 
+Ключевое слово `enum` позволяет создавать тип данных,
+который представляет собой один из нескольких возможных вариантов.
 Любой вариант, действительный как `struct`, также действителен как `enum`.
 
 ```rust,editable
-// Атрибут, который убирает предупреждения компилятора
-// о неиспользуемом коде
-#![allow(dead_code)]
-
-// Создадим `enum`, который классифицирует веб-событие. Обратите внимание как
-// имена и тип вместе определяют вариант:
+// Create an `enum` to classify a web event. Note how both
+// names and type information together specify the variant:
 // `PageLoad != PageUnload` and `KeyPress(char) != Paste(String)`.
-// Каждый из них уникален.
+// Each is different and independent.
 enum WebEvent {
-    // `enum` так же может быть `единичным`,
+    // An `enum` may either be `unit-like`,
     PageLoad,
     PageUnload,
-    // может быть как кортежная структура,
+    // like tuple structs,
     KeyPress(char),
     Paste(String),
-    // или как просто структура.
+    // or c-like structures.
     Click { x: i64, y: i64 },
 }
 
-//  Функция, которая принимает `WebEvent` в качестве аргумента
-// и не возвращает ничего.
+// A function which takes a `WebEvent` enum as an argument and
+// returns nothing.
 fn inspect(event: WebEvent) {
     match event {
-        WebEvent::PageLoad => println!("страница загружена"),
-        WebEvent::PageUnload => println!("страница не загружена"),
-        // Деструктурируем `c` из `enum`.
-        WebEvent::KeyPress(c) => println!("нажата клавиша '{}'.", c),
-        WebEvent::Paste(s) => println!("вставлено значение \"{}\".", s),
-        // Деструктурируем `Click` в `x` и `y`.
+        WebEvent::PageLoad => println!("page loaded"),
+        WebEvent::PageUnload => println!("page unloaded"),
+        // Destructure `c` from inside the `enum`.
+        WebEvent::KeyPress(c) => println!("pressed '{}'.", c),
+        WebEvent::Paste(s) => println!("pasted \"{}\".", s),
+        // Destructure `Click` into `x` and `y`.
         WebEvent::Click { x, y } => {
             println!("clicked at x={}, y={}.", x, y);
         },
@@ -42,8 +38,8 @@ fn inspect(event: WebEvent) {
 
 fn main() {
     let pressed = WebEvent::KeyPress('x');
-    // `to_owned()` создаёт копию `String` из среза строки.
-    let pasted  = WebEvent::Paste("мой текст".to_owned());
+    // `to_owned()` creates an owned `String` from a string slice.
+    let pasted  = WebEvent::Paste("my text".to_owned());
     let click   = WebEvent::Click { x: 20, y: 80 };
     let load    = WebEvent::PageLoad;
     let unload  = WebEvent::PageUnload;
@@ -59,10 +55,4 @@ fn main() {
 
 ### Смотрите также:
 
-[`атрибуты`][attributes], [`сопоставление с образцом`][match], [`функции`][fn], и [`строки`][str]
-
-[attributes]: attribute.html
-[c_struct]: https://ru.wikipedia.org/wiki/Структура_(язык_Си)
-[match]: flow_control/match.html
-[fn]: fn.html
-[str]: std/str.html
+[`match`](../flow_control/match.md), [`fn`](../fn.md) и [`String`](../std/str.md)

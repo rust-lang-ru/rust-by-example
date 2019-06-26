@@ -6,7 +6,7 @@
 Правила видимости, применимые к модулям, так же применимы и к библиотекам.
 
 ```rust,ignore
-// Ссылка на `библиотеку`. Импортируем элементы, как модуль `rary`
+// Ссылка на `library`. Импортируем элементы, как модуль `rary`
 extern crate rary;
 
 fn main() {
@@ -23,7 +23,7 @@ fn main() {
 # Где library.rlib путь к скомпилированной библиотеке. Предположим, что
 # она находится в той же директории:
 $ rustc executable.rs --extern rary=library.rlib && ./executable
-вызвана `public_function()` контейнера rary
-вызвана `indirect_access()` контейнера rary, которая
-> вызывает `private_function()` контейнера rary
+вызвана `public_function()` библиотеки rary
+вызвана `indirect_access()` библиотеки rary, и в ней
+> вызвана `private_function()` библиотеки rary
 ```

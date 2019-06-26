@@ -8,8 +8,8 @@
 
 ```rust,editable,ignore,mdbook-runnable
 // Константы объявлены в глобальной области видимости.
-static LANGUAGE: &'static str = "Rust";
-const  THRESHOLD: i32 = 10;
+static LANGUAGE: &str = "Rust";
+const THRESHOLD: i32 = 10;
 
 fn is_big(n: i32) -> bool {
     // Получаем доступ к константе внутри функции

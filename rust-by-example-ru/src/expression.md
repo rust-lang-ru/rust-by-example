@@ -26,8 +26,8 @@ fn main() {
 ```
 
 Блоки так же могут быть частью оператора выражения.
-Они используются в качестве [r-values][rvalue] при присваивание.
-Последнее выражение в блоке будет присвоено [l-value][lvalue].
+Они используются в качестве [r-values](https://en.wikipedia.org/wiki/Value_%28computer_science%29#lrvalue) при присваивании.
+Последнее выражение в блоке будет присвоено [l-value](https://en.wikipedia.org/wiki/Value_%28computer_science%29#lrvalue).
 Однако, если последнее выражение в блоке оканчивается точкой с запятой,
 в качестве значения будет возвращено `()`.
 
@@ -48,11 +48,8 @@ fn main() {
         2 * x;
     };
 
-    println!("x is {:?}", x);
-    println!("y is {:?}", y);
-    println!("z is {:?}", z);
+    println!("x равен {:?}", x);
+    println!("y равен {:?}", y);
+    println!("z равен {:?}", z);
 }
 ```
-
-[rvalue]: https://en.wikipedia.org/wiki/Value_%28computer_science%29#lrvalue
-[lvalue]: https://en.wikipedia.org/wiki/Value_%28computer_science%29#lrvalue

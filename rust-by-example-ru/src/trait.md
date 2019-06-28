@@ -21,7 +21,7 @@ trait Animal {
 
     // Типаж может содержать определение метода по умолчанию
     fn talk(&self) {
-        println!("{} says {}", self.name(), self.noise());
+        println!("{} говорит {}", self.name(), self.noise());
     }
 }
 
@@ -33,9 +33,9 @@ impl Sheep {
     fn shear(&mut self) {
         if self.is_naked() {
             // Методы типа могут использовать методы типажа, реализованного для этого типа.
-            println!("{} is already naked...", self.name());
+            println!("{} уже без волос...", self.name());
         } else {
-            println!("{} gets a haircut!", self.name);
+            println!("{} подстригается!", self.name);
 
             self.naked = true;
         }
@@ -64,7 +64,7 @@ impl Animal for Sheep {
     // Методы по умолчанию могут быть переопределены.
     fn talk(&self) {
         // Например, мы добавили немного спокойного миросозерцания...
-        println!("{} pauses briefly... {}", self.name, self.noise());
+        println!("{} делает паузу... {}", self.name, self.noise());
     }
 }
 

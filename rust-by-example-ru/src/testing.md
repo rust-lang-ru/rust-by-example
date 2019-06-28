@@ -15,5 +15,5 @@ Rust - это язык программирования, который очен
 
 ## Смотрите также:
 
-- [Глава о тестировании](https://doc.rust-lang.org/book/ch11-00-testing.html) 
+- [Глава о тестировании](https://doc.rust-lang.org/book/ch11-00-testing.html) в "The Rust Programming Language"
 - [Описание API](https://rust-lang-nursery.github.io/api-guidelines/documentation.html) для тестирования примеров из документации.

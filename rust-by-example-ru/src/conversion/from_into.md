@@ -1,17 +1,12 @@
 # `From` и `Into`
 
-The [`From`](https://doc.rust-lang.org/std/convert/trait.From.html) and [`Into`](https://doc.rust-lang.org/std/convert/trait.Into.html) traits are inherently linked, and this is actually part of
-its implementation. If you are able to convert type A from type B, then it
-should be easy to believe that we should be able to convert type B to type A.
+Трейты [`From`](https://doc.rust-lang.org/std/convert/trait.From.html) и [`Into`](https://doc.rust-lang.org/std/convert/trait.Into.html) связаны по своей сути, и это стало частью их реализации. Если вы можете конвертировать тип `А` в тип `В`, то будет легко предположить, что мы должны быть в состоянии конвертировать тип `В` в тип `А`.
 
 ## `From`
 
-The [`From`](https://doc.rust-lang.org/std/convert/trait.From.html) trait allows for a type to define how to create itself from another
-type, hence providing a very simple mechanism for converting between several
-types. There are numerous implementations of this trait within the standard
-library for conversion of primitive and common types.
+Трейт [`From`](https://doc.rust-lang.org/std/convert/trait.From.html) позволяет типу определить, как он будет создаваться из другого типа, что предоставляет очень простой механизм конвертации между несколькими типами. Есть несколько реализаций этот трейта в стандартной библиотеке для преобразования примитивов и общих типов.
 
-For example we can easily convert a `str` into a `String`
+Для примера, мы можем легко конвертировать `str` в `String`
 
 ```rust
 let my_str = "привет";
@@ -42,13 +37,10 @@ fn main() {
 
 ## `Into`
 
-The [`Into`](https://doc.rust-lang.org/std/convert/trait.Into.html) trait is simply the reciprocal of the `From` trait. That is, if you
-have implemented the `From` trait for your type you get the `Into`
-implementation for free.
+Трейт [`Into`](https://doc.rust-lang.org/std/convert/trait.Into.html) является полной противоположностью трейта `From`. Так что если вы реализовали для вашего типа трейт `From`, реализацию трейта `Into` вы получите бесплатно.
 
-Using the `Into` trait will typically require specification of the type to
-convert into as the compiler is unable to determine this most of the time.
-However this is a small trade-off considering we get the functionality for free.
+Использование трейта `Into` обычно требует спецификации типа, в который мы собираемся конвертировать, так как компилятор чаще всего не может это вывести.
+Однако это небольшой компромисс, учитывая, что данную функциональность мы получаем бесплатно.
 
 ```rust,editable
 use std::convert::From;

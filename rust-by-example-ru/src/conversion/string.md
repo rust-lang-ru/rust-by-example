@@ -2,10 +2,7 @@
 
 ## Конвертация в строку
 
-To convert any type to a `String` is as simple as implementing the [`ToString`](https://doc.rust-lang.org/std/string/trait.ToString.html)
-trait for the type. Rather than doing so directly, you should implement the
-[`fmt::Display`](https://doc.rust-lang.org/std/fmt/trait.Display.html) trait which automagically provides [`ToString`](https://doc.rust-lang.org/std/string/trait.ToString.html) and
-also allows printing the type as discussed in the section on [`print!`](../hello/print.md).
+Преобразовать любой тип в `String` так же просто, как и реализовать для него трейт [`ToString`](https://doc.rust-lang.org/std/string/trait.ToString.html). Вместо того, чтобы делать это напрямую, вы должны реализовать трейт [`fmt::Display`](https://doc.rust-lang.org/std/fmt/trait.Display.html), который автоматически предоставляет реализацию [`ToString`](https://doc.rust-lang.org/std/string/trait.ToString.html), а так же позволяет распечатать тип, как обсуждалось в секции [`print!`](../hello/print.md).
 
 ```rust,editable
 use std::fmt;
@@ -28,15 +25,11 @@ fn main() {
 
 ## Парсинг строки
 
-One of the more common types to convert a string into is a number. The idiomatic
-approach to this is to use the [`parse`](https://doc.rust-lang.org/std/primitive.str.html#method.parse) function and provide the type for the
-function to parse the string value into, this can be done either without type
-inference or using the 'turbofish' syntax.
+Один из наиболее общим типов конвертации - это преобразование строки в число. Идиоматический подход это сделать при помощи функции [`parse`](https://doc.rust-lang.org/std/primitive.str.html#method.parse) и указания типа, в который будем преобразовывать, что можно сделать либо через выведение типа, либо при помощи 'turbofish'-синтаксиса.
 
-This will convert the string into the type specified so long as the [`FromStr`](https://doc.rust-lang.org/std/str/trait.FromStr.html)
-trait is implemented for that type. This is implemented for numerous types
-within the standard library. To obtain this functionality on a user defined type
-simply implement the [`FromStr`](https://doc.rust-lang.org/std/str/trait.FromStr.html) trait for that type.
+Это преобразует строку в указанный тип при условии, что для этого типа реализован трейт [`FromStr`](https://doc.rust-lang.org/std/str/trait.FromStr.html). 
+Он реализован для множества типов стандартной библиотеки. 
+Чтобы получить эту функциональность для пользовательского типа, надо просто реализовать для этого типа трейт [`FromStr`](https://doc.rust-lang.org/std/str/trait.FromStr.html).
 
 ```rust
 fn main() {

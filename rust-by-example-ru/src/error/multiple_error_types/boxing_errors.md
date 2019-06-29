@@ -7,9 +7,11 @@
 только во время выполнения программы, а не [определён 
 статически](https://doc.rust-lang.org/book/ch17-02-trait-objects.html#trait-objects-perform-dynamic-dispatch).
 
-The stdlib helps in boxing our errors by having `Box` implement conversion from
-any type that implements the `Error` trait into the trait object `Box<Error>`,
-via [`From`](https://doc.rust-lang.org/std/convert/trait.From.html).
+Стандартная библиотека помогает упаковывать наши ошибки.
+Это достигается за счёт того, что для `Box` 
+реализована конвертация из любого типа, реализующего типаж 
+`Error`, в типаж-объект `Box<Error>` 
+через [`From`](https://doc.rust-lang.org/std/convert/trait.From.html).
 
 ```rust,editable
 use std::error;

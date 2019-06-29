@@ -6,10 +6,9 @@
 
 В Rust есть разные пути работы с ошибками, которые описаны в следующих главах. Они все имеют те или иные отличия и разные варианты использования. Как правило большого пальца:
 
-An explicit `panic` is mainly useful for tests and dealing with unrecoverable errors.
-For prototyping it can be useful, for example when dealing with functions that
-haven't been implemented yet, but in those cases the more descriptive `unimplemented`
-is better. In tests `panic` is a reasonable way to explicitly fail.
+Явный `panic` в основном применим для тестирования и работы с невосстановимыми ошибками.
+При прототипировании его можно использовать, например, когда работаем с ещё не реализованными функциями, но в этом случае лучше использовать более говорящее `unimplemented`. 
+В тестах `panic` - разумный способ явного оповещения об ошибке.
 
 Тип `Option` предназначен для случаев, когда значение не обязательно или когда отсутствие значения не является ошибкой. 
 Например, корневые директории `/` и `C:` не имеют родителя. При работе с `Option`, 

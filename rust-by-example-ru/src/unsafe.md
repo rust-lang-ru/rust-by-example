@@ -1,22 +1,18 @@
 # Небезопасные операции
 
-As an introduction to this section, to borrow from [the official docs](https://doc.rust-lang.org/book/ch19-01-unsafe-rust.html),
-"one should try to minimize the amount of unsafe code in a code base." With that
-in mind, let's get started! Unsafe annotations in Rust are used to bypass
-protections put in place by the compiler; specifically, there are four primary
-things that unsafe is used for:
+В качестве введениz в этот раздел процитируем [официальную документацию](https://doc.rust-lang.org/book/ch19-01-unsafe-rust.html),
+"нужно стараться минимизировать количество небезопасного кода в кодовой базе." Имея это в виду, давайте начнем! Небезопасные аннотации в Rust используются для обхода блокировок
+защиты, устанавливаемых компилятором; в частности, существует четыре основных варианта использования небезопасного кода:
 
 - dereferencing raw pointers
-- calling functions or methods which are `unsafe` (including calling a functionover FFI, see [a previous chapter](std_misc/ffi.md) of the book)
+- вызов функций или методов, которые являются `unsafe` (включая вызов функциичерез FFI см. [предыдущую главу](std_misc/ffi.md) книги)
 - доступ или изменение статических изменяемых переменных
 - implementing unsafe traits
 
 ### Сырые указатели
 
-Raw pointers `*` and references `&T` function similarly, but references are
-always safe because they are guaranteed to point to valid data due to the
-borrow checker. Dereferencing a raw pointer can only be done through an unsafe
-block.
+Сырые указатели `*` и ссылки `&T` имеют схожую функциональность, но ссылки
+всегда безопасны, потому что они гарантированно указывают на достоверные данные за счёт механизма проверки заимствований. Разыменование же сырого указателя можно выполнить только через небезопасный блок.
 
 ```rust,editable
 fn main() {
@@ -30,10 +26,8 @@ fn main() {
 
 ### Вызов небезопасных функций
 
-Some functions can be declared as `unsafe`, meaning it is the programmer's
-responsibility to ensure correctness instead of the compiler's. One example
-of this is [`std::slice::from_raw_parts`](https://doc.rust-lang.org/std/slice/fn.from_raw_parts.html) which will create a slice given a
-pointer to the first element and a length.
+Некоторые функции могут быть объявлены как `unsafe`, то есть за корректность этого кода несёт ответственность программист, написавший его, вместо компилятора. Пример -
+это метод [`std::slice::from_raw_parts`](https://doc.rust-lang.org/std/slice/fn.from_raw_parts.html), который создаст срез из указателя на первый элемент и длины.
 
 ```rust,editable
 use std::slice;

@@ -17,7 +17,7 @@
 use std::error;
 use std::fmt;
 
-// Создан псевдоним с типом ошибки `Box<error::Error>`.
+// Создадим псевдоним с типом ошибки `Box<error::Error>`.
 type Result<T> = std::result::Result<T, Box<error::Error>>;
 
 #[derive(Debug, Clone)]

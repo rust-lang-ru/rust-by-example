@@ -8,16 +8,16 @@
 статически](https://doc.rust-lang.org/book/ch17-02-trait-objects.html#trait-objects-perform-dynamic-dispatch).
 
 Стандартная библиотека помогает упаковывать наши ошибки.
-Это достигается за счёт того, что для `Box` 
-реализована конвертация из любого типа, реализующего типаж 
-`Error`, в типаж-объект `Box<Error>` 
+Это достигается за счёт того, что для `Box`
+реализована конвертация из любого типа, реализующего типаж
+`Error`, в типаж-объект `Box<Error>`
 через [`From`](https://doc.rust-lang.org/std/convert/trait.From.html).
 
 ```rust,editable
 use std::error;
 use std::fmt;
 
-// Создан псевдоним с типом ошибки `Box<error::Error>`.
+// Создадим псевдоним с типом ошибки `Box<error::Error>`.
 type Result<T> = std::result::Result<T, Box<error::Error>>;
 
 #[derive(Debug, Clone)]

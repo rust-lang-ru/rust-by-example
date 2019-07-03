@@ -9,9 +9,10 @@
     .map_err(|e| e.into())
 ```
 
-Since this is a simple and common operation, it would be convenient if it
-could be elided. Alas, because `and_then` is not sufficiently flexible, it
-cannot. However, we can instead use `?`.
+Это простая и распространённая операция и было бы не плохо, 
+если бы мы могли её опустить. Но из-за того, что 
+`and_then` недостаточно гибок, мы не можем этого 
+сделать. Однако, тут нам может помочь `?`.
 
 Ранее `?` был рассмотрен как `unwrap` 
 или `return Err(err)`. По большей части это правда: на 

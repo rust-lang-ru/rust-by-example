@@ -2,7 +2,8 @@
 
 ## Конвертация в строку
 
-Преобразовать любой тип в `String` так же просто, как и реализовать для него трейт [`ToString`](https://doc.rust-lang.org/std/string/trait.ToString.html). Вместо того, чтобы делать это напрямую, вы должны реализовать трейт [`fmt::Display`](https://doc.rust-lang.org/std/fmt/trait.Display.html), который автоматически предоставляет реализацию [`ToString`](https://doc.rust-lang.org/std/string/trait.ToString.html), а так же позволяет распечатать тип, как обсуждалось в секции [`print!`](../hello/print.md).
+Преобразовать любой тип в `String` так же просто, как и реализовать для него типаж [`ToString`](https://doc.rust-lang.org/std/string/trait.ToString.html). Вместо того, чтобы делать это напрямую, вы должны реализовать типаж [`fmt::Display`](https://doc.rust-lang.org/std/fmt/trait.Display.html), который автоматически предоставляет реализацию [`ToString`](https://doc.rust-lang.org/std/string/trait.ToString.html), а 
+также позволяет распечатать тип, как обсуждалось в секции [`print!`](../hello/print.md).
 
 ```rust,editable
 use std::fmt;
@@ -27,9 +28,9 @@ fn main() {
 
 Один из наиболее общим типов конвертации - это преобразование строки в число. Идиоматический подход это сделать при помощи функции [`parse`](https://doc.rust-lang.org/std/primitive.str.html#method.parse) и указания типа, в который будем преобразовывать, что можно сделать либо через выведение типа, либо при помощи 'turbofish'-синтаксиса.
 
-Это преобразует строку в указанный тип при условии, что для этого типа реализован трейт [`FromStr`](https://doc.rust-lang.org/std/str/trait.FromStr.html). 
+Это преобразует строку в указанный тип при условии, что для этого типа реализован типаж [`FromStr`](https://doc.rust-lang.org/std/str/trait.FromStr.html). 
 Он реализован для множества типов стандартной библиотеки. 
-Чтобы получить эту функциональность для пользовательского типа, надо просто реализовать для этого типа трейт [`FromStr`](https://doc.rust-lang.org/std/str/trait.FromStr.html).
+Чтобы получить эту функциональность для пользовательского типа, надо просто реализовать для этого типа типаж [`FromStr`](https://doc.rust-lang.org/std/str/trait.FromStr.html).
 
 ```rust
 fn main() {

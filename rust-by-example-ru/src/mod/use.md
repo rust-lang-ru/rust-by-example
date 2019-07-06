@@ -4,7 +4,7 @@
 что упрощает доступ.
 
 ```rust,editable,ignore
-// extern crate deeply; // normally, this would exist and not be commented out!
+// extern crate deeply; // обычно эта строка есть и она не закомментирована!
 
 use crate::deeply::nested::{
     my_first_function,

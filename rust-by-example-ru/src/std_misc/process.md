@@ -10,17 +10,17 @@ fn main() {
     let output = Command::new("rustc")
         .arg("--version")
         .output().unwrap_or_else(|e| {
-            panic!("failed to execute process: {}", e)
+            panic!("Ошибка выполнения процесса {}", e)
     });
 
     if output.status.success() {
         let s = String::from_utf8_lossy(&output.stdout);
 
-        print!("rustc succeeded and stdout was:\n{}", s);
+        print!("rustc завершился успешно и вывел в stdout:\n{}", s);
     } else {
         let s = String::from_utf8_lossy(&output.stderr);
 
-        print!("rustc failed and stderr was:\n{}", s);
+        print!("rustc завершился с ошибкой и вывел в stderr:\n{}", s);
     }
 }
 ```

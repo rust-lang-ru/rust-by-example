@@ -15,6 +15,6 @@ fn main() {
 
 ```bash
 $ rustc wait.rs && ./wait
-# `wait` keeps running for 5 seconds until the `sleep 5` command finishes
-reached end of main
+# `wait` продолжает работать в течение 5 секунд, пока команда `sleep 5` не завершится
+достигнут конец функции main
 ```

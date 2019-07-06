@@ -3,6 +3,22 @@
 Декларация `use` используется, чтобы связать полный путь с новым именем,
 что упрощает доступ.
 
+```rust,editable,ignore
+// extern crate deeply; // обычно эта строка есть и она не закомментирована!
+
+use crate::deeply::nested::{
+    my_first_function,
+    my_second_function,
+    AndATraitType
+};
+
+fn main() {
+    my_first_function();
+}
+```
+
+Вы можете использовать ключевое слово `as`, что импортировать сущности и функции под другим именем:
+
 ```rust,editable
 // Привязать путь `deeply::nested::function` к `other_function`.
 use deeply::nested::function as other_function;

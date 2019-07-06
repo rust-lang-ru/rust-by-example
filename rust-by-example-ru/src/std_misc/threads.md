@@ -1,7 +1,6 @@
 # Потоки
 
-Rust provides a mechanism for spawning native OS threads via the `spawn`
-function, the argument of this function is a moving closure.
+Rust предоставляет механизм для создания собственных потоков операционной системы через функцию `spawn`. Аргументом этой функции является замыкание, которое принимает владение захваченным ею окружением.
 
 ```rust,editable
 use std::thread;

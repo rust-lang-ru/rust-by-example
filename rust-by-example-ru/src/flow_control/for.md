@@ -26,8 +26,8 @@ fn main() {
 }
 ```
 
-Alternatively, `a..=b` can be used for a range that is inclusive on both ends.
-The above can be written as:
+Также, может быть использован диапазон `a..=b`, включающий оба конца.
+Код выше может быть записан следующим образом:
 
 ```rust,editable
 fn main() {
@@ -59,7 +59,7 @@ fn main() {
 Эти 3 функции вернут разные отображения данных в вашей 
 коллекции.
 
-- `iter` - This borrows each element of the collection through each iteration.Thus leaving the collection untouched and available for reuse after the loop.
+- `iter` - эта функция заимствует каждый элемент коллекции на каждой итерации.Благодаря этому, он оставляет коллекцию нетронутой и доступной для использования после цикла.
 
 ```rust,
 fn main() {
@@ -67,8 +67,8 @@ fn main() {
 
     for name in names.iter() {
         match name {
-            &"Ferris" => println!("There is a rustacean among us!"),
-            _ => println!("Hello {}", name),
+            &"Ferris" => println!("Программисты Rust вокруг нас!"),
+            _ => println!("Привет {}", name),
         }
     }
 }
@@ -82,8 +82,8 @@ fn main() {
 
     for name in names.into_iter() {
         match name {
-            "Ferris" => println!("There is a rustacean among us!"),
-            _ => println!("Hello {}", name),
+            "Ferris" => println!("Программисты Rust вокруг нас!"),
+            _ => println!("Привет {}", name),
         }
     }
 }
@@ -96,17 +96,21 @@ fn main() {
     let mut names = vec!["Bob", "Frank", "Ferris"];
 
     for name in names.iter_mut() {
-        match name {
-            &mut "Ferris" => println!("There is a rustacean among us!"),
-            _ => println!("Hello {}", name),
+        *name = match name {
+            &mut "Ferris" => "Программисты Rust вокруг нас!",
+            _ => "Привет",
         }
     }
+
+    println!("имена: {:?}", names);
 }
 ```
 
-In the above snippets note the type of `match` branch, that is the key
-difference in the types or iteration. The difference in type then of course
-implies differing actions that are able to be performed.
+В вышеуказанных кусках кода, обратите на ветку 
+`match`, которая имеет ключевое отличие в 
+зависимости от типа выполнения итераций. Разница в типе, конечно, 
+подразумевает различные действия, которые могут быть 
+выполнены.
 
 ### Смотрите также:
 

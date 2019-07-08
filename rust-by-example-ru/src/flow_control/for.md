@@ -1,6 +1,6 @@
-# for loops
+# Цикл for
 
-## for and range
+## `for` и диапазоны
 
 Конструкция `for in` может быть использована для итерации по `Итераторам (Iterator)`.
 Один из самых простых способов создать итератор это использовать
@@ -26,14 +26,12 @@ fn main() {
 }
 ```
 
-Alternatively, `a..=b` can be used for a range that is inclusive on both ends.
-The above can be written as:
+Также, может быть использован диапазон `a..=b`, включающий оба конца.
+Код выше может быть записан следующим образом:
 
 ```rust,editable
-#![feature(inclusive_range_syntax)]
-
 fn main() {
-    // `n` will take the values: 1, 2, ..., 100 in each iteration
+    // `n` будет принимать значения: 1, 2, ..., 100 с каждой итерации
     for n in 1..=100 {
         if n % 15 == 0 {
             println!("fizzbuzz");
@@ -48,73 +46,72 @@ fn main() {
 }
 ```
 
-## for and iterators
+## `for` и итераторы
 
-The `for in` construct is able to interact with an `Iterator` in several ways.
-As discussed in with the [Iterator][iter] trait, if not specified, the `for`
-loop will apply the `into_iter` function on the collection provided to convert
-the collection into an iterator. This is not the only means to convert a
-collection into an iterator however, the other functions available include
-`iter` and `iter_mut`.
+Конструкция `for in` может взаимодействовать с  `Iterator` разными способами. 
+Как обсуждается далее про [типаж `Iterator`](../trait/iter.md), цикл 
+`for` применяет к предоставленной коллекции метод 
+`into_iter`, чтобы преобразовать её в итератор. 
+Это не единственный способ преобразования коллекции в 
+итератор, также существуют другие функции: `iter` и 
+`iter_mut`.
 
-These 3 functions will return different views of the data within your
-collection.
+Эти 3 функции вернут разные отображения данных в вашей 
+коллекции.
 
-* `iter` - This borrows each element of the collection through each iteration.
-  Thus leaving the collection untouched and available for reuse after the loop.
+- `iter` - эта функция заимствует каждый элемент коллекции на каждой итерации.Благодаря этому, он оставляет коллекцию нетронутой и доступной для использования после цикла.
 
-```rust, editable
+```rust,
 fn main() {
     let names = vec!["Bob", "Frank", "Ferris"];
 
     for name in names.iter() {
         match name {
-            &"Ferris" => println!("There is a rustacean among us!"),
-            _ => println!("Hello {}", name),
+            &"Ferris" => println!("Программисты Rust вокруг нас!"),
+            _ => println!("Привет {}", name),
         }
     }
 }
 ```
 
-* `into_iter` - This consumes the collection so that on each iteration the exact
-  data is provided. Once the collection has been consumed it is no longer
-  available for reuse as it has been 'moved' within the loop.
+- `into_iter` - эта функция потребляет коллекцию так что на каждой итерации предоставляются данные.Коллекция больше не доступна для использования так как владение ею перешло в эту функцию.
 
-```rust, editable
+```rust,
 fn main() {
     let names = vec!["Bob", "Frank", "Ferris"];
 
     for name in names.into_iter() {
         match name {
-            "Ferris" => println!("There is a rustacean among us!"),
-            _ => println!("Hello {}", name),
+            "Ferris" => println!("Программисты Rust вокруг нас!"),
+            _ => println!("Привет {}", name),
         }
     }
 }
 ```
 
-* `iter_mut` - This mutably borrows each element of the collection, allowing for
-  the collection to be modified in place.
+- `iter_mut` - эта функция делает изменяемое заимствование каждого элемента коллекции, позволяя изменять коллекцию на месте.
 
-```rust, editable
+```rust,
 fn main() {
     let mut names = vec!["Bob", "Frank", "Ferris"];
 
     for name in names.iter_mut() {
-        match name {
-            &mut "Ferris" => println!("There is a rustacean among us!"),
-            _ => println!("Hello {}", name),
+        *name = match name {
+            &mut "Ferris" => "Программисты Rust вокруг нас!",
+            _ => "Привет",
         }
     }
+
+    println!("имена: {:?}", names);
 }
 ```
 
-In the above snippets note the type of `match` branch, that is the key
-difference in the types or iteration. The difference in type then of course
-implies differing actions that are able to be performed.
+В вышеуказанных кусках кода, обратите на ветку 
+`match`, которая имеет ключевое отличие в 
+зависимости от типа выполнения итераций. Разница в типе, конечно, 
+подразумевает различные действия, которые могут быть 
+выполнены.
 
 ### Смотрите также:
 
-[Итераторы (Iterator)][iter]
-
-[iter]: trait/iter.html
+[Итераторы (Iterator)](../trait/iter.md)

@@ -12,8 +12,8 @@ type Result<T> = std::result::Result<T, DoubleError>;
 #[derive(Debug)]
 enum DoubleError {
     EmptyVec,
-    // We will defer to the parse error implementation for their error.
-    // Supplying extra info requires adding more data to the type.
+    // Мы не будем обрабатывать ошибку разбора сами, а передадим её в программу.
+    // Предоставление дополнительной информации требует добавления дополнительных данных к типу
     Parse(ParseIntError),
 }
 
@@ -21,8 +21,8 @@ impl fmt::Display for DoubleError {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         match *self {
             DoubleError::EmptyVec =>
-                write!(f, "please use a vector with at least one element"),
-            // This is a wrapper, so defer to the underlying types' implementation of `fmt`.
+                write!(f, "пожалуйста используйте вектор хотя бы с одним элементом"),
+            // Это адаптер, так что обратимся к нижележащей реализации `fmt`.
             DoubleError::Parse(ref e) => e.fmt(f),
         }
     }
@@ -32,17 +32,17 @@ impl error::Error for DoubleError {
     fn source(&self) -> Option<&(dyn error::Error + 'static)> {
         match *self {
             DoubleError::EmptyVec => None,
-            // The cause is the underlying implementation error type. Is implicitly
-            // cast to the trait object `&error::Error`. This works because the
-            // underlying type already implements the `Error` trait.
+            // Причиной ошибки является адаптированный тип. Здесь происходит
+            // неявное преобразование к типажу `&error::Error`. Это работает
+            // так как основной тип реализует типаж `Error`.
             DoubleError::Parse(ref e) => Some(e),
         }
     }
 }
 
-// Implement the conversion from `ParseIntError` to `DoubleError`.
-// This will be automatically called by `?` if a `ParseIntError`
-// needs to be converted into a `DoubleError`.
+// Реализуем преобразование из `ParseIntError` в `DoubleError`.
+// Это преобразование будет автоматически вызвано оператором `?`, 
+// если будет необходимо преобразовать `ParseIntError` в `DoubleError`.
 impl From<ParseIntError> for DoubleError {
     fn from(err: ParseIntError) -> DoubleError {
         DoubleError::Parse(err)
@@ -58,8 +58,8 @@ fn double_first(vec: Vec<&str>) -> Result<i32> {
 
 fn print(result: Result<i32>) {
     match result {
-        Ok(n)  => println!("The first doubled is {}", n),
-        Err(e) => println!("Error: {}", e),
+        Ok(n)  => println!("Первое удвоение {}", n),
+        Err(e) => println!("Ошибка: {}", e),
     }
 }
 

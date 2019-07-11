@@ -4,16 +4,17 @@
 
 ```rust
 fn foo() -> ! {
-    panic!("This call never returns.");
+    panic!("Этот вызов никогда не вернёт управление.");
 }
 ```
 
-As opposed to all the other types, this one cannot be instantiated, because the
-set of all possible values this type can have is empty. Note that, it is
-different from the `()` type, which has exactly one possible value.
+В отличие от всех других типов, этот не может быть создан, потому что
+набор всех возможных значений этого типа пуст. Обратите 
+внимание, что он отличается от типа `()`, который 
+имеет ровно одно возможное значение.
 
-For example, this function returns as usual, although there is no information
-in the return value.
+Например, эта функция имеет возвращаемое значение, хотя о нём
+нет информации.
 
 ```rust
 fn some_fn() {
@@ -26,44 +27,47 @@ fn main() {
 }
 ```
 
-As opposed to this function, which will never return the control back to the caller.
+В отличие от этой функции, которая никогда не вернёт элемент управления вызывающей стороне.
 
 ```rust,ignore
 #![feature(never_type)]
 
 fn main() {
-    let x: ! = panic!("This call never returns.");
-    println!("You will never see this line!");
+    let x: ! = panic!("Этот вызов никогда не вернёт управление.");
+    println!("вы никогда не увидете эту строку!");
 }
 ```
 
-Although this might seem like an abstract concept, it is in fact very useful and
-often handy. The main advantage of this type is that it can be cast to any other
-one and therefore used at places where an exact type is required, for instance
-in `match` branches. This allows us to write code like this:
+Хотя это может показаться абстрактным понятием, на самом деле 
+это очень полезно и может пригодится. Главное преимущество 
+этого типа в том, что его можно привести к любому другому типу и 
+поэтому используется в местах, где требуется точный тип, 
+например в ветвях `match`. Это позволяет нам писать 
+такой код:
 
 ```rust
 fn main() {
     fn sum_odd_numbers(up_to: u32) -> u32 {
         let mut acc = 0;
         for i in 0..up_to {
-            // Notice that the return type of this match expression must be u32
-            // because of the type of the "addition" variable.
+            // Обратите внимание, что возвращаемый тип этого выражения match должен быть u32
+            // потому что такой тип в переменной "addition" .
             let addition: u32 = match i%2 == 1 {
-                // The "i" variable is of type u32, which is perfectly fine.
+                // Переменная "i" типа u32, что совершенно нормально.
                 true => i,
-                // On the other hand, the "continue" expression does not return
-                // u32, but it is still fine, because it never returns and therefore
-                // does not violate the type requirements of the match expression.
+                // С другой стороны выражение "continue" не возвращает
+                // u32, но это тоже нормально, потому что это тип не возвращающий управление,
+                // не нарушает требования к типу выражения match.
                 false => continue,
             };
             acc += addition;
         }
         acc
     }
-    println!("Sum of odd numbers up to 9 (excluding): {}", sum_odd_numbers(9));
+    println!("Сумма нечётных чисел до 9 (исключая): {}", sum_odd_numbers(9));
 }
 ```
 
-It is also the return type of functions that loop forever (e.g. `loop {}`) like
-network servers or functions that terminates the process (e.g. `exit()`).
+Это также возвращаемый тип функций, которые содержат вечный 
+цикл (например,  `loop {}`), как сетевые серверы или 
+функции, завершающие процесс (например,  `exit()`).

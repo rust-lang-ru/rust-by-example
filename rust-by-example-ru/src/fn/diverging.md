@@ -1,6 +1,6 @@
 # Расходящиеся функции
 
-Diverging functions never return. They are marked using `!`, which is an empty type.
+Расходящиеся функции никогда не возвращают результат. Они помечены с помощью `!`, который является пустым типом.
 
 ```rust
 fn foo() -> ! {
@@ -22,7 +22,7 @@ fn some_fn() {
 
 fn main() {
     let a: () = some_fn();
-    println!("This function returns and you can see this line.")
+    println!("Эта функция возвращает управление и вы можете увидеть эту строку.")
 }
 ```
 

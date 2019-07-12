@@ -4,9 +4,10 @@
 Другой способ сделать это - использовать комбинацию выражения 
 `match` и *раннего выхода*.
 
-That is, we can simply stop executing the function and return the error if
-one occurs. For some, this form of code can be easier to both read and
-write. Consider this version of the previous example, rewritten using early returns:
+Таким образом мы просто можем остановить работу функции и 
+вернуть ошибку, если она произошла. Для некоторых, такой код 
+будет легче в чтении и написании. Посмотрите код из предыдущего 
+примера, переписанный с использованием раннего выхода:
 
 ```rust,editable
 use std::num::ParseIntError;

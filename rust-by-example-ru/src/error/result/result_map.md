@@ -1,8 +1,8 @@
 # `map` для `Result`
 
-Panicking in the previous example's `multiply` does not make for robust code.
-Generally, we want to return the error to the caller so it can decide what is
-the right way to respond to errors.
+Паника в предыдущем примере делает код ненадёжным.
+Обычно, мы хотим вернуть ошибку вызывающей стороне, чтобы 
+уже она решала, как с ней поступить.
 
 Первое, что нам нужно знать - это с каким типом ошибки мы 
 работаем. Для определения типа `Err`, мы посмотрим 
@@ -49,8 +49,11 @@ fn main() {
 }
 ```
 
-Luckily, `Option`'s `map`, `and_then`, and many other combinators are also
-implemented for `Result`. <a href="https://doc.rust-lang.org/std/result/enum.Result.html" data-md-type="link">`Result`</a> contains a complete listing.
+К счастью, `map`, `and_then` многие 
+другие комбинаторы `Option` также реализованы и 
+для `Result`. 
+<a href="https://doc.rust-lang.org/std/result/enum.Result.html" data-md-type="link">Документация по `Result`</a> содержит полный 
+их список.
 
 ```rust,editable
 use std::num::ParseIntError;

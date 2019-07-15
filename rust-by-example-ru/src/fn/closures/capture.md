@@ -92,4 +92,4 @@ fn main() {
 
 ### Смотрите также:
 
-[`Box`](std/box.html) and [`std::mem::drop`](https://doc.rust-lang.org/std/mem/fn.drop.html)
+[`Box`](../../std/box.md) и [`std::mem::drop`](https://doc.rust-lang.org/std/mem/fn.drop.html)

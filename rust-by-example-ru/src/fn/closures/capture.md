@@ -1,15 +1,15 @@
 # Захват
 
 Замыкания довольно гибкие и делают всё, что требуется для работы с ними без
-дополнительных указаний. Это позволяет захватывать переменные, перемещая их или
+дополнительных указаний. Это позволяет захватывать переменные перемещая их или
 заимствуя, в зависимости от необходимости.
 Замыкания могут захватывать переменные:
 
-* по ссылке: `&T`
-* по изменяемой ссылке: `&mut T`
-* по значению: `T`
+- по ссылке: `&T`
+- по изменяемой ссылке: `&mut T`
+- по значению: `T`
 
-Они преимущественно захватывают переменные по ссылке, если явно не указан другой
+Преимущественно, они захватывают переменные по ссылке, если явно не указан другой
 способ.
 
 ```rust,editable
@@ -19,13 +19,13 @@ fn main() {
     let color = "green";
 
     // Замыкание для вывода `color`, которое немедленно заимствует (`&`)
-    // `color` и сохраняет его и замыкание в переменной `print`.
+    // `color` и сохраняет замыкание в переменной `print`.
     // `color` будет оставаться заимствованным до выхода `print` из области
     // видимости. `println!` требует только ссылку, поэтому он не накладывает
     // дополнительных ограничений.
     let print = || println!("`color`: {}", color);
 
-    // Вызываем замыкание, используя заимствование.
+    // Вызываем замыкание, использующее заимствование.
     print();
     print();
 
@@ -49,7 +49,7 @@ fn main() {
     //let reborrow = &mut count;
     // ^ TODO: попробуйте раскомментировать эту строку.
 
-    // Тип без возможности копирования.
+    // Некопируемый тип.
     let movable = Box::new(3);
 
     // `mem::drop` требует `T`, так что захват производится по значению.
@@ -61,19 +61,18 @@ fn main() {
         mem::drop(movable);
     };
 
-    // `consume` поглощает переменную, так что оно может быть вызвано только раз.
+    // `consume` поглощает переменную, так что оно может быть вызвано только один раз.
     consume();
     //consume();
     // ^ TODO: Попробуйте раскомментировать эту строку.
 }
 ```
 
-Using `move` before vertical pipes forces closure
-to take ownership of captured variables:
+Использование `move` перед вертикальными линиями позваляет получить владение над захваченными переменными:
 
 ```rust,editable
 fn main() {
-    // `Vec` has non-copy semantics.
+    // `Vec` не поддерживает копирование.
     let haystack = vec![1, 2, 3];
 
     let contains = move |needle| haystack.contains(needle);
@@ -81,20 +80,16 @@ fn main() {
     println!("{}", contains(&1));
     println!("{}", contains(&4));
 
-    // `println!("There're {} elements in vec", haystack.len());`
-    // ^ Uncommenting above line will result in compile-time error
-    // because borrow checker doesn't allow re-using variable after it
-    // has been moved.
+    // `println!("Количество элементов {} в векторе", haystack.len());`
+    // ^ уберите комментарий с этой строки и в результате получите ошибку компиляции,
+    // потому что анализатор заимствований не позволяет использовать
+    // переменную после передачи владения.
     
-    // Removing `move` from closure's signature will cause closure
-    // to borrow _haystack_ variable immutably, hence _haystack_ is still
-    // available and uncommenting above line will not cause an error.
+    //  Удалите `move` у замыкания и _haystack_ будет заимствован по неизменяемой 
+    // ссылке, и удалённый комментарий теперь не вызывает ошибки.
 }
 ```
 
 ### Смотрите также:
 
-[`Box`][box] and [`std::mem::drop`][drop]
-
-[box]: std/box.html
-[drop]: https://doc.rust-lang.org/std/mem/fn.drop.html
+[`Box`](../../std/box.md) и [`std::mem::drop`](https://doc.rust-lang.org/std/mem/fn.drop.html)

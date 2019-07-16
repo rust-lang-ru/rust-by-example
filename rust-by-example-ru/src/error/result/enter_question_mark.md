@@ -1,8 +1,10 @@
 # Представляем: `?`
 
-Sometimes we just want the simplicity of `unwrap` without the possibility of
-a `panic`. Until now, `unwrap` has forced us to nest deeper and deeper when
-what we really wanted was to get the variable *out*. This is exactly the purpose of `?`.
+Иногда мы хотим получить простоту `unwrap`, но без 
+`panic`. До текущего момента `unwrap` 
+заставлял нас делать всё больше и больше, в то время как мы 
+хотели только *извлечь* переменную. Для этих целей был 
+введён `?`.
 
 При обнаружении `Err`, можно выполнить два действия:
 

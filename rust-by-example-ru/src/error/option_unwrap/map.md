@@ -1,9 +1,11 @@
 # Комбинаторы: `map`
 
-`match` is a valid method for handling `Option`s. However, you may
-eventually find heavy usage tedious, especially with operations only valid
-with an input. In these cases, [combinators](https://doc.rust-lang.org/book/glossary.html#combinators) can be used to
-manage control flow in a modular fashion.
+`match` - возможный метод для работы с `Option`.
+Однако постоянное его использование может быть утомительным, 
+особенно с операциями, которые получают только проверенные 
+данные.
+В этом случае можно использовать [комбинаторы](https://doc.rust-lang.org/book/glossary.html#combinators), которые 
+позволяют управлять потоком выполнения в модульном режиме.
 
 `Option` имеет встроенный метод, зовущийся `map()`, комбинатор для простого преобразования `Some -> Some` и `None -> None`. Для большей гибкости, несколько вызовов `map()` могут быть связаны друг с другом в цепочку.
 
@@ -18,8 +20,8 @@ manage control flow in a modular fashion.
 #[derive(Debug)] struct Chopped(Food);
 #[derive(Debug)] struct Cooked(Food);
 
-// Peeling food. If there isn't any, then return `None`.
-// Otherwise, return the peeled food.
+// Очистка продуктов. Если продуктов нет, то возвращаем `None`.
+// Иначе вернём очищенные продукты.
 fn peel(food: Option<Food>) -> Option<Peeled> {
     match food {
         Some(food) => Some(Peeled(food)),
@@ -27,8 +29,8 @@ fn peel(food: Option<Food>) -> Option<Peeled> {
     }
 }
 
-// Chopping food. If there isn't any, then return `None`.
-// Otherwise, return the chopped food.
+// Нарезка продуктов. Если продуктов нет, то возвращаем `None`.
+// Иначе вернём нарезанные продукты.
 fn chop(peeled: Option<Peeled>) -> Option<Chopped> {
     match peeled {
         Some(Peeled(food)) => Some(Chopped(food)),
@@ -36,24 +38,25 @@ fn chop(peeled: Option<Peeled>) -> Option<Chopped> {
     }
 }
 
-// Cooking food. Here, we showcase `map()` instead of `match` for case handling.
+// Приготовление еды. Здесь, для обработки вариантов, мы используем 
+// `map()` вместо `match`.
 fn cook(chopped: Option<Chopped>) -> Option<Cooked> {
     chopped.map(|Chopped(food)| Cooked(food))
 }
 
-// A function to peel, chop, and cook food all in sequence.
-// We chain multiple uses of `map()` to simplify the code.
+// Функция для последовательной очистки, нарезке и приготовлении продуктов.
+// Мы объединили в цепочку несколько вызовов `map()` для упрощения кода.
 fn process(food: Option<Food>) -> Option<Cooked> {
     food.map(|f| Peeled(f))
         .map(|Peeled(f)| Chopped(f))
         .map(|Chopped(f)| Cooked(f))
 }
 
-// Check whether there's food or not before trying to eat it!
+// Проверим, есть ли еда, прежде чем её съесть
 fn eat(food: Option<Cooked>) {
     match food {
-        Some(food) => println!("Mmm. I love {:?}", food),
-        None       => println!("Oh no! It wasn't edible."),
+        Some(food) => println!("Ммм. Я люблю {:?}", food),
+        None       => println!("О, нет! Это не съедобно."),
     }
 }
 
@@ -64,7 +67,7 @@ fn main() {
 
     let cooked_apple = cook(chop(peel(apple)));
     let cooked_carrot = cook(chop(peel(carrot)));
-    // Let's try the simpler looking `process()` now.
+    // Давайте сейчас попробуем проще выглядящую `process()`.
     let cooked_potato = process(potato);
 
     eat(cooked_apple);

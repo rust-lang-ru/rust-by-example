@@ -25,7 +25,7 @@
 #[derive(Debug)] enum Food { CordonBleu, Steak, Sushi }
 #[derive(Debug)] enum Day { Monday, Tuesday, Wednesday }
 
-// We don't have the ingredients to make Sushi.
+// У нас нет ингридиентов для приготовления Sushi.
 fn have_ingredients(food: Food) -> Option<Food> {
     match food {
         Food::Sushi => None,
@@ -33,7 +33,7 @@ fn have_ingredients(food: Food) -> Option<Food> {
     }
 }
 
-// We have the recipe for everything except Cordon Bleu.
+// У нас есть рецепты для всего, за исключением Cordon Bleu.
 fn have_recipe(food: Food) -> Option<Food> {
     match food {
         Food::CordonBleu => None,
@@ -41,8 +41,8 @@ fn have_recipe(food: Food) -> Option<Food> {
     }
 }
 
-// To make a dish, we need both the recipe and the ingredients.
-// We can represent the logic with a chain of `match`es:
+// Для приготовления блюда нам необходимы и рецепт, и ингредиент.
+// Мы можем представить логику, как цепочку из`match`:
 fn cookable_v1(food: Food) -> Option<Food> {
     match have_recipe(food) {
         None       => None,
@@ -53,15 +53,15 @@ fn cookable_v1(food: Food) -> Option<Food> {
     }
 }
 
-// This can conveniently be rewritten more compactly with `and_then()`:
+// Для удобства это может быть переписано с использованием более компактного `and_then()`:
 fn cookable_v2(food: Food) -> Option<Food> {
     have_recipe(food).and_then(have_ingredients)
 }
 
 fn eat(food: Food, day: Day) {
     match cookable_v2(food) {
-        Some(food) => println!("Yay! On {:?} we get to eat {:?}.", day, food),
-        None       => println!("Oh no. We don't get to eat on {:?}?", day),
+        Some(food) => println!("Yay! В {:?} мы будем есть {:?}.", day, food),
+        None       => println!("О, нет. Мы не будем есть в {:?}?", day),
     }
 }
 

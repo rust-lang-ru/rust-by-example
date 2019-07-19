@@ -31,7 +31,4 @@ fn main() {
 
 ### Смотрите также:
 
-[`std::fmt`][fmt] и [`типажи`][traits]
-
-[fmt]: hello/print.html
-[traits]: trait.html
+[`std::fmt`](../hello/print.md) и [`trait`](../trait.md)

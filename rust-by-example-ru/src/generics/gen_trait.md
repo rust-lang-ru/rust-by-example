@@ -39,9 +39,4 @@ fn main() {
 
 ### Смотрите также:
 
-[`Drop`][Drop], [`Структуры`][structs], и [`Типажи`][traits]
-
-
-[Drop]: https://doc.rust-lang.org/std/ops/trait.Drop.html
-[structs]: custom_types/structs.html
-[traits]: trait.html
+[`Drop`](https://doc.rust-lang.org/std/ops/trait.Drop.html), [`struct`](../custom_types/structs.md) и [`trait`](../trait.md)

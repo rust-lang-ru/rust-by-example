@@ -37,8 +37,4 @@ fn main() {
 
 ### Смотрите также:
 
-[`std::cmp::Eq`][eq], [`std::cmp::Ord`s][ord], и [`типажи`][traits]
-
-[eq]: https://doc.rust-lang.org/std/cmp/trait.Eq.html
-[ord]: https://doc.rust-lang.org/std/cmp/trait.Ord.html
-[traits]: trait.html
+[`std::cmp::Eq`](https://doc.rust-lang.org/std/cmp/trait.Eq.html), [`std::cmp::Ord`](https://doc.rust-lang.org/std/cmp/trait.Ord.html) и [`trait`](../../trait.md)

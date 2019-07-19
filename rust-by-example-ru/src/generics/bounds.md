@@ -25,7 +25,7 @@ let s = S(vec![1]);
 ```
 
 Другой эффект ограничения заключается в том, что обобщённые экземпляры
-имеют доступ к [`методам`][methods] типажей, указанных в ограничениях. Например:
+имеют доступ к [`методам`](fn/methods.html) типажей, указанных в ограничениях. Например:
 
 ```rust,editable
 // Типаж, который реализует маркер печати: `{:?}`.
@@ -68,15 +68,9 @@ fn main() {
 }
 ```
 
-Утверждения [`where`][where] также могут использоваться для применения
+Утверждения [`where`](generics/where.html) также могут использоваться для применения
 ограничений в некоторых случаях, чтобы добавить выразительности.
 
 ### Смотрите также:
 
-[`std::fmt`][fmt], [`структуры`][structs], и [`типажи`][traits]
-
-[fmt]: hello/print.html
-[methods]: fn/methods.html
-[structs]: custom_types/structs.html
-[traits]: trait.html
-[where]: generics/where.html
+[`std::fmt`](../hello/print.md)[, ](../hello/print.md)[`struct`](../custom_types/structs.md) и [`trait`](../trait.md)

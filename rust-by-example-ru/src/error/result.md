@@ -7,16 +7,13 @@
 - `Ok<T>`: Значение типа `T`
 - `Err<E>`: Ошибка обработки элемента, типа `E`
 
-By convention, the expected outcome is `Ok` while the unexpected outcome is `Err`.
+По соглашению, ожидаемый результат `Ok`, тогда как не ожидаемый - `Err`.
 
-Like `Option`, `Result` has many methods associated with it. `unwrap()`, for
-example, either yields the element `T` or `panic`s. For case handling,
-there are many combinators between `Result` and `Option` that overlap.
+Подобно `Option`, `Result` имеет множество ассоциированных с ним методов. Например, `unwrap()` или возвращает `T`, или вызывает `panic`. 
+Для обработки результата у `Result` существует множество комбинаторов, которые совпадают с комбинаторами `Option`.
 
-In working with Rust, you will likely encounter methods that return the
-`Result` type, such as the [`parse()`](https://doc.rust-lang.org/std/primitive.str.html#method.parse) method. It might not always
-be possible to parse a string into the other type, so `parse()` returns a
-`Result` indicating possible failure.
+При работе с Rust вы, скорее всего, столкнетесь с методами, которые возвращают тип `Result`, например метод [`parse()`](https://doc.rust-lang.org/std/primitive.str.html#method.parse). Не всегда
+можно разобрать строку в другой тип, поэтому `parse()` возвращает `Result`, указывающий на возможный сбой.
 
 Давайте посмотрим, что происходит, когда мы успешно и безуспешно попытаемся преобразовать строку с помощью `parse()`:
 
@@ -37,17 +34,15 @@ fn main() {
 }
 ```
 
-In the unsuccessful case, `parse()` leaves us with an error for `unwrap()`
-to `panic` on. Additionally, the `panic` exits our program and provides an
-unpleasant error message.
+При неудаче, `parse()` оставляет на с ошибкой, с 
+которой `unwrap()` вызывает `panic`. Дополнительно, `panic` завершает нашу программу и 
+предоставляет неприятное сообщение об ошибке.
 
-To improve the quality of our error message, we should be more specific
-about the return type and consider explicitly handling the error.
+Для повышения качества наших сообщений об ошибка, мы должны более явно указать возвращаемый тип и рассмотреть возможной явной обработки ошибок.
 
 ## Использование `Result` в `main`
 
-The `Result` type can also be the return type of the `main` function if
-specified explicitly. Typically the `main` function will be of the form:
+Также `Result` может быть возвращаемым типом функции `main`, если это указано явно. Обычно функция `main` имеют следующую форму:
 
 ```rust
 fn main() {
@@ -55,10 +50,7 @@ fn main() {
 }
 ```
 
-However `main` is also able to have a return type of `Result`. If an error
-occurs within the `main` function it will return an error code and print a debug
-representation of the error (using the [`Debug`](https://doc.rust-lang.org/std/fmt/trait.Debug.html) trait). The following example
-shows such a scenario and touches on aspects covered in [the following section](result/early_returns.md).
+Однако `main` также может и возвращать тип `Result`. Если ошибка происходит в пределах функции `main`, то она возвращает код ошибки и выводит отладочное представление ошибки (используя типаж [`Debug`](https://doc.rust-lang.org/std/fmt/trait.Debug.html)). Следующий пример показывает такой сценарий и затрагивает аспекты, описанные в [последующем разделе](result/early_returns.md).
 
 ```rust,editable
 use std::num::ParseIntError;

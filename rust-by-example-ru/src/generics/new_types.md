@@ -39,7 +39,8 @@ fn main() {
 }
 ```
 
-Uncomment the last print statement to observe that the type supplied must be `Years`.
+Удалите комментарий с последнего `println`, чтобы увидеть, что тип 
+должен быть `Years`.
 
 Чтобы получить из `newtype`-переменной значение 
 базового типа, вы можете использовать кортежный синтаксис, 

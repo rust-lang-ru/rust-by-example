@@ -1,8 +1,8 @@
-# Область и Затенение
+# Область видимости и затенение
 
 Связывание переменных имеет локальную область видимости, и живут эти переменные в *блоке*.
 Блок — набор инструкций, заключённый между фигурными скобками `{}`.
-Кроме того, допускается [затенение переменных.][variable-shadow].
+Кроме того, допускается [затенение переменных](https://en.wikipedia.org/wiki/Variable_shadowing).
 
 ```rust,editable,ignore,mdbook-runnable
 fn main() {
@@ -35,5 +35,3 @@ fn main() {
     println!("outer long: {}", long_lived_binding);
 }
 ```
-
-[variable-shadow]: https://en.wikipedia.org/wiki/Variable_shadowing

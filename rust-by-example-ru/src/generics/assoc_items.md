@@ -5,8 +5,9 @@
 обобщённых типажей, которое позволяет им определить новый 
 элемент внутри себя.
 
-One such item is called an *associated type*, providing simpler usage
-patterns when the `trait` is generic over its container type.
+Каждый такой элемент называется *ассоциированным типом*
+и предоставляет упрощённый шаблон использования, когда 
+`trait` является обобщённым для своего контейнера.
 
 ### Смотрите также:
 

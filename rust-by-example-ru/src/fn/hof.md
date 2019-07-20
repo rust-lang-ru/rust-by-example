@@ -1,8 +1,9 @@
 # Функции высшего порядка
 
-Rust предоставляет Функций Высшего Порядка(ФВП). Это функций которые берут один или
-больше функций и производит более полезные функций.
-ФВП и ленивые итераторы дают языку Rust функциональную особенность.
+Rust предоставляет Функции Высшего Порядка (ФВП). Это функции,
+которые получают на вход одну или больше функций и
+производят более полезные функции.
+ФВП и ленивые итераторы дают языку Rust функциональный вид.
 
 ```rust,editable
 fn is_odd(n: u32) -> bool {
@@ -41,10 +42,7 @@ fn main() {
 }
 ```
 
-[Option][option]
+[Option](https://doc.rust-lang.org/core/option/enum.Option.html)
 и
-[Iterator][iter]
+[Iterator](https://doc.rust-lang.org/core/iter/trait.Iterator.html)
 реализуют свою часть функций высшего порядка..
-
-[option]: https://doc.rust-lang.org/core/option/enum.Option.html
-[iter]: https://doc.rust-lang.org/core/iter/trait.Iterator.html

@@ -1,8 +1,9 @@
 # Функции высшего порядка
 
-Rust предоставляет Функций Высшего Порядка(ФВП). Это функций которые берут один или
-больше функций и производит более полезные функций.
-ФВП и ленивые итераторы дают языку Rust функциональную особенность.
+Rust предоставляет Функции Высшего Порядка (ФВП). Это функции,
+которые получают на вход одну или больше функций и
+производят более полезные функции.
+ФВП и ленивые итераторы дают языку Rust функциональный вид.
 
 ```rust,editable
 fn is_odd(n: u32) -> bool {
@@ -10,11 +11,11 @@ fn is_odd(n: u32) -> bool {
 }
 
 fn main() {
-    println!("Найти сумму всех квадратов нечётных числ не больше 1000");
+    println!("Найти сумму всех квадратов нечётных чисел не больше 1000");
     let upper = 1000;
 
     // Императивный подход
-    // Объявляем переменную накопитель
+    // Объявляем переменную-накопитель
     let mut acc = 0;
     // Итерировать: 0, 1, 2, ... до бесконечности
     for n in 0.. {
@@ -29,22 +30,19 @@ fn main() {
             acc += n_squared;
         }
     }
-    println!("imperative style: {}", acc);
+    println!("императивный стиль: {}", acc);
 
     // Функциональный подход
     let sum_of_squared_odd_numbers: u32 =
-        (0..).map(|n| n * n)             // Все натуральные числа в квадрате
+        (0..).map(|n| n * n)             // Все натуральные числа возводим в квадрат
              .take_while(|&n| n < upper) // Ниже верхнего предела
-             .filter(|n| is_odd(*n))     // Это нечётные
+             .filter(|n| is_odd(*n))     // Выбираем нечётные
              .fold(0, |sum, i| sum + i); // Суммируем
-    println!("functional style: {}", sum_of_squared_odd_numbers);
+    println!("функциональный стиль: {}", sum_of_squared_odd_numbers);
 }
 ```
 
-[Option][option]
+[Option](https://doc.rust-lang.org/core/option/enum.Option.html)
 и
-[Iterator][iter]
+[Iterator](https://doc.rust-lang.org/core/iter/trait.Iterator.html)
 реализуют свою часть функций высшего порядка..
-
-[option]: https://doc.rust-lang.org/core/option/enum.Option.html
-[iter]: https://doc.rust-lang.org/core/iter/trait.Iterator.html

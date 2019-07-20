@@ -49,7 +49,7 @@ fn main() {
 
 Та же самая техника может использоваться с `Option`.
 
-## Collect all valid values and failures with `partition()`
+## Сбор всех корректных значений и ошибок с помощью `partition()`
 
 ```rust,editable
 fn main() {

@@ -1,16 +1,15 @@
 # Интеграционное тестирование
 
-[Unit tests](unit_testing.md) are testing one module in isolation at a time: they're small
-and can test private code. Integration tests are external to your crate and use
-only its public interface in the same way any other code would. Their purpose is
-to test that many parts of your library work correctly together.
+[Модульные тесты](unit_testing.md) тестируют по одному модулю изолированно: они малы
+и могут проверить не публичный код. Интеграционные тесты являются внешними для вашего пакета и используют
+только его открытый интерфейс, таким же образом, как и любой другой код. Их цель в том, чтобы проверить, что многие части вашей библиотеки работают корректно вместе.
 
 Cargo looks for integration tests in `tests` directory next to `src`.
 
 File `src/lib.rs`:
 
 ```rust,ignore
-// Assume that crate is called adder, will have to extern it in integration test.
+// Предположим, что наш пакет называется `adder`, для теста он будет внешним кодом.
 pub fn add(a: i32, b: i32) -> i32 {
     a + b
 }
@@ -50,9 +49,8 @@ running 0 tests
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
 ```
 
-Each Rust source file in `tests` directory is compiled as a separate crate. One
-way of sharing some code between integration tests is making module with public
-functions, importing and using it within tests.
+Каждый файл с исходным кодом в директории `tests` компилируется в отдельный пакет. 
+Один из путей использовать некоторый общий код между интеграционными тестами - создать модуль с публичными функциями и импортировать их в тестах.
 
 File `tests/common.rs`:
 

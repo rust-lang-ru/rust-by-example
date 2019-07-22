@@ -20,29 +20,29 @@
 ```rust,editable
 struct Container(i32, i32);
 
-// A trait which checks if 2 items are stored inside of container.
-// Also retrieves first or last value.
+// Типаж, который проверяет, сохранены ли 2 элемента в контейнере.
+// Также он может вернуть первое или последнее значение.
 trait Contains<A, B> {
-    fn contains(&self, _: &A, _: &B) -> bool; // Explicitly requires `A` and `B`.
-    fn first(&self) -> i32; // Doesn't explicitly require `A` or `B`.
-    fn last(&self) -> i32;  // Doesn't explicitly require `A` or `B`.
+    fn contains(&self, _: &A, _: &B) -> bool; // Явно требует `A` и `B`.
+    fn first(&self) -> i32; // Не требует явного `A` или `B`.
+    fn last(&self) -> i32;  // Не требует явного `A` или `B`.
 }
 
 impl Contains<i32, i32> for Container {
-    // True if the numbers stored are equal.
+    // Истина, если сохранённые цифры равны.
     fn contains(&self, number_1: &i32, number_2: &i32) -> bool {
         (&self.0 == number_1) && (&self.1 == number_2)
     }
 
-    // Grab the first number.
+    // Берём первую цифру.
     fn first(&self) -> i32 { self.0 }
 
-    // Grab the last number.
+    // Берём последнюю цифру.
     fn last(&self) -> i32 { self.1 }
 }
 
-// `C` contains `A` and `B`. In light of that, having to express `A` and
-// `B` again is a nuisance.
+// `C` содержит `A` и `B`. В свете этого, необходимость снова явно указывать `A` и
+// `B` огорчает.
 fn difference<A, B, C>(container: &C) -> i32 where
     C: Contains<A, B> {
     container.last() - container.first()
@@ -54,13 +54,13 @@ fn main() {
 
     let container = Container(number_1, number_2);
 
-    println!("Does container contain {} and {}: {}",
+    println!("Содержатся ли в контейнере {} и {}? {}",
         &number_1, &number_2,
         container.contains(&number_1, &number_2));
-    println!("First number: {}", container.first());
-    println!("Last number: {}", container.last());
+    println!("Первое число: {}", container.first());
+    println!("Последнее число: {}", container.last());
 
-    println!("The difference is: {}", difference(&container));
+    println!("Разница: {}", difference(&container));
 }
 ```
 

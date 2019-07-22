@@ -6,14 +6,14 @@
 объявления `trait` будет следующим:
 
 ```rust
-// `A` and `B` are defined in the trait via the `type` keyword.
-// (Note: `type` in this context is different from `type` when used for
-// aliases).
+// `A` и `B` определены в типаже при помощи ключевого слова `type`.
+// (Обратите внимание: в данном контексте `type` отличается `type`, который
+// используется в псевдонимах).
 trait Contains {
     type A;
     type B;
 
-    // Updated syntax to refer to these new types generically.
+    // Обновлённый синтаксис для обращения к этим двум ассоциированным типам.
     fn contains(&self, &Self::A, &Self::B) -> bool;
 }
 ```

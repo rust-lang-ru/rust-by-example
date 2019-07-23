@@ -3,18 +3,17 @@
 В некоторых случаях использование `match` выглядит неуклюже. Например:
 
 ```rust
-// Make `optional` of type `Option<i32>`
+// Создаём переменную `optional` типа `Option<i32>`
 let optional = Some(7);
 
 match optional {
     Some(i) => {
-        println!("This is a really long string and `{:?}`", i);
-        // ^ Needed 2 indentations just so we could destructure
-        // `i` from the option.
+        println!("Это очень большая строка и `{:?}`", i);
+        // ^ Нужно 2 отступа только для того, чтобы извлечь `i`
     },
     _ => {},
-    // ^ Required because `match` is exhaustive. Doesn't it seem
-    // like wasted space?
+    // ^ Обязателен, так как `match` исчерпывающий. Не выглядит ли это
+    // как потерянное пространство?
 };
 
 ```

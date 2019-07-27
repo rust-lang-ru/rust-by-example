@@ -19,13 +19,13 @@ foo
 
 `cargo`  естественно, обеспечивает простой способ запуска всех ваших тестов!
 
-```sh
-cargo test
+```shell
+$ cargo test
 ```
 
 Вы должны увидеть примерно такой результат:
 
-```txt
+```shell
 $ cargo test
    Compiling blah v0.1.0 (file:///nobackup/blah)
     Finished dev [unoptimized + debuginfo] target(s) in 0.89 secs
@@ -42,11 +42,11 @@ test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
 
 Вы также можете запустить тесты, чьё имя соответствует шаблону:
 
-```sh
-cargo test test_foo
+```shell
+$ cargo test test_foo
 ```
 
-```txt
+```shell
 $ cargo test test_foo
    Compiling blah v0.1.0 (file:///nobackup/blah)
     Finished dev [unoptimized + debuginfo] target(s) in 0.35 secs

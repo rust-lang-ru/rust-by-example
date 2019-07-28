@@ -138,7 +138,7 @@
         - [Функции](scope/lifetime/fn.md)
         - [Методы](scope/lifetime/methods.md)
         - [Структуры](scope/lifetime/struct.md)
-        - [Трейты](scope/lifetime/trait.md)
+        - [Типажи](scope/lifetime/trait.md)
         - [Ограничения](scope/lifetime/lifetime_bounds.md)
         - [Приведение (coercion)](scope/lifetime/lifetime_coercion.md)
         - [Static](scope/lifetime/static_lifetime.md)
@@ -191,7 +191,7 @@
         - [`?`](std/result/question_mark.md)
     - [`panic!`](std/panic.md)
     - [HashMap](std/hash.md)
-        - [Альтернытивные/пользовательские типы ключей](std/hash/alt_key_types.md)
+        - [Альтернативные/пользовательские типы ключей](std/hash/alt_key_types.md)
         - [HashSet](std/hash/hashset.md)
     - [`Rc`](std/rc.md)
 

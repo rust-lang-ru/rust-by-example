@@ -25,7 +25,7 @@
 fn give_commoner(gift: Option<&str>) {
     // Укажите порядок действий для каждого случая.
     match gift {
-        Some("змея") => println!("Фу! Я бросаю змею в огонь."),
+        Some("змея")  => println!("Фу! Я унесу эту змею обратно в лес."),
         Some(inner)   => println!("{}? Как хороший.", inner),
         None          => println!("Нет подарка? Ну что же."),
     }
@@ -50,7 +50,7 @@ fn main() {
     give_commoner(snake);
     give_commoner(void);
 
-    let bird = Some("Малиновка");
+    let bird = Some("малиновка");
     let nothing = None;
 
     give_princess(bird);

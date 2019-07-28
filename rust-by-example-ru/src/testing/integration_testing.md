@@ -29,7 +29,7 @@ fn test_add() {
 
 Запустить тесты можно командой `cargo test`:
 
-```bash
+```shell
 $ cargo test
 running 0 tests
 

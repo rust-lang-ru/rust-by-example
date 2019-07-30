@@ -131,7 +131,7 @@
     - [Заимствование](scope/borrow.md)
         - [Mutability](scope/borrow/mut.md)
         - [Замораживание](scope/borrow/freeze.md)
-        - [Aliasing](scope/borrow/alias.md)
+        - [Алиасинг](scope/borrow/alias.md)
         - [ref паттерн](scope/borrow/ref.md)
     - [Времена жизни](scope/lifetime.md)
         - [Явное аннотирование](scope/lifetime/explicit.md)

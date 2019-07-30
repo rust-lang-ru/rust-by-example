@@ -1,9 +1,10 @@
 # Алиасинг
 
-Data can be immutably borrowed any number of times, but while immutably
-borrowed, the original data can't be mutably borrowed. On the other hand,
-only *one* mutable borrow is allowed at a time. The original data can be
-borrowed again only *after* the mutable reference goes out of scope.
+Данные могут быть заимствованы без возможности изменения любое количество раз, но пока такое заимствование существует, оригинальные данные не могут быть заимствованы с возможностью изменения. С другой стороны, 
+одновременно может быть только *одно* изменяемое 
+заимствование. Исходные данные могут быть снова заимствованы 
+только *после* того, как изменяемая ссылка выйдет из 
+области видимости.
 
 ```rust,editable
 struct Point { x: i32, y: i32, z: i32 }

@@ -1,10 +1,12 @@
 # Явное аннотирование
 
-The borrow checker uses explicit lifetime annotations to determine
-how long references should be valid. In cases where lifetimes are not
-elided[^1], Rust requires explicit annotations to determine what the
-lifetime of a reference should be. The syntax for explicitly annotating
-a lifetime uses an apostrophe character as follows:
+Анализатор заимствований использует явные аннотации времён 
+жизни для определения того, как долго ссылки будут 
+действительны. В случаях, когда времена жизни не скрыты[^1], Rust 
+требует их явного аннотирования, чтобы определить какое у 
+ссылки должно быть время жизни. Для явного аннотирования 
+времени жизни используется синтаксис с символом апострофа, как 
+тут:
 
 ```rust,ignore
 foo<'a>
@@ -31,38 +33,38 @@ foo<'a, 'b>
 Рассмотрим следующий пример, в котором используется явная аннотация времён жизни:
 
 ```rust,editable,ignore,mdbook-runnable
-// `print_refs` takes two references to `i32` which have different
-// lifetimes `'a` and `'b`. These two lifetimes must both be at
-// least as long as the function `print_refs`.
+// `print_refs` получает две ссылки на `i32`, имеющие различные
+// времена жизни `'a` и `'b`. Оба этих времени жизни должны существовать
+// не меньше, чем функция `print_refs`.
 fn print_refs<'a, 'b>(x: &'a i32, y: &'b i32) {
-    println!("x is {} and y is {}", x, y);
+    println!("x равно {} и y равно {}", x, y);
 }
 
-// A function which takes no arguments, but has a lifetime parameter `'a`.
+// Функция, не имеющая аргументов, но имеющая параметр времени жизни `'a`.
 fn failed_borrow<'a>() {
     let _x = 12;
 
-    // ERROR: `_x` does not live long enough
+    // ОШИБКА: `_x` не живёт достаточно долго (`_x` does not live long enough)
     //let y: &'a i32 = &_x;
-    // Attempting to use the lifetime `'a` as an explicit type annotation 
-    // inside the function will fail because the lifetime of `&_x` is shorter
-    // than that of `y`. A short lifetime cannot be coerced into a longer one.
+    // Попытка использования времени жизни `'a` для явного аннотирования 
+    // внутри функции приведёт к ошибке, так как время жизни у `&_x` короче, чем
+    // у `y`. Коротное время жизни не может быть приведено к длинному.
 }
 
 fn main() {
-    // Create variables to be borrowed below.
+    // Создадим переменные, которые далее будут заимствованы.
     let (four, nine) = (4, 9);
     
-    // Borrows (`&`) of both variables are passed into the function.
+    // Заимствуем (`&`) обе переменные и передадим их в функцию.
     print_refs(&four, &nine);
-    // Any input which is borrowed must outlive the borrower. 
-    // In other words, the lifetime of `four` and `nine` must 
-    // be longer than that of `print_refs`.
+    // Любой ввод, который заимствуется, должен жить дольше, чем заимствующий. 
+    // Другими словами, время жизни `four` и `nine` должно
+    // быть больше, чем время жизни `print_refs`.
     
     failed_borrow();
-    // `failed_borrow` contains no references to force `'a` to be 
-    // longer than the lifetime of the function, but `'a` is longer.
-    // Because the lifetime is never constrained, it defaults to `'static`.
+    // `failed_borrow` не содержит ссылок, заставляющих `'a` быть
+    // больше, чем время жизни функции, но `'a` больше.
+    // Поскольку время жизни никогда не ограничено, оно, по умолчанию, равно `'static`.
 }
 ```
 

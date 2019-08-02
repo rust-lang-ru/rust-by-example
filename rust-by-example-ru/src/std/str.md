@@ -2,12 +2,17 @@
 
 В Rust есть два типа строк: `String` и `&str`.
 
-A `String` is stored as a vector of bytes (`Vec<u8>`), but guaranteed to
-always be a valid UTF-8 sequence. `String` is heap allocated, growable and not
-null terminated.
+`String` сохраняется как вектор байт 
+(`Vec<u8>`), но с гарантией, что это всегда будет 
+действительная UTF-8 последовательность. `String` 
+выделяется в куче, расширяемая и не заканчивается нулевым байтом 
+(не null-terminated).
 
-`&str` is a slice (`&[u8]`) that always points to a valid UTF-8 sequence, and
-can be used to view into a `String`, just like `&[T]` is a view into `Vec<T>`.
+`&str` - это срез (`&[u8]`), 
+который всегда указываетна действительную UTF-8 
+последовательность, и является отображением 
+`String`, так же как и `&[T]` - 
+отображение `Vec<T>`.
 
 ```rust,editable
 fn main() {
@@ -64,10 +69,10 @@ fn main() {
 легче всего написать. Аналогично все способы записать строковый 
 литера из байтов в итоге дадут `&[u8; N]`.
 
-Generally special characters are escaped with a backslash character: `Generally special characters are escaped with a backslash character: .
-This way you can add any character to your string, even unprintable ones
-and ones that you don't know how to type. If you want a literal backslash,
-escape it with another one: `\`
+Обычно специальные символы экранируются с помощью обратной косой черты: `Обычно специальные символы экранируются с помощью обратной косой черты: . В этом случае вы можете добавить в вашу 
+строку любые символы, даже непечатаемые и те, которые вы не 
+знаете как набрать. Если вы хотите добавить обратную косую черту, 
+экранируйте его с помощью ещё одной: `\`.
 
 Строковые или символьные разделители литералов (кавычки, встречающиеся внутри другого литерала, должны быть экранированы: `"\""`, `'.'`.
 
@@ -113,8 +118,10 @@ fn main() {
 }
 ```
 
-Want a string that's not UTF-8? (Remember, `str` and `String` must be valid UTF-8).
-Or maybe you want an array of bytes that's mostly text? Byte strings to the rescue!
+Хотите строку, которая не UTF-8? (Помните, `str` и 
+`String` должны содержать действительные UTF-8 
+последовательности). Или возможно вы хотите массив байтов, 
+которые в основном текст? Байтовые строки вас спасут!
 
 ```rust,
 use std::str;

@@ -1,9 +1,10 @@
 # Path
 
-The `Path` struct represents file paths in the underlying filesystem. There are
-two flavors of `Path`: `posix::Path`, for UNIX-like systems, and
-`windows::Path`, for Windows. The prelude exports the appropriate
-platform-specific `Path` variant.
+Структура `Path` представляет пути к файлу в файловой 
+системе. Есть два вида `Path`: `posix::Path`, 
+для UNIX - подобных систем, и `windows::Path`, для 
+Windows. В прелюдии экспортируется соответствующий 
+платформо - зависимый вариант `Path`.
 
 `Path` может быть создан из `OsStr`, и 
 предоставляет некоторые методы для получения информации о 

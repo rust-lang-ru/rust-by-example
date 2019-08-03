@@ -44,12 +44,12 @@ mod checked {
         }
     }
 
-    // Intermediate function
+    // Промежуточная функция
     fn op_(x: f64, y: f64) -> MathResult {
-        // if `div` "fails", then `DivisionByZero` will be `return`ed
+        // Если `div` "упадёт", тогда будет "возвращено" `DivisionByZero`
         let ratio = div(x, y)?;
 
-        // if `ln` "fails", then `NonPositiveLogarithm` will be `return`ed
+        // если `ln` "упадёт", тогда будет "возвращено" `NonPositiveLogarithm`
         let ln = ln(ratio)?;
 
         sqrt(ln)
@@ -59,11 +59,11 @@ mod checked {
         match op_(x, y) {
             Err(why) => panic!(match why {
                 MathError::NonPositiveLogarithm
-                    => "logarithm of non-positive number",
+                    => "логарифм не положительного числа",
                 MathError::DivisionByZero
-                    => "division by zero",
+                    => "деление на ноль",
                 MathError::NegativeSquareRoot
-                    => "square root of negative number",
+                    => "квадратный корень от отрицательного числа",
             }),
             Ok(value) => println!("{}", value),
         }

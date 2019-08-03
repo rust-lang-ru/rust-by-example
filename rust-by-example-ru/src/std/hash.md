@@ -7,11 +7,12 @@
 `Eq` и `Hash`. Подробнее об этом в 
 следующей главе.
 
-Like vectors, `HashMap`s are growable, but HashMaps can also shrink themselves
-when they have excess space.
-You can create a HashMap with a certain starting capacity using
-`HashMap::with_capacity(uint)`, or use `HashMap::new()` to get a HashMap
-with a default initial capacity (recommended).
+Как и вектора, `HashMap` расширяемые, но они также 
+могут и сжать себя, когда у них появляется избыточное пространство. 
+Вы можете создать хэш-карту с определённой размерностью при 
+помощи `HashMap::with_capacity(uint)` или использовать 
+`HashMap::new()` для получения хэш-карты с 
+размерностью по умолчанию (рекомендуется).
 
 ```rust,editable
 use std::collections::HashMap;

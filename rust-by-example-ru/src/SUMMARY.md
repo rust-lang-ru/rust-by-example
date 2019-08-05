@@ -191,7 +191,7 @@
         - [`?`](std/result/question_mark.md)
     - [`panic!`](std/panic.md)
     - [HashMap](std/hash.md)
-        - [Альтернативные/пользовательские типы ключей](std/hash/alt_key_types.md)
+        - [Альтернативные (пользовательские) типы ключей](std/hash/alt_key_types.md)
         - [HashSet](std/hash/hashset.md)
     - [`Rc`](std/rc.md)
 
@@ -204,7 +204,7 @@
     - [Файловый ввод-вывод](std_misc/file.md)
         - [`open`](std_misc/file/open.md)
         - [`create`](std_misc/file/create.md)
-        - [`read lines`](std_misc/file/read_lines.md)
+        - [`Построчное чтение`](std_misc/file/read_lines.md)
     - [Дочерние процессы](std_misc/process.md)
         - [Pipes](std_misc/process/pipe.md)
         - [Ожидание](std_misc/process/wait.md)

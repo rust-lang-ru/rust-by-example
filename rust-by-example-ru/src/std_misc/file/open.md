@@ -2,8 +2,9 @@
 
 Статический метод `open` может использоваться для открытия файла в режиме только для чтения.
 
-A `File` owns a resource, the file descriptor and takes care of closing the
-file when it is `drop`ed.
+Структура `File` владеет ресурсом, файловым 
+дескриптором, и заботится о том, чтобы он был закрыт, когда 
+структура удаляется из памяти.
 
 ```rust,editable,ignore
 use std::error::Error;

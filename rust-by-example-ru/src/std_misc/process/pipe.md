@@ -14,37 +14,37 @@ static PANGRAM: &'static str =
 "the quick brown fox jumped over the lazy dog\n";
 
 fn main() {
-    // Spawn the `wc` command
+    // Создадим команду `wc`
     let process = match Command::new("wc")
                                 .stdin(Stdio::piped())
                                 .stdout(Stdio::piped())
                                 .spawn() {
-        Err(why) => panic!("couldn't spawn wc: {}", why.description()),
+        Err(why) => panic!("не удалось создать wc: {}", why.description()),
         Ok(process) => process,
     };
 
-    // Write a string to the `stdin` of `wc`.
+    // Запишем строку в `stdin` созданной команды.
     //
-    // `stdin` has type `Option<ChildStdin>`, but since we know this instance
-    // must have one, we can directly `unwrap` it.
+    // `stdin` имеет тип `Option<ChildStdin>`, но так как мы знаем, что экземпляр должен быть только один,
+    // мы можем напрямую вызвать `unwrap`.
     match process.stdin.unwrap().write_all(PANGRAM.as_bytes()) {
-        Err(why) => panic!("couldn't write to wc stdin: {}",
+        Err(why) => panic!("не удалось записать в stdin команды wc: {}",
                            why.description()),
-        Ok(_) => println!("sent pangram to wc"),
+        Ok(_) => println!("пангамма отправлена"),
     }
 
-    // Because `stdin` does not live after the above calls, it is `drop`ed,
-    // and the pipe is closed.
+    // Так как `stdin` не существует после вышележащих вызовов, он разрушается
+    // и канал закрывается.
     //
-    // This is very important, otherwise `wc` wouldn't start processing the
-    // input we just sent.
+    // Это очень важно, иначе `wc` не начал бы обработку только что
+    // отправленных данных.
 
-    // The `stdout` field also has type `Option<ChildStdout>` so must be unwrapped.
+    // Поле `stdout` имеет тип `Option<ChildStdout>` и может быть извлечено.
     let mut s = String::new();
     match process.stdout.unwrap().read_to_string(&mut s) {
-        Err(why) => panic!("couldn't read wc stdout: {}",
+        Err(why) => panic!("невозможно прочесть stdout команды wc: {}",
                            why.description()),
-        Ok(_) => print!("wc responded with:\n{}", s),
+        Ok(_) => print!("wc ответил:\n{}", s),
     }
 }
 ```

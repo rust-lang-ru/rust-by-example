@@ -4,33 +4,38 @@
 
 ```rust
 struct S; // Конкретный тип `S`
-struct GenericVal<T>(T,); // Обобщенный тип `GenericVal`
+struct GenericVal<T>(T); // Обобщенный тип `GenericVal`
 
 // Реализация GenericVal, где мы явно указываем типы данных параметров:
 impl GenericVal<f32> {} // Указываем тип `f32`
 impl GenericVal<S> {} // Указываем тип `S`, который мы определили выше
 
-// `<T>` Должен указываться перед типом, чтобы оставаться обобщенным
-impl <T> GenericVal<T> {}
+// `<t>` должен указываться перед типом, чтобы оставаться обобщённым
+impl<T> GenericVal<T> {}
+</t>
 ```
 
 ```rust,editable
 struct Val {
-    val: f64
+    val: f64,
 }
 
-struct GenVal<T>{
-    gen_val: T
+struct GenVal<T> {
+    gen_val: T,
 }
 
 // Реализация Val
 impl Val {
-    fn value(&self) -> &f64 { &self.val }
+    fn value(&self) -> &f64 {
+        &self.val
+    }
 }
 
 // Реализация GenVal для обобщённого типа `T`
-impl <T> GenVal<T> {
-    fn value(&self) -> &T { &self.gen_val }
+impl<T> GenVal<T> {
+    fn value(&self) -> &T {
+        &self.gen_val
+    }
 }
 
 fn main() {
@@ -43,10 +48,4 @@ fn main() {
 
 ### Смотрите также:
 
-[functions returning references][fn], [`impl`][methods], and [`struct`][structs]
-
-
-[fn]: scope/lifetime/fn.html
-[methods]: fn/methods.html
-[specialization_plans]: https://blog.rust-lang.org/2015/05/11/traits.html#the-future
-[structs]: custom_types/structs.html
+[Функции, возвращающие ссылки](../scope/lifetime/fn.md), [`impl`](../fn/methods.md) и [`struct`](../custom_types/structs.md)

@@ -1,6 +1,6 @@
 # Парсинг аргументов
 
-Matching can be used to parse simple arguments:
+Сопоставление может быть использовано для разбора простых аргументов:
 
 ```rust,editable
 use std::env;

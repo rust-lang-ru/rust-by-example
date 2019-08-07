@@ -1,12 +1,15 @@
 # Unit-тестирование
 
-Tests are Rust functions that verify that the non-test code is functioning in
-the expected manner. The bodies of test functions typically perform some setup,
-run the code we want to test, then assert whether the results are what we
-expect.
+Тесты - это функции на Rust, которые проверяют, что тестируемый 
+код работает ожидаемым образом. Тело тестовых функций обычно 
+выполняет некоторую настройку, запускает код, который мы 
+тестируем, и затем сравнивает полученный результат с тем, что мы 
+ожидаем.
 
-Most unit tests go into a `tests` [mod](../mod.md) with the `#[cfg(test)]` [attribute](../attribute.md).
-Test functions are marked with the `#[test]` attribute.
+Большинство модульных тестов располагается в [модуле](../mod.md) 
+`tests`, помеченном [атрибутом](../attribute.md) 
+`#[cfg(test)]`. Тестовые функции помечаются 
+атрибутом `#[test]`.
 
 Тесты заканчиваются неудачей, когда что-либо в тестовой функции 
 вызывает [панику](../std/panic.md). Есть несколько вспомогательных 
@@ -20,8 +23,7 @@ pub fn add(a: i32, b: i32) -> i32 {
     a + b
 }
 
-// This is a really bad adding function, its purpose is to fail in this
-// example.
+// Это действительно плохая функция сложения, её назначение в данном // примере - потерпеть неудачу.
 #[allow(dead_code)]
 fn bad_add(a: i32, b: i32) -> i32 {
     a - b
@@ -29,7 +31,7 @@ fn bad_add(a: i32, b: i32) -> i32 {
 
 #[cfg(test)]
 mod tests {
-    // Note this useful idiom: importing names from outer (for mod tests) scope.
+    // Обратите внимание на эту полезную идиому: импортирование имён из внешней (для mod - тестов) области видимости.
     use super::*;
 
     #[test]
@@ -39,14 +41,14 @@ mod tests {
 
     #[test]
     fn test_bad_add() {
-        // This assert would fire and test will fail.
-        // Please note, that private functions can be tested too!
+        // Это утверждение запустится и проверка не сработает.
+        // Заметьте, что приватные функции также могут быть протестированы!
         assert_eq!(bad_add(1, 2), 3);
     }
 }
 ```
 
-Tests can be run with `cargo test`.
+Тесты могут быть запущены при помощи команды `cargo test`.
 
 ```shell
 $ cargo test
@@ -171,8 +173,7 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
 
 ## Игнорирование тестов
 
-Tests can be marked with the `#[ignore]` attribute to exclude some tests. Or to run
-them with command `cargo test -- --ignored`
+Тесты могут быть помечены атрибутом `#[ignore]`, чтобы они были исключены из списка запускаемых командой `cargo test`. Такие тесты можно запустить с помощью команды `cargo test -- --ignored`.
 
 ```rust
 pub fn add(a: i32, b: i32) -> i32 {

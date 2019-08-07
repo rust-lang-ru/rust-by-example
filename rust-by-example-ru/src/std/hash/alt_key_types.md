@@ -36,7 +36,7 @@
 ```rust,editable
 use std::collections::HashMap;
 
-// Eq requires that you derive PartialEq on the type.
+// `Eq` требует, чтобы для типа был также выведен `PartialEq`.
 #[derive(PartialEq, Eq, Hash)]
 struct Account<'a>{
     username: &'a str,
@@ -52,9 +52,9 @@ type Accounts<'a> = HashMap<Account<'a>, AccountInfo<'a>>;
 
 fn try_logon<'a>(accounts: &Accounts<'a>,
         username: &'a str, password: &'a str){
-    println!("Username: {}", username);
-    println!("Password: {}", password);
-    println!("Attempting logon...");
+    println!("Имя пользователя: {}", username);
+    println!("Пароль: {}", password);
+    println!("Попытка входа...");
 
     let logon = Account {
         username,
@@ -63,11 +63,11 @@ fn try_logon<'a>(accounts: &Accounts<'a>,
 
     match accounts.get(&logon) {
         Some(account_info) => {
-            println!("Successful logon!");
-            println!("Name: {}", account_info.name);
+            println!("Успешный вход!");
+            println!("Имя: {}", account_info.name);
             println!("Email: {}", account_info.email);
         },
-        _ => println!("Login failed!"),
+        _ => println!("Ошибка входа!"),
     }
 }
 

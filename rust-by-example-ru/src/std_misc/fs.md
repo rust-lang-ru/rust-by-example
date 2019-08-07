@@ -11,7 +11,7 @@ use std::io::prelude::*;
 use std::os::unix;
 use std::path::Path;
 
-// A simple implementation of `% cat path`
+// Упрощённая реализация `% cat path`
 fn cat(path: &Path) -> io::Result<String> {
     let mut f = File::open(path)?;
     let mut s = String::new();
@@ -21,14 +21,14 @@ fn cat(path: &Path) -> io::Result<String> {
     }
 }
 
-// A simple implementation of `% echo s > path`
+// Упрощённая реализация `% echo s > path`
 fn echo(s: &str, path: &Path) -> io::Result<()> {
     let mut f = File::create(path)?;
 
     f.write_all(s.as_bytes())
 }
 
-// A simple implementation of `% touch path` (ignores existing files)
+// Упрощённая реализация `% touch path` (игнорирует существующие файлы)
 fn touch(path: &Path) -> io::Result<()> {
     match OpenOptions::new().create(true).write(true).open(path) {
         Ok(_) => Ok(()),
@@ -38,20 +38,20 @@ fn touch(path: &Path) -> io::Result<()> {
 
 fn main() {
     println!("`mkdir a`");
-    // Create a directory, returns `io::Result<()>`
+    // Создаём директорию, получаем `io::Result<()>`
     match fs::create_dir("a") {
         Err(why) => println!("! {:?}", why.kind()),
         Ok(_) => {},
     }
 
     println!("`echo hello > a/b.txt`");
-    // The previous match can be simplified using the `unwrap_or_else` method
+    // Предыдущий `match` может быть написан проще, с помощью метода`unwrap_or_else`
     echo("hello", &Path::new("a/b.txt")).unwrap_or_else(|why| {
         println!("! {:?}", why.kind());
     });
 
     println!("`mkdir -p a/c/d`");
-    // Recursively create a directory, returns `io::Result<()>`
+    // Рекурсивно создаём директории, получаем `io::Result<()>`
     fs::create_dir_all("a/c/d").unwrap_or_else(|why| {
         println!("! {:?}", why.kind());
     });
@@ -62,7 +62,7 @@ fn main() {
     });
 
     println!("`ln -s ../b.txt a/c/b.txt`");
-    // Create a symbolic link, returns `io::Result<()>`
+    // Создаём символическую ссылку, получаем `io::Result<()>`
     if cfg!(target_family = "unix") {
         unix::fs::symlink("../b.txt", "a/c/b.txt").unwrap_or_else(|why| {
         println!("! {:?}", why.kind());
@@ -76,7 +76,7 @@ fn main() {
     }
 
     println!("`ls a`");
-    // Read the contents of a directory, returns `io::Result<Vec<Path>>`
+    // Читаем содержимое директории, получаем `io::Result<Vec<Path>>`
     match fs::read_dir("a") {
         Err(why) => println!("! {:?}", why.kind()),
         Ok(paths) => for path in paths {
@@ -85,13 +85,13 @@ fn main() {
     }
 
     println!("`rm a/c/e.txt`");
-    // Remove a file, returns `io::Result<()>`
+    // Удаляем файл, получаем `io::Result<()>`
     fs::remove_file("a/c/e.txt").unwrap_or_else(|why| {
         println!("! {:?}", why.kind());
     });
 
     println!("`rmdir a/c/d`");
-    // Remove an empty directory, returns `io::Result<()>`
+    // Удаляем пустую директорию, получаем `io::Result<()>`
     fs::remove_dir("a/c/d").unwrap_or_else(|why| {
         println!("! {:?}", why.kind());
     });

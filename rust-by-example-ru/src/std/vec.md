@@ -1,67 +1,70 @@
 # Вектора
 
-Вектора — это массивы с изменяемым размером. Как и у срезов, их размер не
-известен при компиляции, но он может увеличиваться и уменьшаться в любое время.
-Вектор определяется тремя словами: указатель на данные, длина вектора и
-его ёмкость. Ёмкость определяет, сколько памяти резервируется для вектора.
-Вектор может увеличиваться, пока его длина меньше его ёмкости. При необходимости
-превысить заданное значение объёма, вектору повторно выделяется память большего
-объёма.
+Вектора - это массивы изменяемого размера. Их размер, как и у 
+срезов, не известен во время компиляции, но он может в любое 
+время расширяться. Вектора представляются при помощи 3 
+параметров:
+
+- указатель на данные
+- длина
+- вместимость
+
+The capacity indicates how much memory is reserved for the vector. The vector
+can grow as long as the length is smaller than the capacity. When this threshold
+needs to be surpassed, the vector is reallocated with a larger capacity.
 
 ```rust,editable,ignore,mdbook-runnable
 fn main() {
-    // Итераторы можно собрать в вектора
+    // Iterators can be collected into vectors
     let collected_iterator: Vec<i32> = (0..10).collect();
-    println!("Собираем (0..10) в: {:?}", collected_iterator);
+    println!("Collected (0..10) into: {:?}", collected_iterator);
 
-    // Для инициализации вектора можно использовать макрос `vec!`
+    // The `vec!` macro can be used to initialize a vector
     let mut xs = vec![1i32, 2, 3];
-    println!("Начальный вектор: {:?}", xs);
+    println!("Initial vector: {:?}", xs);
 
-    // Вставляет новый элемент в конце вектора
-    println!("Добавляем четвёртый элемент в вектор");
+    // Insert new element at the end of the vector
+    println!("Push 4 into the vector");
     xs.push(4);
-    println!("Вектор: {:?}", xs);
+    println!("Vector: {:?}", xs);
 
-    // Ошибка! Неизменяемые вектора не могут увеличиваться
+    // Error! Immutable vectors can't grow
     collected_iterator.push(0);
-    // ИСПРАВЬТЕ ^ Закомментируйте эту строку
+    // FIXME ^ Comment out this line
 
-    // Метод `len` возвращает текущий размер вектора
-    println!("Размер вектора: {}", xs.len());
+    // The `len` method yields the number of elements currently stored in a vector
+    println!("Vector length: {}", xs.len());
 
-    // Обращение к элементам вектора записывается с помощью квадратных скобок
-    // (нумерация элементов начинается с 0)
-    println!("Второй элемент: {}", xs[1]);
+    // Indexing is done using the square brackets (indexing starts at 0)
+    println!("Second element: {}", xs[1]);
 
-    // `pop` удаляет последний элемент из вектора и возвращает его
-    println!("Удаляем последний элемент: {:?}", xs.pop());
+    // `pop` removes the last element from the vector and returns it
+    println!("Pop last element: {:?}", xs.pop());
 
-    // Обращение к элементу за пределами вектора вызывает ошибку
-    println!("Четвёртый элемент: {}", xs[3]);
+    // Out of bounds indexing yields a panic
+    println!("Fourth element: {}", xs[3]);
+    // FIXME ^ Comment out this line
 
-    // По вектору можно легко итерироваться
-    println!("xs состоит из:");
+    // `Vector`s can be easily iterated over
+    println!("Contents of xs:");
     for x in xs.iter() {
         println!("> {}", x);
     }
 
-    // К итератору вектора можно применить адаптер `enumerate`,
-    // число итераций хранится в переменной (`i`)
+    // A `Vector` can also be iterated over while the iteration
+    // count is enumerated in a separate variable (`i`)
     for (i, x) in xs.iter().enumerate() {
         println!("In position {} we have value {}", i, x);
     }
 
-    // Благодаря методу `iter_mut`, можно обойти вектор
-    // при этом изменить каждое значение в нем.
+    // Thanks to `iter_mut`, mutable `Vector`s can also be iterated
+    // over in a way that allows modifying each value
     for x in xs.iter_mut() {
         *x *= 3;
     }
-    println!("Обновленный вектор: {:?}", xs);
+    println!("Updated vector: {:?}", xs);
 }
 ```
 
-Подробную информацию о методах объекта `Vec`
-можно почитать в разделе модуля [std::vec][vec]
-
-[vec]: https://doc.rust-lang.org/std/vec/
+Подробную информацию о методах объекта Vec
+можно почитать в разделе модуля std::vec

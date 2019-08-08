@@ -9,60 +9,61 @@
 - длина
 - вместимость
 
-The capacity indicates how much memory is reserved for the vector. The vector
-can grow as long as the length is smaller than the capacity. When this threshold
-needs to be surpassed, the vector is reallocated with a larger capacity.
+Вместимость показывает сколько памяти зарезервировано для 
+вектора. Вектор может расти до тех пор, пока его длина меньше 
+вместимости. Если при следующей вставке порог может быть 
+превышен, под вектор выделяется больше памяти и данные переносятся в новый вектор.
 
 ```rust,editable,ignore,mdbook-runnable
 fn main() {
-    // Iterators can be collected into vectors
+    // Итераторы могут быть собраны в вектора
     let collected_iterator: Vec<i32> = (0..10).collect();
-    println!("Collected (0..10) into: {:?}", collected_iterator);
+    println!("(0..10) собраны в: {:?}", collected_iterator);
 
-    // The `vec!` macro can be used to initialize a vector
+    // Макрос `vec!` может быть использован для инициализации вектора
     let mut xs = vec![1i32, 2, 3];
-    println!("Initial vector: {:?}", xs);
+    println!("Исходный вектор: {:?}", xs);
 
-    // Insert new element at the end of the vector
-    println!("Push 4 into the vector");
+    // Вставка нового элемента в конец вектора
+    println!("Добавим 4 в конец вектора");
     xs.push(4);
-    println!("Vector: {:?}", xs);
+    println!("Вектор: {:?}", xs);
 
-    // Error! Immutable vectors can't grow
+    // Ошибка! Неизменяемые вектора не могут увеличиваться
     collected_iterator.push(0);
-    // FIXME ^ Comment out this line
+    // ИСПРАВЬТЕ ^ Закомментируйте эту строку
 
-    // The `len` method yields the number of elements currently stored in a vector
-    println!("Vector length: {}", xs.len());
+    // Метод `len` отдаёт количество элементом, сохранённых в векторе
+    println!("Длина вектора: {}", xs.len());
 
-    // Indexing is done using the square brackets (indexing starts at 0)
-    println!("Second element: {}", xs[1]);
+    // Индексация выполняется при помощи квадратных скобок (индексация начинается с 0)
+    println!("Второй элемент: {}", xs[1]);
 
-    // `pop` removes the last element from the vector and returns it
-    println!("Pop last element: {:?}", xs.pop());
+    // `pop` удаляет последний элемент из вектора и возвращает его
+    println!("Последний элемент: {:?}", xs.pop());
 
-    // Out of bounds indexing yields a panic
-    println!("Fourth element: {}", xs[3]);
-    // FIXME ^ Comment out this line
+    // Выход за пределы индексации вызывает панику
+    println!("Четвёртый элемент: {}", xs[3]);
+    // ИСПРАВЬТЕ ^ Закомментируйте эту строку
 
-    // `Vector`s can be easily iterated over
-    println!("Contents of xs:");
+    // По векторами легко итерироваться
+    println!("Содержимое `xs`:");
     for x in xs.iter() {
         println!("> {}", x);
     }
 
-    // A `Vector` can also be iterated over while the iteration
-    // count is enumerated in a separate variable (`i`)
+    // Также можно итерироваться по вектору с получением индекса элемента
+    // (который будет содержаться в отдельной переменной `i`)
     for (i, x) in xs.iter().enumerate() {
-        println!("In position {} we have value {}", i, x);
+        println!("{}-ый элемент имеет значение {}", i, x);
     }
 
-    // Thanks to `iter_mut`, mutable `Vector`s can also be iterated
-    // over in a way that allows modifying each value
+    // Благодаря `iter_mut`, у изменяемых векторов можно менять значения
+    // во время итерирования
     for x in xs.iter_mut() {
         *x *= 3;
     }
-    println!("Updated vector: {:?}", xs);
+    println!("Обновлённый вектор: {:?}", xs);
 }
 ```
 

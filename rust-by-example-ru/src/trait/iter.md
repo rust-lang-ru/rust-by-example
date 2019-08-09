@@ -1,6 +1,6 @@
 # Итераторы
 
-Типаж [`Iterator`][iter] используется для итерирования
+Типаж [`Iterator`](https://doc.rust-lang.org/core/iter/trait.Iterator.html) используется для итерирования
 по коллекциям, таким как массивы.
 
 Типаж требует определить метод `next`, для получения следующего элемента.
@@ -8,7 +8,7 @@
 вручную или автоматически (как в массивах и диапазонах).
 
 Для удобства использования, например в цикле `for`, некоторые коллекции
-превращаются в итераторы с помощью метода [`.into_iterator()`][intoiter].
+превращаются в итераторы с помощью метода [`.into_iterator()`](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html).
 
 ```rust,editable
 struct Fibonacci {
@@ -22,7 +22,7 @@ impl Iterator for Fibonacci {
     type Item = u32;
     
     // Здесь мы определяем последовательность, используя `.curr` и `.next`.
-    // Возвращаем тип `Option<T>`:
+    // Возвращаем тип `Option<t>`:
     //     * Когда в `Iterator` больше нет значений, будет возвращено `None`.
     //     * В противном случае следующее значение оборачивается в `Some` и возвращается.
     fn next(&mut self) -> Option<u32> {
@@ -40,7 +40,7 @@ impl Iterator for Fibonacci {
 
 // Возвращается генератор последовательности Фибоначчи.
 fn fibonacci() -> Fibonacci {
-    Fibonacci { curr: 1, next: 1 }
+    Fibonacci { curr: 0, next: 1 }
 }
 
 fn main() {
@@ -80,7 +80,5 @@ fn main() {
         println!("> {}", i);
     }
 }
+</u32></t>
 ```
-
-[intoiter]: https://doc.rust-lang.org/std/iter/trait.IntoIterator.html
-[iter]: https://doc.rust-lang.org/core/iter/trait.Iterator.html

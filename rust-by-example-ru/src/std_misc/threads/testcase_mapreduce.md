@@ -10,10 +10,7 @@ data races.
 состоянием, которое видно другим потокам. (Где синхронизация необходима,
 есть примитивы синхронизации, такие как `mutex` (мьютексы) или `channel` (каналы).)
 
-In this example, we will calculate the sum of all digits in a block of numbers.
-We will do this by parcelling out chunks of the block into different threads. Each thread will sum
-its tiny block of digits, and subsequently we will sum the intermediate sums produced by each
-thread.
+В этом примере мы вычислим сумму всех цифр в блоке чисел. Мы сделаем это, разбив куски блока на разные потоки. Каждый поток будет суммировать свой крошечный блок цифр, и впоследствии мы будем суммировать промежуточные суммы, полученные каждым потоком.
 
 Обратите внимание на то, что хоть мы и передаём ссылки через 
 границы потоков, Rust понимает, что мы только передаём 
@@ -127,7 +124,7 @@ fn main() {
 
 ```
 
-### Assignments
+### Назначения
 
 Не стоит позволять числу наших потоков быть зависимом от 
 введённых пользователем данных. Что если пользователь решит 
@@ -136,9 +133,9 @@ fn main() {
 разбивались на ограниченное число блоков, объявленных 
 статической константой в начале программы.
 
-### See also:
+### Смотрите также:
 
-- [Threads](../threads.md)
+- [Потоки](../threads.md)
 - [vectors](../../std/vec.md) and [iterators](../../trait/iter.md)
 - [замыкания](../../fn/closures.md), [семантика передачи владения](../../scope/move.md) и [перемещения (`move`) в замыканиях](https://doc.rust-lang.org/book/ch13-01-closures.html#closures-can-capture-their-environment)
 - [деструктуризация](https://doc.rust-lang.org/book/ch18-03-pattern-syntax.html#destructuring-to-break-apart-values) при присвоениях

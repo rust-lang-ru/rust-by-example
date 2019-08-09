@@ -60,7 +60,7 @@ fn main() {
 Точно так же, `if let` может быть использован для сравнения любого значения перечисления:
 
 ```rust,editable
-// Наш пример перечисления
+// Our example enum
 enum Foo {
     Bar,
     Baz,
@@ -68,31 +68,36 @@ enum Foo {
 }
 
 fn main() {
-    // Создание переменных примера
+    // Create example variables
     let a = Foo::Bar;
     let b = Foo::Baz;
     let c = Foo::Qux(100);
     
-    // Переменная a соответствует Foo::Bar
+    // Variable a matches Foo::Bar
     if let Foo::Bar = a {
         println!("a is foobar");
     }
     
-    // Переменная b не соответствует Foo::Bar
+    // Variable b does not match Foo::Bar
     // So this will print nothing
     if let Foo::Bar = b {
         println!("b is foobar");
     }
     
-    // Переменная c соответствует Foo::Qux, которая имеет значение
-    // аналогичное Some() как в предыдущем примере:
+    // Variable c matches Foo::Qux which has a value
+    // Similar to Some() in the previous example
     if let Foo::Qux(value) = c {
         println!("c is {}", value);
+    }
+
+    // Binding also works with `if let`
+    if let Foo::Qux(value @ 100) = c {
+        println!("c is one hundred");
     }
 }
 ```
 
-Другое преимущество: `if let` позволяет сопоставлять не параметризованные варианты перечисления, даже если перечисление не `#[derive(PartialEq)]`, и мы не имплементировали `PartialEq` для них. В некоторых случаях, классический `if Foo::Bar == a` не работает, потому что такие перечисления не могут быть равны. Однако, `if let` работает.
+Другое преимущество: if let позволяет сопоставлять не параметризованные варианты перечисления, даже если перечисление не #[derive(PartialEq)], и мы не реализовали PartialEq для них. В некоторых случаях, классический if Foo::Bar == a не работает, потому что такие перечисления не могут быть равны. Однако, if let работает.
 
 Хотите вызов? Исправьте следующий пример с использованием `if let `:
 

@@ -60,7 +60,7 @@ fn main() {
 Точно так же, `if let` может быть использован для сравнения любого значения перечисления:
 
 ```rust,editable
-// Our example enum
+// Наш пример перечисления
 enum Foo {
     Bar,
     Baz,
@@ -68,31 +68,31 @@ enum Foo {
 }
 
 fn main() {
-    // Create example variables
+    // Создание переменных примера
     let a = Foo::Bar;
     let b = Foo::Baz;
     let c = Foo::Qux(100);
     
-    // Variable a matches Foo::Bar
+    // Переменная `a` соответствует `Foo::Bar`
     if let Foo::Bar = a {
-        println!("a is foobar");
+        println!("a = Foo::Bar");
     }
     
-    // Variable b does not match Foo::Bar
-    // So this will print nothing
+    // Переменная `b` не соответствует `Foo::Bar`.
+    // Поэтому ничего не выведется на экран
     if let Foo::Bar = b {
-        println!("b is foobar");
+        println!("b = Foo::Bar");
     }
     
-    // Variable c matches Foo::Qux which has a value
-    // Similar to Some() in the previous example
+    // Переменная `c` соответствует `Foo::Qux`, которая имеет значение
+    // аналогичное `Some()` как в предыдущем примере:
     if let Foo::Qux(value) = c {
-        println!("c is {}", value);
+        println!("c ={}", value);
     }
 
-    // Binding also works with `if let`
+    // С `if let` также работает и привязка
     if let Foo::Qux(value @ 100) = c {
-        println!("c is one hundred");
+        println!("c = 100");
     }
 }
 ```

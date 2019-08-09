@@ -1,10 +1,9 @@
 # Пример: map-reduce
 
-Rust makes it very easy to parallelise data processing, without many of the headaches traditionally associated with such an attempt.
+Rust позволяет очень легко распределить обработку данных между потоками, без 
+головной боли, традиционно связанной с попыткой сделать это.
 
-The standard library provides great threading primitives out of the box.
-These, combined with Rust's concept of Ownership and aliasing rules, automatically prevent
-data races.
+Стандартная библиотека предоставляет отличные примитивы для работы потоками из коробки. Они в сочетании с концепцией владения и правилами алиасинга в Rust, автоматически предотвращают гонки данных.
 
 Правила алиасинга (одна уникальная ссылка на запись или много ссылок на чтение) автоматически не позволяет вам манипулировать 
 состоянием, которое видно другим потокам. (Где синхронизация необходима,
@@ -136,9 +135,9 @@ fn main() {
 ### Смотрите также:
 
 - [Потоки](../threads.md)
-- [vectors](../../std/vec.md) and [iterators](../../trait/iter.md)
+- [вектора](../../std/vec.md) и [итераторы](../../trait/iter.md)
 - [замыкания](../../fn/closures.md), [семантика передачи владения](../../scope/move.md) и [перемещения (`move`) в замыканиях](https://doc.rust-lang.org/book/ch13-01-closures.html#closures-can-capture-their-environment)
 - [деструктуризация](https://doc.rust-lang.org/book/ch18-03-pattern-syntax.html#destructuring-to-break-apart-values) при присвоениях
-- [turbofish notation](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.collect) to help type inference
-- [unwrap vs. expect](../../error/option_unwrap.md)
+- [нотация turbofish](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.collect) в помощь механизму вывода типов
+- [`unwrap` или `expect`](../../error/option_unwrap.md)
 - [enumerate](https://doc.rust-lang.org/book/loops.html#enumerate)

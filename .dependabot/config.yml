@@ -2,5 +2,5 @@ version: 1
 
 update_configs:
   - package_manager: submodules
-    directory: "common-configs"
+    directory: "/"
     update_schedule: daily

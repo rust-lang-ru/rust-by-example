@@ -2,10 +2,9 @@
 
 Мы видели, что форматирование задаётся *макросом форматирования*:
 
-* `format!("{}", foo)` -> `"3735928559"`
-* `format!("0x{:X}", foo)` ->
-  [`"0xDEADBEEF"`][deadbeef]
-* `format!("0o{:o}", foo)` -> `"0o33653337357"`
+- `format!("{}", foo)` -> `"3735928559"`
+- `format!("0x{:X}", foo)` ->[`"0xDEADBEEF"`](https://en.wikipedia.org/wiki/Deadbeef#Magic_debug_values)
+- `format!("0o{:o}", foo)` -> `"0o33653337357"`
 
 Одна и та же переменная (`foo`) может быть отображена по разному в зависимости от
 используемого *типа аргумента*: `X`, `o` или *неопределённый*.
@@ -66,8 +65,8 @@ fn main() {
 }
 ```
 
-Вы можете посмотреть [полный список типажей форматирования][fmt_traits] и их типы аргументов
-в документации к [`std::fmt`][fmt].
+Вы можете посмотреть [полный список типажей форматирования](https://doc.rust-lang.org/std/fmt/#formatting-traits) и их типы аргументов
+в документации к [`std::fmt`](https://doc.rust-lang.org/std/fmt/).
 
 ### Задание
 
@@ -81,15 +80,10 @@ RGB (0, 0, 0) 0x000000
 ```
 
 Пару подсказок, если вы не знаете, что делать:
- * Вам [возможно потребуется перечислить каждый цвет несколько раз][argument_types],
- * Вы можете [добавить немного нулей][fmt_width] с `:02`.
 
-### Смотрите также
+- Вам [возможно потребуется перечислить каждый цвет несколько раз](https://doc.rust-lang.org/std/fmt/#argument-types),
+- Вы можете [добавить немного нулей](https://doc.rust-lang.org/std/fmt/#width) с `:02`.
 
-[`std::fmt`][fmt]
+### Смотрите также:
 
-[argument_types]: https://doc.rust-lang.org/std/fmt/#argument-types
-[deadbeef]: https://en.wikipedia.org/wiki/Deadbeef#Magic_debug_values
-[fmt]: https://doc.rust-lang.org/std/fmt/
-[fmt_traits]: https://doc.rust-lang.org/std/fmt/#formatting-traits
-[fmt_width]: https://doc.rust-lang.org/std/fmt/#width
+[`std::fmt`](https://doc.rust-lang.org/std/fmt/)

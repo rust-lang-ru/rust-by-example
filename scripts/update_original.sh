@@ -1,21 +1,15 @@
 #!/bin/bash
 
-set -euv
+set -eu
 
-CURRENT_DIR=`dirname $0`
-source "${CURRENT_DIR}/common.sh"
-
+SCRIPTS_DIR=`dirname "$0" | xargs realpath`
+ROOT_DIR=`realpath "${SCRIPTS_DIR}/../"`
+ORIGINAL_DIR="${ROOT_DIR}/rust-by-example"
+ORIGINAL_LANG="en"
 ORIGINAL_REPO="https://github.com/rust-lang/rust-by-example.git"
 
-cd "${ROOT_DIR}"
+TRANSLATION_LANG="ru"
+TRANSLATION_DIR="${ORIGINAL_DIR}-${TRANSLATION_LANG}"
 
-git pull origin master
-rm -rf "${ORIGINAL_DIR}"
-git clone --depth=1 "${ORIGINAL_REPO}" "${ORIGINAL_DIR}"
-rm -rf "${ORIGINAL_DIR}/.git"
-
-git add -A "${ORIGINAL_DIR}"
-git commit -m 'update original'
-git push origin master
-
+source "${ROOT_DIR}/common-configs/scripts/update_original.sh"
 #

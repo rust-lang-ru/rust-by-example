@@ -22,14 +22,14 @@ Rust позволяет очень легко распределить обра�
 ```rust,editable
 use std::thread;
 
-// This is the `main` thread
+// Это главный поток
 fn main() {
 
-    // This is our data to process.
-    // We will calculate the sum of all digits via a threaded  map-reduce algorithm.
-    // Each whitespace separated chunk will be handled in a different thread.
+    // Это данные, которые мы будем обрабатывать.
+    // Мы посчитаем сумму всех чисел при помощи разделённого на потоки map-reduce алгоритма.
+    // Каждый фрагмент, разделённый пробелами, будет обрабатываться в отдельном потоке.
     //
-    // TODO: see what happens to the output if you insert spaces!
+    // TODO: посмотрите, что случится, если вы добавите пробелов!
     let data = "86967897737416471853297327050364959
 11861322575564723963297542624962850
 70856234701860851907960690014725639
@@ -39,56 +39,56 @@ fn main() {
 69920216438980873548808413720956532
 16278424637452589860345374828574668";
 
-    // Make a vector to hold the child-threads which we will spawn.
+    // Создадим вектор, который будет содержать созданные нам дочерние потоки.
     let mut children = vec![];
 
     /*************************************************************************
-     * "Map" phase
+     * "Map" фаза
      *
-     * Divide our data into segments, and apply initial processing
+     * Разделим наши данные на сегменты и запустим начальную обработку
      ************************************************************************/
 
-    // split our data into segments for individual calculation
-    // each chunk will be a reference (&str) into the actual data
+    // Разделим наши данные на сегменты для индивидуального вычисления.
+    // Каждый фрагмент будет ссылкой (&str) на данные.
     let chunked_data = data.split_whitespace();
 
-    // Iterate over the data segments.
-    // .enumerate() adds the current loop index to whatever is iterated
-    // the resulting tuple "(index, element)" is then immediately
-    // "destructured" into two variables, "i" and "data_segment" with a
-    // "destructuring assignment"
+    // Обойдём сегменты данных.
+    // .enumerate() добавит в текущий цикл индекс элемента
+    // и далее полученный кортеж "(index, element)" будет немедленно
+    // "деструктурирован" на две переменные, "i" и "data_segment", при помощи
+    // "деструктурирующего присваивания"
     for (i, data_segment) in chunked_data.enumerate() {
-        println!("data segment {} is \"{}\"", i, data_segment);
+        println!("{} сегмент данных \"{}\"", i, data_segment);
 
-        // Process each data segment in a separate thread
+        // Обработаем каждый сегмент данных в отдельном потоке
         //
-        // spawn() returns a handle to the new thread,
-        // which we MUST keep to access the returned value
+        // `spawn()` вернёт ручку на новый поток,
+        // которую мы ДОЛЖНЫ сохранить, чтобы иметь доступ к возвращённому значению
         //
-        // 'move || -> u32' is syntax for a closure that:
-        // * takes no arguments ('||')
-        // * takes ownership of its captured variables ('move') and
-        // * returns an unsigned 32-bit integer ('-> u32')
+        // Синтаксис 'move || -> u32' обозначает замыкание, которое:
+        // * не имеет аргументов ('||')
+        // * забирает владение захваченных переменных ('move')
+        // * возвращает беззнаковое 32-битное целое число ('-> u32')
         //
-        // Rust is smart enough to infer the '-> u32' from
-        // the closure itself so we could have left that out.
+        // Rust может вывести '-> u32' из самого замыкация,
+        // так что мы можем его опустить.
         //
-        // TODO: try removing the 'move' and see what happens
+        // TODO: попробуйте удалить 'move' и посмотреть что получится
         children.push(thread::spawn(move || -> u32 {
-            // Calculate the intermediate sum of this segment:
+            // Вычислим промежуточную сумму этого сегмента:
             let result = data_segment
-                        // iterate over the characters of our segment..
+                        // итерируемся по символам этого сегмента..
                         .chars()
-                        // .. convert text-characters to their number value..
-                        .map(|c| c.to_digit(10).expect("should be a digit"))
-                        // .. and sum the resulting iterator of numbers
+                        // .. преобразуем текстовые символы в их числовые значения..
+                        .map(|c| c.to_digit(10).expect("должно быть числом"))
+                        // .. и суммируем получившийся итератор из чисел
                         .sum();
 
-            // println! locks stdout, so no text-interleaving occurs
-            println!("processed segment {}, result={}", i, result);
+            // `println!` блокирует стандартный вывод, так что чередования текста не происходит
+            println!("обработан сегмент {}, result={}", i, result);
 
-            // "return" not needed, because Rust is an "expression language", the
-            // last evaluated expression in each block is automatically its value.
+            // "return" не обязателен, так как Rust "язык выражений" и 
+            // последнее выполненное выращение в каждом блоке автоматически становится значением этого блока.
             result
 
         }));
@@ -96,31 +96,28 @@ fn main() {
 
 
     /*************************************************************************
-     * "Reduce" phase
+     * Фаза "Reduce"
      *
-     * Collect our intermediate results, and combine them into a final result
+     * Собираем наши промежуточные значения и объединяем их в конечные результат
      ************************************************************************/
 
-    // collect each thread's intermediate results into a new Vec
+    // собираем промежуточный результат каждого потока в новый вектор
     let mut intermediate_sums = vec![];
     for child in children {
-        // collect each child thread's return-value
+        // собираем возвращаемое значение каждого дочернего потока
         let intermediate_sum = child.join().unwrap();
         intermediate_sums.push(intermediate_sum);
     }
 
-    // combine all intermediate sums into a single final sum.
+    // Объединяем все промежуточные суммы в одну конечную сумму.
     //
-    // we use the "turbofish" ::<> to provide sum() with a type hint.
+    // Мы используем "turbofish" `::<>` чтобы подсказать `sum()` тип.
     //
-    // TODO: try without the turbofish, by instead explicitly
-    // specifying the type of final_result
+    // TODO: попробуйте без turbofish, явно указывая тип final_result
     let final_result = intermediate_sums.iter().sum::<u32>();
 
-    println!("Final sum result: {}", final_result);
+    println!("Финальная сумма: {}", final_result);
 }
-
-
 ```
 
 ### Назначения

@@ -78,22 +78,23 @@ fn main() {
 
 ```rust,editable
 fn main() {
-    // You can use escapes to write bytes by their hexadecimal values...
-    let byte_escape = "I'm writing \x52\x75\x73\x74!";
-    println!("What are you doing\x3F (\\x3F means ?) {}", byte_escape);
+    // Вы можете использовать экранирование для записи байтов 
+    // при помощи их шестнадцатиричных значений...
+    let byte_escape = "Я пишу на \x52\x75\x73\x74!";
+    println!("Что ты делашь\x3F (\\x3F означает ?) {}", byte_escape);
 
-    // ...or Unicode code points.
+    // ... или кодов Unicode.
     let unicode_codepoint = "\u{211D}";
     let character_name = "\"DOUBLE-STRUCK CAPITAL R\"";
 
-    println!("Unicode character {} (U+211D) is called {}",
+    println!("Unicode символ {} (U+211D) называется {}",
                 unicode_codepoint, character_name );
 
 
-    let long_string = "String literals
-                        can span multiple lines.
-                        The linebreak and indentation here ->\
-                        <- can be escaped too!";
+    let long_string = "Строковый литерал
+                       может занимать несколько строк.
+                       Разрыв строки и отступ ->\
+                       <- также можно экранировать!";
     println!("{}", long_string);
 }
 ```
@@ -127,38 +128,38 @@ fn main() {
 use std::str;
 
 fn main() {
-    // Note that this is not actually a `&str`
-    let bytestring: &[u8; 21] = b"this is a byte string";
+    // Обратите внимание, что в действительности это не `&str`
+    let bytestring: &[u8; 21] = b"это строка байтов";
 
-    // Byte arrays don't have the `Display` trait, so printing them is a bit limited
-    println!("A byte string: {:?}", bytestring);
+    // Для массива байтов не реализован типаж `Display`, поэтому способы его печати ограничены
+    println!("Строка байтов: {:?}", bytestring);
 
-    // Byte strings can have byte escapes...
-    let escaped = b"\x52\x75\x73\x74 as bytes";
-    // ...but no unicode escapes
-    // let escaped = b"\u{211D} is not allowed";
-    println!("Some escaped bytes: {:?}", escaped);
+    // Байтовые строки могут содержать экранированные байты...
+    let escaped = b"\x52\x75\x73\x74 как байты";
+    // ... но не Unicode
+    // let escaped = b"\u{211D} здесь не разрешён";
+    println!("Экранированные байты: {:?}", escaped);
 
 
-    // Raw byte strings work just like raw strings
-    let raw_bytestring = br"\u{211D} is not escaped here";
+    // Сырые байтовые строки работают также, как и сырые строки
+    let raw_bytestring = br"\u{211D} здесь не экранировано";
     println!("{:?}", raw_bytestring);
 
-    // Converting a byte array to `str` can fail
+    // Преобразование массива байт в `str` может завершиться ошибкой
     if let Ok(my_str) = str::from_utf8(raw_bytestring) {
-        println!("And the same as text: '{}'", my_str);
+        println!("И то же самое в виде текста: '{}'", my_str);
     }
 
-    let _quotes = br#"You can also use "fancier" formatting, \
-                    like with normal raw strings"#;
+    let _quotes = br#"Вы также можете использовать удобное для вас форматирование, \
+                      как и с обычными сырыми строками"#;
 
-    // Byte strings don't have to be UTF-8
-    let shift_jis = b"\x82\xe6\x82\xa8\x82\xb1\x82"; // "ようこそ" in SHIFT-JIS
+    // Байтовые строки не обязаны быть UTF-8
+    let shift_jis = b"\x82\xe6\x82\xa8\x82\xb1\x82"; // "ようこそ" в SHIFT-JIS
 
-    // But then they can't always be converted to `str`
+    // Но из-за этого они не всегда могут быть преобразованы в `str`
     match str::from_utf8(shift_jis) {
-        Ok(my_str) => println!("Conversion successful: '{}'", my_str),
-        Err(e) => println!("Conversion failed: {:?}", e),
+        Ok(my_str) => println!("Удачное преобразование: '{}'", my_str),
+        Err(e) => println!("Неудачное преобразование: {:?}", e),
     };
 }
 ```

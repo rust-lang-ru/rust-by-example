@@ -42,6 +42,7 @@
 - [Преобразования](conversion.md)
 
     - [`From` и `Into`](conversion/from_into.md)
+    - [`TryFrom` и `TryInto`](conversion/try_from_try_into.md)
     - [В и из `String`](conversion/string.md)
 
 - [Выражения](expression.md)

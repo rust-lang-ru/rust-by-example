@@ -1,9 +1,8 @@
 # `TryFrom` и `TryInto`
 
-Как и [`From` и `Into`](conversion/from_into.html), 
-[`TryFrom`](https://doc.rust-lang.org/std/convert/trait.TryFrom.html) и [`TryInto`](https://doc.rust-lang.org/std/convert/trait.TryInto.html) - 
+Как и [`From` и `Into`](conversion/from_into.html), [`TryFrom`](https://doc.rust-lang.org/std/convert/trait.TryFrom.html) и [`TryInto`](https://doc.rust-lang.org/std/convert/trait.TryInto.html) - 
 обобщённые типажи для конвертации между типами. Но в отличии 
-от code7}From/`Into`, типажи 
+от `From`/`Into`, типажи 
 `TryFrom`/`TryInto` используются для 
 преобразований с ошибками и возвращают 
 [`Result`](https://doc.rust-lang.org/std/result/enum.Result.html).

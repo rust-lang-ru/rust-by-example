@@ -133,6 +133,7 @@
 
 - [Traits](trait.md)
     - [Derive](trait/derive.md)
+    - [Returning Traits with `dyn`](trait/dyn.md)
     - [Operator Overloading](trait/ops.md)
     - [Drop](trait/drop.md)
     - [Iterators](trait/iter.md)
@@ -150,6 +151,7 @@
 - [Error handling](error.md)
     - [`panic`](error/panic.md)
     - [`Option` & `unwrap`](error/option_unwrap.md)
+        - [Unpacking options with ?](error/option_unwrap/question_mark.md)
         - [Combinators: `map`](error/option_unwrap/map.md)
         - [Combinators: `and_then`](error/option_unwrap/and_then.md)
     - [`Result`](error/result.md)

@@ -148,9 +148,11 @@
 - [Типажи](trait.md)
 
     - [Атрибут `Derive`](trait/derive.md)
+    - [Возврат типажа с `dyn`](trait/dyn.md)
     - [Перегрузка операторов](trait/ops.md)
     - [Типаж `Drop`](trait/drop.md)
     - [Итераторы](trait/iter.md)
+    - [impl Trait](trait/impl_trait.md)
     - [Типаж `Clone`](trait/clone.md)
 
 - [macro_rules!](macros.md)
@@ -167,6 +169,7 @@
 
     - [`panic`](error/panic.md)
     - [`Option` & `unwrap`](error/option_unwrap.md)
+        - [Разворачивание `Option` с `?`](error/option_unwrap/question_mark.md)
         - [Комбинаторы: `map`](error/option_unwrap/map.md)
         - [Комбинаторы: `and_then`](error/option_unwrap/and_then.md)
     - [`Result`](error/result.md)

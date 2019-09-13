@@ -1,5 +1,7 @@
 # Rust на примерах
 
+[![Build Status](https://travis-ci.org/ruRust/rust-by-example.svg?branch=master)](https://travis-ci.org/ruRust/rust-by-example)
+
 Здесь находится перевод книги "Rust by example".
 
 В rust-by-example лежит оригинал, в rust-by-example-ru - перевод.

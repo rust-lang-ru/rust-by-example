@@ -152,7 +152,7 @@
     - [Перегрузка операторов](trait/ops.md)
     - [Типаж `Drop`](trait/drop.md)
     - [Итераторы](trait/iter.md)
-    - [impl Trait](trait/impl_trait.md)
+    - [`impl Trait`](trait/impl_trait.md)
     - [Типаж `Clone`](trait/clone.md)
 
 - [macro_rules!](macros.md)

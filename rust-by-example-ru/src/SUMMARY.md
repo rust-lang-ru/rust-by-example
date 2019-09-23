@@ -77,7 +77,7 @@
         - [Как выходные параметры](fn/closures/output_parameters.md)
         - [Примеры из стандартной библиотеки](fn/closures/closure_examples.md)
             - [Iterator::any](fn/closures/closure_examples/iter_any.md)
-            - [Iterator::find](fn/closures/closure_examples/iter_find.md)
+            - [Поиск через итераторы](fn/closures/closure_examples/iter_find.md)
     - [Функции высшего порядка](fn/hof.md)
     - [Расходящиеся функции](fn/diverging.md)
 
@@ -112,7 +112,7 @@
 
     - [Функции](generics/gen_fn.md)
     - [Реализация](generics/impl.md)
-    - [Типажи](generics/gen_trait.md)
+    - [Типажи (трейты)](generics/gen_trait.md)
     - [Ограничения](generics/bounds.md)
         - [Пример: пустые ограничения](generics/bounds/testcase_empty.md)
     - [Множественные ограничения](generics/multi_bounds.md)
@@ -154,6 +154,8 @@
     - [Итераторы](trait/iter.md)
     - [`impl Trait`](trait/impl_trait.md)
     - [Типаж `Clone`](trait/clone.md)
+    - [Супертрейты](trait/supertraits.md)
+    - [Устранение неоднозначности в перекрывающихся трейтах](trait/disambiguating.md)
 
 - [macro_rules!](macros.md)
 

@@ -2,8 +2,8 @@
 
 ## Конвертация в строку
 
-Преобразовать любой тип в `String` так же просто, как и реализовать для него типаж [`ToString`](https://doc.rust-lang.org/std/string/trait.ToString.html). Вместо того, чтобы делать это напрямую, вы должны реализовать типаж [`fmt::Display`](https://doc.rust-lang.org/std/fmt/trait.Display.html), который автоматически предоставляет реализацию [`ToString`](https://doc.rust-lang.org/std/string/trait.ToString.html), а 
-также позволяет распечатать тип, как обсуждалось в секции[` print`](../hello/print.md)!.
+Преобразовать любой тип в `String` так же просто, как и реализовать для него типаж [`ToString`](https://doc.rust-lang.org/std/string/trait.ToString.html). Вместо того, чтобы делать это напрямую, вы должны реализовать типаж [`fmt::Display`](https://doc.rust-lang.org/std/fmt/trait.Display.html), который автоматически предоставляет реализацию [`ToString`](https://doc.rust-lang.org/std/string/trait.ToString.html), а
+также позволяет распечатать тип, как обсуждалось в секции [`print!`](../hello/print.md).
 
 ```rust,editable
 use std::fmt;

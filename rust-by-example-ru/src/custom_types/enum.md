@@ -93,7 +93,7 @@ impl VeryVerboseEnumOfThingsToDoWithNumbers {
 ```
 
 Чтобы больше узнать о перечислениях и псевдонимах типов, вы 
-можете почитать[ отчёт о стабилизаци](https://github.com/rust-lang/rust/pull/61682/#issuecomment-502472847)и, в котором эта 
+можете почитать [отчёт о стабилизации](https://github.com/rust-lang/rust/pull/61682/#issuecomment-502472847), в котором эта 
 возможность была включена в Rust.
 
 ### Смотрите также:

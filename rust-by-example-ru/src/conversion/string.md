@@ -3,7 +3,7 @@
 ## Конвертация в строку
 
 Преобразовать любой тип в `String` так же просто, как и реализовать для него типаж [`ToString`](https://doc.rust-lang.org/std/string/trait.ToString.html). Вместо того, чтобы делать это напрямую, вы должны реализовать типаж [`fmt::Display`](https://doc.rust-lang.org/std/fmt/trait.Display.html), который автоматически предоставляет реализацию [`ToString`](https://doc.rust-lang.org/std/string/trait.ToString.html), а 
-также позволяет распечатать тип, как обсуждалось в секции [`print!`](../hello/print.md).
+также позволяет распечатать тип, как обсуждалось в секции[` print`](../hello/print.md)!.
 
 ```rust,editable
 use std::fmt;
@@ -32,7 +32,7 @@ fn main() {
 Он реализован для множества типов стандартной библиотеки. 
 Чтобы получить эту функциональность для пользовательского типа, надо просто реализовать для этого типа типаж [`FromStr`](https://doc.rust-lang.org/std/str/trait.FromStr.html).
 
-```rust
+```rust,editable
 fn main() {
     let parsed: i32 = "5".parse().unwrap();
     let turbo_parsed = "10".parse::<i32>().unwrap();

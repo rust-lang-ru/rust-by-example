@@ -1,6 +1,6 @@
 # Rust на примерах
 
-[![Build Status](https://travis-ci.org/ruRust/rust-by-example.svg?branch=master)](https://travis-ci.org/ruRust/rust-by-example)
+[![Build Status](https://travis-ci.org/rust-lang-ru/rust-by-example.svg?branch=master)](https://travis-ci.org/ruRust/rust-by-example)
 
 Здесь находится перевод книги "Rust by example".
 
@@ -26,7 +26,7 @@ GitLocalize индексирует оригинал и все переводы. 
 и выполнить следующие команды:
 
 ```bash
-$ git clone https://github.com/ruRust/rust-by-example
+$ git clone https://github.com/rust-lang-ru/rust-by-example
 $ cd rust-by-example/rust-by-example-ru
 $ cargo install mdbook
 $ mdbook build

@@ -74,8 +74,7 @@ fn main() {
 }
 ```
 
-Наиболее частое место, где вы можете это увидеть, это 
-`impl`-блоки, которые используют `Self`.
+Наиболее частое место, где вы можете это увидеть, это `impl`-блоки, которые используют `Self`.
 
 ```rust,editable
 enum VeryVerboseEnumOfThingsToDoWithNumbers {
@@ -99,4 +98,4 @@ impl VeryVerboseEnumOfThingsToDoWithNumbers {
 
 ### Смотрите также:
 
-[`match`](../flow_control/match.md), [`fn`](../fn.md) и [`String`](../std/str.md)
+[`match`](../flow_control/match.md), [`fn`](../fn.md), [`String`](../std/str.md) и ["Type alias enum variants" RFC](https://rust-lang.github.io/rfcs/2338-type-alias-enum-variants.html)

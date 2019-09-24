@@ -5,11 +5,11 @@
 определению не известен, из-за чего для их возврата мы будем 
 использовать `impl Trait`.
 
-Возможные типажи для возвращаемых значений немного отличаются от прежних:
+Для возврата замыкания мы можем использовать трейты:
 
-- `Fn`: как раньше
-- `FnMut`: как раньше
-- `FnOnce`: здесь присутствуют некоторые неожиданности, поэтому необходим тип [`FnBox`](https://doc.rust-lang.org/std/boxed/trait.FnBox.html), но он не стабилен в настоящее время. В будущем ожидаются изменения этой ситуации.
+- `Fn`
+- `FnMut`
+- `FnOnce`
 
 Помимо этого, должно быть использовано ключевое слово `move`, чтобы
 сигнализировать о том, что все переменные захватываются по значению. Это
@@ -20,21 +20,29 @@
 fn create_fn() -> impl Fn() {
     let text = "Fn".to_owned();
 
-    move || println!("a - {}", text)
+    move || println!("a: {}", text)
 }
 
 fn create_fnmut() -> impl FnMut() {
     let text = "FnMut".to_owned();
 
-    move || println!("a - {}", text)
+    move || println!("a: {}", text)
+}
+
+fn create_fnonce() -> impl FnOnce() {
+    let text = "FnOnce".to_owned();
+
+    move || println!("a: {}", text)
 }
 
 fn main() {
     let fn_plain = create_fn();
     let mut fn_mut = create_fnmut();
+    let fn_once = create_fnonce();
 
     fn_plain();
     fn_mut();
+    fn_once();
 }
 ```
 

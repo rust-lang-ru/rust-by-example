@@ -16,10 +16,12 @@ struct Point {
     y: f64,
 }
 
+// `Rectangle` может быть определён по расположению в пространстве 
+// его верхнего левого и нижнего правого углов
 #[allow(dead_code)]
 struct Rectangle {
-    p1: Point,
-    p2: Point,
+    top_left: Point,
+    bottom_right: Point,
 }
 
 fn origin() -> Point {
@@ -27,7 +29,7 @@ fn origin() -> Point {
 }
 
 fn boxed_origin() -> Box<Point> {
-    // Аллоцировать эту точку в куче и вернуть указатель на неё
+    // Аллоцируем точку в куче и вернём указатель на неё
     Box::new(Point { x: 0.0, y: 0.0 })
 }
 
@@ -36,14 +38,14 @@ fn main() {
     // Переменные, аллоцированные на стеке
     let point: Point = origin();
     let rectangle: Rectangle = Rectangle {
-        p1: origin(),
-        p2: Point { x: 3.0, y: 4.0 }
+        top_left: origin(),
+        bottom_right: Point { x: 3.0, y: -4.0 }
     };
 
     // Прямоугольник, аллоцированный в куче
     let boxed_rectangle: Box<Rectangle> = Box::new(Rectangle {
-        p1: origin(),
-        p2: origin()
+        top_left: origin(),
+        bottom_right: Point { x: 3.0, y: -4.0 },
     });
 
     // Результат функции может быть упакован

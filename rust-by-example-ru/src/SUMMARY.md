@@ -15,7 +15,7 @@
 
     - [Литералы и операторы](primitives/literals.md)
     - [Кортежи](primitives/tuples.md)
-    - [Массив и срезы](primitives/array.md)
+    - [Массивы и срезы](primitives/array.md)
 
 - [Пользовательские типы](custom_types.md)
 

@@ -42,6 +42,9 @@ fn main() {
     analyze_slice(&xs);
 
     // Срезы могут указывать на часть массива
+    // Они имеют форму [starting_index..ending_index]
+    // starting_index - это первая позиция в срезе
+    // ending_index - на 1 больше, чем последняя позиция в срезе
     println!("заимствуем часть массива как срез");
     analyze_slice(&ys[1 .. 4]);
 

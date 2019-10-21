@@ -3,7 +3,7 @@
 В то время как замыкания Rust выбирают способ захвата переменных на лету, по
 большей части без указания типов, эта двусмысленность недопустима при написании
 функций. При использовании замыкания в качестве входного параметра, его тип
-должен быть указан с использованием одного из `типажей`. Вот они, в порядке
+должен быть указан с использованием одного из типажей. Вот они, в порядке
 уменьшения ограничений:
 
 - `Fn`: замыкание захватывает по ссылке (`&T`)
@@ -25,18 +25,19 @@
 `FnOnce`, чтобы увидеть результат:
 
 ```rust,editable
-// Функция, которая принимает замыкание в качестве аргумента и вызывает его.
+// A function which takes a closure as an argument and calls it.
+// <F> denotes that F is a "Generic type parameter"
 fn apply<F>(f: F) where
-    // Замыкание ничего не принимает и не возвращает.
+    // The closure takes no input and returns nothing.
     F: FnOnce() {
-    // ^ TODO: Попробуйте изменить это на `Fn` или `FnMut`.
+    // ^ TODO: Try changing this to `Fn` or `FnMut`.
 
     f();
 }
 
-// Функция, которая принимает замыкание и возвращает `i32`.
+// A function which takes a closure and returns an `i32`.
 fn apply_to_3<F>(f: F) -> i32 where
-    // Замыкание принимает `i32` и возвращает `i32`.
+    // The closure takes an `i32` and returns an `i32`.
     F: Fn(i32) -> i32 {
 
     f(3)
@@ -45,38 +46,38 @@ fn apply_to_3<F>(f: F) -> i32 where
 fn main() {
     use std::mem;
 
-    let greeting = "привет";
-    // Некопируемый тип.
-    // `to_owned` преобразует заимствованные данные в собственные.
-    let mut farewell = "пока".to_owned();
+    let greeting = "hello";
+    // A non-copy type.
+    // `to_owned` creates owned data from borrowed one
+    let mut farewell = "goodbye".to_owned();
 
-    // Захват двух переменных: `greeting` по ссылке и
-    // `farewell` по значению.
+    // Capture 2 variables: `greeting` by reference and
+    // `farewell` by value.
     let diary = || {
-        // `greeting` захватывается по ссылке: требует `Fn`.
-        println!("Я сказал {}.", greeting);
+        // `greeting` is by reference: requires `Fn`.
+        println!("I said {}.", greeting);
 
-        // Изменяемость требует от `farewell` быть захваченным
-        // по изменяемой ссылке. Сейчас требуется `FnMut`.
+        // Mutation forces `farewell` to be captured by
+        // mutable reference. Now requires `FnMut`.
         farewell.push_str("!!!");
-        println!("Потом я закричал {}.", farewell);
-        println!("Теперь я могу поспать. zzzzz");
+        println!("Then I screamed {}.", farewell);
+        println!("Now I can sleep. zzzzz");
 
-        // Ручной вызов удаления требуется от `farewell`
-        // быть захваченным по значению. Теперь требуется `FnOnce`.
+        // Manually calling drop forces `farewell` to
+        // be captured by value. Now requires `FnOnce`.
         mem::drop(farewell);
     };
 
-    // Вызов функции, которая выполняет замыкание.
+    // Call the function which applies the closure.
     apply(diary);
 
-    // `double` удовлетворяет ограничениям типажа `apply_to_3`
+    // `double` satisfies `apply_to_3`'s trait bound
     let double = |x| 2 * x;
 
-    println!("Удвоенное 3: {}", apply_to_3(double));
+    println!("3 doubled: {}", apply_to_3(double));
 }
 ```
 
 ### Смотрите также:
 
-[`std::mem::drop`](https://doc.rust-lang.org/std/mem/fn.drop.html), [`Fn`](https://doc.rust-lang.org/std/ops/trait.Fn.html), [`FnMut`](https://doc.rust-lang.org/std/ops/trait.FnMut.html), и [`FnOnce`](https://doc.rust-lang.org/std/ops/trait.FnOnce.html)
+[`std::mem::drop`](https://doc.rust-lang.org/std/mem/fn.drop.html), [`Fn`](https://doc.rust-lang.org/std/ops/trait.Fn.html), [`FnMut`](https://doc.rust-lang.org/std/ops/trait.FnMut.html), [Обобщения](../../generics.md), [where](../../generics/where.md) и [`FnOnce`](https://doc.rust-lang.org/std/ops/trait.FnOnce.html)

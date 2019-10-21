@@ -18,45 +18,44 @@ fn main() {
     let borrowed_point = &point;
     let another_borrow = &point;
 
-    // Data can be accessed via the references and the original owner
-    println!("Point has coordinates: ({}, {}, {})",
+    // Данные могут быть доступны через ссылки и владельца этих данных
+    println!("Точка имеет координаты: ({}, {}, {})",
+              borrowed_point.x, another_borrow.y, point.z);
+
+    // Ошибка! Нельзя заимствовать для изменения `point`, так как она уже
+    // существует неизменяемая ссылка.
+    //let mutable_borrow = &mut point;
+    // TODO ^ Попробуйте раскомментировать эту строку
+
+    // Заимствованное значение снова используется
+    println!("Точка имеет координаты: ({}, {}, {})",
                 borrowed_point.x, another_borrow.y, point.z);
 
-    // Error! Can't borrow `point` as mutable because it's currently
-    // borrowed as immutable.
-    // let mutable_borrow = &mut point;
-    // TODO ^ Try uncommenting this line
-
-    // The borrowed values are used again here
-    println!("Point has coordinates: ({}, {}, {})",
-                borrowed_point.x, another_borrow.y, point.z);
-
-    // The immutable references are no longer used for the rest of the code so
-    // it is possible to reborrow with a mutable reference.
+    // Неизменяемая ссылка больше не используется, так что можно перезаимствовать её
+    // с помощью изменяемой ссылки.
     let mutable_borrow = &mut point;
 
-    // Change data via mutable reference
+    // Меняем при помощи изменяемой ссылки
     mutable_borrow.x = 5;
     mutable_borrow.y = 2;
     mutable_borrow.z = 1;
 
-    // Error! Can't borrow `point` as immutable because it's currently
-    // borrowed as mutable.
-    // let y = &point.y;
-    // TODO ^ Try uncommenting this line
+    // Ошибка! Нельзя неизменяемо заимствовать `point` так как она уже
+    // заимствована изменяемо.
+    //let y = &point.y;
+    // TODO ^ Попробуйте раскомментировать эту строку
 
-    // Error! Can't print because `println!` takes an immutable reference.
-    // println!("Point Z coordinate is {}", point.z);
-    // TODO ^ Try uncommenting this line
+    // Ошибка! Нельзя вывести на экран, потому что `println!` берёт неизменяемую ссылку.
+    //println!("Координата Z {}", point.z);
+    // TODO ^ Попробуйте раскомментировать эту строку
 
-    // Ok! Mutable references can be passed as immutable to `println!`
-    println!("Point has coordinates: ({}, {}, {})",
-                mutable_borrow.x, mutable_borrow.y, mutable_borrow.z);
+    // Ok! Изменяемая ссылка может быть передана `println!` как неизменяемая
+    println!("Точка имеет координаты: ({}, {}, {})",
+              mutable_borrow.x, mutable_borrow.y, mutable_borrow.z);
 
-    // The mutable reference is no longer used for the rest of the code so it
-    // is possible to reborrow
+    // Изменяемая ссылка больше не используется, так что можно перезаимствовать
     let new_borrowed_point = &point;
-    println!("Point now has coordinates: ({}, {}, {})",
-             new_borrowed_point.x, new_borrowed_point.y, new_borrowed_point.z);
+    println!("Точка имеет координаты: ({}, {}, {})",
+              borrowed_point.x, borrowed_point.y, borrowed_point.z);
 }
 ```

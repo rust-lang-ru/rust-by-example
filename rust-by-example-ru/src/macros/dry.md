@@ -10,7 +10,7 @@ use std::ops::{Add, Mul, Sub};
 macro_rules! assert_equal_len {
     // Указатель `tt` (единственное дерево лексем) используют для
     // операторов и лексем.
-    ($a:ident, $b: ident, $func:ident, $op:tt) => (
+    ($a:expr, $b:expr, $func:ident, $op:tt) => (
         assert!($a.len() == $b.len(),
                 "{:?}: несоответствие размеров: {:?} {:?} {:?}",
                 stringify!($func),
@@ -64,7 +64,7 @@ mod test {
 }
 ```
 
-```bash
+```shell
 $ rustc --test dry.rs && ./dry
 running 3 tests
 test test::mul_assign ... ok

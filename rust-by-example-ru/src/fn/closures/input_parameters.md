@@ -3,7 +3,7 @@
 В то время как замыкания Rust выбирают способ захвата переменных на лету, по
 большей части без указания типов, эта двусмысленность недопустима при написании
 функций. При использовании замыкания в качестве входного параметра, его тип
-должен быть указан с использованием одного из `типажей`. Вот они, в порядке
+должен быть указан с использованием одного из типажей. Вот они, в порядке
 уменьшения ограничений:
 
 - `Fn`: замыкание захватывает по ссылке (`&T`)
@@ -26,6 +26,7 @@
 
 ```rust,editable
 // Функция, которая принимает замыкание в качестве аргумента и вызывает его.
+// <F> обозначает, что F - "параметр общего типа"
 fn apply<F>(f: F) where
     // Замыкание ничего не принимает и не возвращает.
     F: FnOnce() {
@@ -46,7 +47,7 @@ fn main() {
     use std::mem;
 
     let greeting = "привет";
-    // Некопируемый тип.
+    // Не копируемый тип.
     // `to_owned` преобразует заимствованные данные в собственные.
     let mut farewell = "пока".to_owned();
 
@@ -79,4 +80,12 @@ fn main() {
 
 ### Смотрите также:
 
-[`std::mem::drop`](https://doc.rust-lang.org/std/mem/fn.drop.html), [`Fn`](https://doc.rust-lang.org/std/ops/trait.Fn.html), [`FnMut`](https://doc.rust-lang.org/std/ops/trait.FnMut.html), и [`FnOnce`](https://doc.rust-lang.org/std/ops/trait.FnOnce.html)
+[`std::mem::drop`], [`Fn`], [`FnMut`], [Обобщения], [where] и [`FnOnce`]
+
+
+[`std::mem::drop`]: https://doc.rust-lang.org/std/mem/fn.drop.html
+[`Fn`]: https://doc.rust-lang.org/std/ops/trait.Fn.html
+[`FnMut`]: https://doc.rust-lang.org/std/ops/trait.FnMut.html
+[`FnOnce`]: https://doc.rust-lang.org/std/ops/trait.FnOnce.html
+[Обобщения]: ../../generics.md
+[where]: ../../generics/where.md

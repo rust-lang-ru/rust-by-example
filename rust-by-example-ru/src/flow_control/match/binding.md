@@ -50,4 +50,9 @@ fn main() {
 
 ### Смотрите также:
 
-[Функции](../../fn.md), [`enum`](../../custom_types/enum.md) и [`Option`](../../std/option.md)
+[Функции], [`enum`] и [`Option`]
+
+
+[Функции]: ../../fn.md
+[`enum`]: ../../custom_types/enum.md
+[`Option`]: ../../std/option.md

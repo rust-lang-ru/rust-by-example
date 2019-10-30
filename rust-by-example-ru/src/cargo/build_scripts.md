@@ -16,9 +16,13 @@ build = "build.rs"
 
 Скрипт сборки - это просто другой файл на Rust, который будет скомпилирован и вызван до компиляции чего-либо другого в пакете. Следовательно он может быть использовать для выполнения предварительных условий вашего крейта.
 
-Через переменные окружения cargo предоставляет скрипту входные параметры [описанные здесь](https://doc.rust-lang.org/cargo/reference/environment-variables.html#environment-variables-cargo-sets-for-build-scripts), которые могут быть использованы.
+Через переменные окружения cargo предоставляет скрипту входные параметры [описанные здесь], которые могут быть использованы.
 
 Скрипт возвращает значения через stdout. Все напечатанные строки записываются в 
 `target/debug/build/<pkg>/output`. Кроме того, строки с префиксом `cargo:` напрямую интерпретируются cargo и следовательно могут быть использованы для объявления параметров для компиляции пакета.
 
-Больше информации и примеров можно найти в [спецификации cargo](https://doc.rust-lang.org/cargo/reference/build-scripts.html).
+Больше информации и примеров можно найти в [спецификации cargo].
+
+
+[описанные здесь]: https://doc.rust-lang.org/cargo/reference/environment-variables.html#environment-variables-cargo-sets-for-build-scripts
+[спецификации cargo]: https://doc.rust-lang.org/cargo/reference/build-scripts.html

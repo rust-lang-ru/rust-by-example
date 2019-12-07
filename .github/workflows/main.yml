@@ -19,5 +19,5 @@ jobs:
     name: Checking Gitlocalize bugs
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v1
     - uses: rust-lang-ru/simpleinfra/gitocalize-bug-checker@master

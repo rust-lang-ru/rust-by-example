@@ -1,24 +1,24 @@
 # Упаковка ошибок (`Box`)
 
-Чтобы написать простой код и при этом использовать 
-оригинальные ошибки, необходимо упаковать 
-([`Box`](https://doc.rust-lang.org/std/boxed/struct.Box.html)) их.
-Минусом данного способа является то, что тип ошибок известен 
-только во время выполнения программы, а не [определён 
-статически](https://doc.rust-lang.org/book/ch17-02-trait-objects.html#trait-objects-perform-dynamic-dispatch).
+Чтобы написать простой код и при этом использовать
+оригинальные ошибки, необходимо упаковать
+([`Box`]) их.
+Минусом данного способа является то, что тип ошибок известен
+только во время выполнения программы, а не [определён
+статически].
 
 Стандартная библиотека помогает упаковывать наши ошибки.
-Это достигается за счёт того, что для `Box` 
-реализована конвертация из любого типа, реализующего типаж 
-`Error`, в типаж-объект `Box<Error>` 
-через [`From`](https://doc.rust-lang.org/std/convert/trait.From.html).
+Это достигается за счёт того, что для `Box`
+реализована конвертация из любого типа, реализующего типаж
+`Error`, в типаж-объект `Box<Error>`
+через [`From`].
 
 ```rust,editable
 use std::error;
 use std::fmt;
 
 // Создадим псевдоним с типом ошибки `Box<error::Error>`.
-type Result<T> = std::result::Result<T, Box<error::Error>>;
+type Result<T> = std::result::Result<T, Box<dyn error::Error>>;
 
 #[derive(Debug, Clone)]
 struct EmptyVec;
@@ -34,7 +34,7 @@ impl error::Error for EmptyVec {
         "неверный первый элемент"
     }
 
-    fn cause(&self) -> Option<&error::Error> {
+    fn cause(&self) -> Option<&dyn error::Error> {
         // Общая ошибка, основная причина не отслеживается.
         None
     }
@@ -70,4 +70,10 @@ fn main() {
 
 ### Смотрите также:
 
-[Динамическая диспетчеризация](https://doc.rust-lang.org/book/ch17-02-trait-objects.html#trait-objects-perform-dynamic-dispatch) и [типаж `Error`](https://doc.rust-lang.org/std/error/trait.Error.html)
+[Динамическая диспетчеризация](https://doc.rust-lang.org/book/ch17-02-trait-objects.html#trait-objects-perform-dynamic-dispatch) и [типаж `Error`]
+
+
+[`Box`]: https://doc.rust-lang.org/std/boxed/struct.Box.html
+[определён статически]: https://doc.rust-lang.org/book/ch17-02-trait-objects.html#trait-objects-perform-dynamic-dispatch
+[типаж `Error`]: https://doc.rust-lang.org/std/error/trait.Error.html
+[`From`]: https://doc.rust-lang.org/std/convert/trait.From.html

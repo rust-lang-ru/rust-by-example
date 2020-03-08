@@ -97,21 +97,21 @@ fn main() {
 }
 ```
 
-Another benefit is that `if let` allows us to match non-parameterized enum variants. This is true even in cases where the enum doesn't implement or derive `PartialEq`. In such cases `if Foo::Bar == a` would fail to compile, because instances of the enum cannot be equated, however `if let` will continue to work.
+Другое преимущество `if let` в том, что он позволяет сопоставлять нам не параметризованные варианты перечисления. Это возможно даже если для перечисления не реализован и не выведен типаж `PartialEq`. В некоторых случаях, `if Foo::Bar == a` не скомпилируется, потому что экземпляры перечисления не могут быть равны. Однако, с `if let` всё будет работать.
 
 Хотите вызов? Исправьте следующий пример с использованием `if let `:
 
 ```rust,editable,ignore,mdbook-runnable
-// This enum purposely neither implements nor derives PartialEq.
-// That is why comparing Foo::Bar == a fails below.
+// Для это перечисление намеренно не добавлен #[derive(PartialEq)],
+// и мы не реализовывали для него PartialEq. Вот почему сравнение Foo::Bar == a терпит неудачу.
 enum Foo {Bar}
 
 fn main() {
     let a = Foo::Bar;
 
-    // Variable a matches Foo::Bar
+    // Переменная соответствует Foo::Bar
     if Foo::Bar == a {
-    // ^-- this causes a compile-time error. Use `if let` instead.
+    // ^-- это вызовет ошибку компиляции. Используйте `if let` вместо этого.
         println!("a is foobar");
     }
 }
@@ -119,4 +119,9 @@ fn main() {
 
 ### Смотрите также:
 
-[`enum`](../custom_types/enum.md), [`Option`](../std/option.md), и [RFC](https://github.com/rust-lang/rfcs/pull/160)
+[`enum`], [`Option`], и [RFC]
+
+
+[`enum`]: ../custom_types/enum.md
+[RFC]: https://github.com/rust-lang/rfcs/pull/160
+[`Option`]: ../std/option.md

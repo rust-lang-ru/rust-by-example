@@ -46,7 +46,7 @@ fn main() {
 
     if let Some(i) = emoticon {
         println!("Соответствует {:?}!", i);
-    // Оцените условие `else if`, чтобы увидеть, 
+    // Оцените условие `else if`, чтобы увидеть,
     // должна ли быть альтернативная ветка отказа:
     } else if i_like_letters {
         println!("Не соответствует числу. Давайте попробуем строку!");
@@ -97,21 +97,21 @@ fn main() {
 }
 ```
 
-Другое преимущество: if let позволяет сопоставлять не параметризованные варианты перечисления, даже если перечисление не #[derive(PartialEq)], и мы не реализовали PartialEq для них. В некоторых случаях, классический if Foo::Bar == a не работает, потому что такие перечисления не могут быть равны. Однако, if let работает.
+Another benefit is that `if let` allows us to match non-parameterized enum variants. This is true even in cases where the enum doesn't implement or derive `PartialEq`. In such cases `if Foo::Bar == a` would fail to compile, because instances of the enum cannot be equated, however `if let` will continue to work.
 
 Хотите вызов? Исправьте следующий пример с использованием `if let `:
 
-```rust,editable,ignore
-// Для это перечисление намеренно не добавлен #[derive(PartialEq)],
-// и мы не реализовывали для него PartialEq. Вот почему сравнение Foo::Bar==a терпит неудачу.
+```rust,editable,ignore,mdbook-runnable
+// This enum purposely neither implements nor derives PartialEq.
+// That is why comparing Foo::Bar == a fails below.
 enum Foo {Bar}
 
 fn main() {
     let a = Foo::Bar;
 
-    // Переменная соответствует Foo::Bar
+    // Variable a matches Foo::Bar
     if Foo::Bar == a {
-    // ^-- это вызовет ошибку компиляции. Используйте `if let` вместо этого.
+    // ^-- this causes a compile-time error. Use `if let` instead.
         println!("a is foobar");
     }
 }

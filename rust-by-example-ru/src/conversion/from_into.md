@@ -1,6 +1,6 @@
 # `From` и `Into`
 
-Типажи [`From`](https://doc.rust-lang.org/std/convert/trait.From.html) и [`Into`](https://doc.rust-lang.org/std/convert/trait.Into.html) связаны по своей сути, и это стало частью их реализации. Если вы можете конвертировать тип `А` в тип `В`, то будет легко предположить, что мы должны быть в состоянии конвертировать тип `В` в тип `А`.
+Типажи [`From`] и [`Into`] связаны по своей сути, и это стало частью их реализации. Если вы можете конвертировать тип `А` в тип `В`, то будет легко предположить, что мы должны быть в состоянии конвертировать тип `В` в тип `А`.
 
 ## `From`
 
@@ -37,7 +37,7 @@ fn main() {
 
 ## `Into`
 
-The [`Into`](https://doc.rust-lang.org/std/convert/trait.Into.html) trait is simply the reciprocal of the `From` trait. That is, if you have implemented the `From` trait for your type, `Into` will call it when necessary.
+Трейт [`Into`](https://doc.rust-lang.org/std/convert/trait.Into.html) является полной противоположностью трейта `From`. Так что если вы реализовали для вашего типа трейт `From`, то трейт `Into` вызовет его при необходимости.
 
 Использование типажа `Into` обычно требует спецификации типа, в который мы собираемся конвертировать, так как компилятор чаще всего не может это вывести. Однако это небольшой компромисс, учитывая, что данную функциональность мы получаем бесплатно.
 
@@ -62,3 +62,7 @@ fn main() {
     println!("Мой номер {:?}", num);
 }
 ```
+
+
+[`From`]: https://doc.rust-lang.org/std/convert/trait.From.html
+[`Into`]: https://doc.rust-lang.org/std/convert/trait.Into.html

@@ -29,16 +29,7 @@ impl fmt::Display for EmptyVec {
     }
 }
 
-impl error::Error for EmptyVec {
-    fn description(&self) -> &str {
-        "неверный первый элемент"
-    }
-
-    fn cause(&self) -> Option<&error::Error> {
-        // Общая ошибка, основная причина не отслеживается.
-        None
-    }
-}
+impl error::Error for EmptyVec {}
 
 // Такая же последовательность, как и раньше, но вместо объединения
 // всех `Result` и `Option`, мы используем `?` чтобы незамедлительно

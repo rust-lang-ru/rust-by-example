@@ -91,9 +91,9 @@ fn main() {
 
 ### Смотрите также:
 
-[Аттрибуты], [времена жизни] и [деструктуризация]
+[Атрибуты], [времена жизни] и [деструктуризация]
 
 
-[Аттрибуты]: ../attribute.md
+[Атрибуты]: ../attribute.md
 [деструктуризация]: https://en.wikipedia.org/wiki/Struct_(C_programming_language)
 [времена жизни]: ../flow_control/match/destructuring.md

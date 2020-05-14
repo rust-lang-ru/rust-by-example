@@ -1,12 +1,8 @@
 # Pipes
 
-Структура `std::Child` представляет собой запущенный 
-дочерний процесс и предоставляет дескрипторы `stdin`, 
-`stdout` и `stderr` для взаимодействия с 
-этим процессом через каналы (pipes).
+Структура `std::Child` представляет собой запущенный  дочерний процесс и предоставляет дескрипторы `stdin`,  `stdout` и `stderr` для взаимодействия с  этим процессом через каналы (pipes).
 
 ```rust,ignore
-use std::error::Error;
 use std::io::prelude::*;
 use std::process::{Command, Stdio};
 
@@ -28,8 +24,7 @@ fn main() {
     // `stdin` имеет тип `Option<ChildStdin>`, но так как мы знаем, что экземпляр должен быть только один,
     // мы можем напрямую вызвать `unwrap`.
     match process.stdin.unwrap().write_all(PANGRAM.as_bytes()) {
-        Err(why) => panic!("не удалось записать в stdin команды wc: {}",
-                           why.description()),
+        Err(why) => panic!("не удалось записать в stdin команды wc: {}", why),
         Ok(_) => println!("пангамма отправлена"),
     }
 
@@ -42,8 +37,7 @@ fn main() {
     // Поле `stdout` имеет тип `Option<ChildStdout>` и может быть извлечено.
     let mut s = String::new();
     match process.stdout.unwrap().read_to_string(&mut s) {
-        Err(why) => panic!("невозможно прочесть stdout команды wc: {}",
-                           why.description()),
+        Err(why) => panic!("невозможно прочесть stdout команды wc: {}", why),
         Ok(_) => print!("wc ответил:\n{}", s),
     }
 }

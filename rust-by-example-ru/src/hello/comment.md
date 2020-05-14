@@ -1,7 +1,6 @@
 # Комментарии
 
-Каждая программа, безусловно, нуждается в комментариях и
-Rust предоставляет несколько способов комментирования кода:
+Каждая программа, безусловно, нуждается в комментариях и Rust предоставляет несколько способов комментирования кода:
 
 - *Обычные комментарии*, которые игнорируются компилятором:
     - `// Однострочный комментарий. Который завершается в конце строки.`
@@ -20,7 +19,7 @@ fn main() {
 
     // Run it. See? Now try deleting the two slashes, and run it again.
 
-    /* 
+    /*
      * This is another type of comment, a block comment. In general,
      * line comments are the recommended comment style. But
      * block comments are extremely useful for temporarily disabling
@@ -45,4 +44,4 @@ fn main() {
 
 ### Смотрите также:
 
-[Документирование библиотек](../meta/doc.md)
+[](../meta/doc.md)[Документирование библиотек](../meta/doc.md)

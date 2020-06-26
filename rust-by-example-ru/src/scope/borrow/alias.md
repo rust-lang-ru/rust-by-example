@@ -56,6 +56,6 @@ fn main() {
     // Изменяемая ссылка больше не используется, так что можно перезаимствовать
     let new_borrowed_point = &point;
     println!("Точка имеет координаты: ({}, {}, {})",
-              borrowed_point.x, borrowed_point.y, borrowed_point.z);
+              new_borrowed_point.x, new_borrowed_point.y, new_borrowed_point.z);
 }
 ```

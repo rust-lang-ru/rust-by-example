@@ -1,16 +1,14 @@
 # `impl Trait`
 
-Если ваша функция возвращает тип, реализующий
-`MyTrait`, вы можете записать возвращаемый тип как
-`-> impl MyTrait`. Это может достаточно сильно
-упростить сигнатуру вашей функции!
+If your function returns a type that implements `MyTrait`, you can write its
+return type as `-> impl MyTrait`. This can help simplify your type signatures quite a lot!
 
 ```rust,editable
 use std::iter;
 use std::vec::IntoIter;
 
-// Эта функция объединяет два `Vec<i32>` и возвращает итератор.
-// Посмотрите какой получается сложный тип возвращаемого значения!
+// This function combines two `Vec<i32>` and returns an iterator over it.
+// Look how complicated its return type is!
 fn combine_vecs_explicit_return_type(
     v: Vec<i32>,
     u: Vec<i32>,
@@ -18,8 +16,8 @@ fn combine_vecs_explicit_return_type(
     v.into_iter().chain(u.into_iter()).cycle()
 }
 
-// Это та же самая функция, но в возвращаемом типе использует нотацию `impl Trait`.
-// Посмотрите как он упростился!
+// This is the exact same function, but its return type uses `impl Trait`.
+// Look how much simpler it is!
 fn combine_vecs(
     v: Vec<i32>,
     u: Vec<i32>,
@@ -36,19 +34,17 @@ fn main() {
     assert_eq!(Some(3), v3.next());
     assert_eq!(Some(4), v3.next());
     assert_eq!(Some(5), v3.next());
-    println!("готово");
+    println!("all done");
 }
 ```
 
-Что более важно, некоторые типы в Rust не могут быть записаны.
-Например, каждое замыкание имеет свой собственный
-безымянный тип. До появления синтаксиса
-`impl Trait`, чтобы вернуть замыкание, вы должны
-были аллоцировать её в куче. Но теперь вы можете сделать это всё
-статически, например так:
+More importantly, some Rust types can't be written out. For example, every
+closure has its own unnamed concrete type. Before `impl Trait` syntax, you had
+to allocate on the heap in order to return a closure. But now you can do it all
+statically, like this:
 
 ```rust,editable
-// Вернём функцию, которая добавляет `y` ко входному значению
+// Returns a function that adds `y` to its input
 fn make_adder_function(y: i32) -> impl Fn(i32) -> i32 {
     let closure = move |x: i32| { x + y };
     closure
@@ -60,13 +56,10 @@ fn main() {
 }
 ```
 
-Вы также можете использовать `impl Trait` для
-возврата итератора, который использует замыкания
-`map` или `filter`! Это упрощает
-использование `map` и `filter`. Из-за
-того, что замыкание не имеет имени, вы не можете явно записать
-возвращаемый тип для функции, возвращающей итератор с
-замыканием. Но с `impl Trait` вы можете сделать это:
+You can also use `impl Trait` to return an iterator that uses `map` or `filter`
+closures! This makes using `map` and `filter` easier. Because closure types don't
+have names, you can't write out an explicit return type if your function returns
+iterators with closures. But with `impl Trait` you can do this easily:
 
 ```rust,editable
 fn double_positives<'a>(numbers: &'a Vec<i32>) -> impl Iterator<Item = i32> + 'a {

@@ -117,10 +117,22 @@ fn main() {
 
 ### Смотрите также:
 
-- [Потоки](../threads.md)
-- [вектора](../../std/vec.md) и [итераторы](../../trait/iter.md)
-- [замыкания](../../fn/closures.md), [семантика передачи владения](../../scope/move.md) и [перемещения (`move`) в замыканиях](https://doc.rust-lang.org/book/ch13-01-closures.html#closures-can-capture-their-environment)
-- [деструктуризация](https://doc.rust-lang.org/book/ch18-03-pattern-syntax.html#destructuring-to-break-apart-values) при присвоениях
-- [нотация turbofish](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.collect) в помощь механизму вывода типов
-- [`unwrap` или `expect`](../../error/option_unwrap.md)
-- [enumerate](https://doc.rust-lang.org/book/loops.html#enumerate)
+- [Потоки]
+- [вектора] и [итераторы]
+- [замыкания], [семантика передачи владения] и [перемещения (`move`) в замыканиях]
+- [деструктуризация] при присвоениях
+- [нотация turbofish] в помощь механизму вывода типов
+- [`unwrap` или `expect`]
+- [перечисления]
+
+
+[Потоки]: ../threads.md
+[вектора]: ../../std/vec.md
+[итераторы]: ../../trait/iter.md
+[деструктуризация]: https://doc.rust-lang.org/book/ch18-03-pattern-syntax.html#destructuring-to-break-apart-values
+[замыкания]: ../../fn/closures.md
+[семантика передачи владения]: ../../scope/move.md
+[перемещения (`move`) в замыканиях]: https://doc.rust-lang.org/book/ch13-01-closures.html#closures-can-capture-their-environment
+[нотация turbofish]: https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.collect
+[`unwrap` или `expect`]: ../../error/option_unwrap.md
+[перечисления]: https://doc.rust-lang.org/book/loops.html#enumerate

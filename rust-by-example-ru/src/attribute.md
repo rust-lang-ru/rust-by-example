@@ -4,8 +4,8 @@
 
 <!-- TODO: Link these to their respective examples -->
 
-- [](attribute/cfg.md)[задать условия компиляции кода](attribute/cfg.md)
-- [](attribute/crate.md)[задать имя, версию и тип (библиотека или исполняемый файл) контейнера](attribute/crate.md)
+- [задать условия компиляции кода](attribute/cfg.md)
+- [задать имя, версию и тип (библиотека или исполняемый файл) контейнера](attribute/crate.md)
 - отключить [проверки](https://en.wikipedia.org/wiki/Lint_%28software%29) (lints)
 - включить возможности компилятора (макросы, глобальный импорт и другое)
 - линковаться с внешней библиотекой

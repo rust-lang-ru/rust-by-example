@@ -34,8 +34,4 @@ fn main() {
 
 ### Смотрите также:
 
-[the reference], [`cfg!`], и [macros](macros.html).
-
-
-[`cfg!`]: https://doc.rust-lang.org/std/macro.cfg!.html
-[the reference]: ../macros.md
+[Reference](../macros.md), [`cfg!`](https://doc.rust-lang.org/std/macro.cfg!.html), и [macros](macros.html).

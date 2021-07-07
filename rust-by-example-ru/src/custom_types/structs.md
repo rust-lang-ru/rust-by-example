@@ -45,7 +45,7 @@ fn main() {
     println!("{:?}", peter);
 
 
-    // Инициализаруем `Point`
+    // Инициализируем `Point`
     let point: Point = Point { x: 10.3, y: 0.4 };
 
     // Доступ к полям структуры

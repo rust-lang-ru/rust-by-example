@@ -1,6 +1,6 @@
 # Rust на примерах
 
-[](https://gitlocalize.com/repo/2509/ru?utm_source=badge)![translated](https://gitlocalize.com/repo/2509/ru/badge.svg)<br><br>[Rust](https://www.rust-lang.org/) - современный язык программирования, нацеленный на безопасность, скорость и параллелизм. Данные цели достигаются за счёт безопасной работы с памятью без использования сборщика мусора.
+[![translated](https://gitlocalize.com/repo/2509/ru/badge.svg)](https://gitlocalize.com/repo/2509/ru?utm_source=badge)<br /><br/>[Rust](https://www.rust-lang.org/) - современный язык программирования, нацеленный на безопасность, скорость и параллелизм. Данные цели достигаются за счёт безопасной работы с памятью без использования сборщика мусора.
 
 Rust на примерах (Rust by Example, RBE) - это набор исполняемых примеров, которые иллюстрируют различные концепции языка Rust, а так же возможности его стандартной библиотеки. Для того, чтобы почерпнуть ещё больше из этих примеров, не забудьте [установить Rust на своём компьютере](https://www.rust-lang.org/tools/install) и свериться с [официальной документацией](https://doc.rust-lang.org/std/). Самые любознательные могут [ознакомиться с исходным кодом этого сайта](http://rustbook.ru/).
 
@@ -16,9 +16,9 @@ Rust на примерах (Rust by Example, RBE) - это набор испол
 
 - [Типы](types.md) - узнаем об изменении и определении типов.
 
-- [](conversion.md)[Преобразования.](conversion.md)
+- [Преобразования.](conversion.md)
 
-- [](expression.md)[Выражения.](expression.md)
+- [Выражения.](expression.md)
 
 - [Управление потоком](flow_control.md) - `if`/`else`, `for` и другие.
 
@@ -38,7 +38,7 @@ Rust на примерах (Rust by Example, RBE) - это набор испол
 
 - [Трейты](trait.md) - это набор методов, определённых для неизвестного типа: `Self`.
 
-- [](macros.md)[Макросы.](macros.md)
+- [Макросы.](macros.md)
 
 - [Обработка ошибок](error.md) - узнаем как в Rust обрабатывать ошибки.
 
@@ -48,8 +48,8 @@ Rust на примерах (Rust by Example, RBE) - это набор испол
 
 - [Тестирование](testing.md) - все виды тестов в Rust.
 
-- [](unsafe.md)[Unsafe.](unsafe.md)
+- [Unsafe.](unsafe.md)
 
-- [](compatibility.md)[Совместимость.](compatibility.md)
+- [Совместимость.](compatibility.md)
 
 - [Meta](meta.md) - документация, бенчмаркинг.

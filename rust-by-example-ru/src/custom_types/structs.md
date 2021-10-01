@@ -88,6 +88,10 @@ fn main() {
 1. Добавьте функцию `rect_area`, которая рассчитывает площадь прямоугольника. Попробуйте использовать деструктуризацию — разбор на части.
 2. Добавьте функцию `square`, которая принимает в качестве аргументов `Point` и `f32`, а возвращает `Rectangle`, левый нижний угол которого соответствует `Point`, а ширина и высота соответствуют `f32`.
 
-### See also
+### Смотрите также:
 
-[`attributes`](../attribute.md), and [destructuring](../flow_control/match/destructuring.md)
+[Атрибуты] и [деструктуризация]
+
+
+[Атрибуты]: ../attribute.md
+[деструктуризация]: https://en.wikipedia.org/wiki/Struct_(C_programming_language)

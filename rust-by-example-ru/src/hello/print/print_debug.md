@@ -16,7 +16,7 @@ struct UnPrintable(i32);
 struct DebugPrintable(i32);
 ```
 
-All `std` library types are automatically printable with `{:?}` too:
+Все типы  из библиотеки `std` также могут быть автоматически распечатаны с помощью `{:?}`:
 
 ```rust,editable
 // Вывод и реализация `fmt::Debug` для `Structure`.
@@ -70,4 +70,10 @@ fn main() {
 
 ### Смотрите также:
 
-[attributes](https://doc.rust-lang.org/reference/attributes.html), [`derive`](../../trait/derive.md), [`std::fmt`](https://doc.rust-lang.org/std/fmt/), и [`struct`](../../custom_types/structs.md)
+[аттрибуты], [`derive`], [`std::fmt`], и [`struct`]
+
+
+[аттрибуты]: https://doc.rust-lang.org/reference/attributes.html
+[`derive`]: ../../trait/derive.md
+[`std::fmt`]: https://doc.rust-lang.org/std/fmt/
+[`struct`]: ../../custom_types/structs.md

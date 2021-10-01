@@ -70,10 +70,10 @@ fn main() {
 
 ### Смотрите также:
 
-[аттрибуты], [`derive`], [`std::fmt`], и [`struct`]
+[атрибуты], [`derive`], [`std::fmt`], и [`struct`]
 
 
-[аттрибуты]: https://doc.rust-lang.org/reference/attributes.html
+[атрибуты]: https://doc.rust-lang.org/reference/attributes.html
 [`derive`]: ../../trait/derive.md
 [`std::fmt`]: https://doc.rust-lang.org/std/fmt/
 [`struct`]: ../../custom_types/structs.md

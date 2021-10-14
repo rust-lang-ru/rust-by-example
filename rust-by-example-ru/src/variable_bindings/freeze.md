@@ -1,23 +1,23 @@
 # Заморозка
 
-When data is bound by the same name immutably, it also *freezes*. *Frozen* data can't be modified until the immutable binding goes out of scope:
+Когда данные неизменяемо привязаны к тому же имени, они *замораживаются*. *Замороженные* данные не могут быть изменены до тех пор, пока неизменяемая привязка не выйдет из области видимости:
 
 ```rust,editable,ignore,mdbook-runnable
 fn main() {
     let mut _mutable_integer = 7i32;
 
     {
-        // Shadowing by immutable `_mutable_integer`
+        // Неизменяемое затенение `_mutable_integer`
         let _mutable_integer = _mutable_integer;
 
-        // Error! `_mutable_integer` is frozen in this scope
+        // Ошибка! `_mutable_integer` заморожена в этой области
         _mutable_integer = 50;
-        // FIXME ^ Comment out this line
+        // ИСПРАВЬТЕ ^ Закомментируйте эту строку
 
-        // `_mutable_integer` goes out of scope
+        // `_mutable_integer` выходит из области видимости
     }
 
-    // Ok! `_mutable_integer` is not frozen in this scope
+    // Ok! `_mutable_integer` не заморожена в этой области
     _mutable_integer = 3;
 }
 ```

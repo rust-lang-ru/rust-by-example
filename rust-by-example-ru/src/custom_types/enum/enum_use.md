@@ -26,7 +26,7 @@ fn main() {
 
     // Эквивалентно `Status::Poor`.
     let status = Poor;
-    // Эквивалентно to `Work::Civilian`.
+    // Эквивалентно `Work::Civilian`.
     let work = Civilian;
 
     match status {

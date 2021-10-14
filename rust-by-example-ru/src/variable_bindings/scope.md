@@ -34,7 +34,7 @@ fn main() {
 }
 ```
 
-Also, [variable shadowing](https://en.wikipedia.org/wiki/Variable_shadowing) is allowed.
+Кроме того, допускается [затенение переменных](https://en.wikipedia.org/wiki/Variable_shadowing).
 
 ```rust,editable,ignore,mdbook-runnable
 fn main() {

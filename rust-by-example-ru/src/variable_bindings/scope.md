@@ -1,8 +1,6 @@
 # Область видимости и затенение
 
-Связывание переменных имеет локальную область видимости, и живут эти переменные в *блоке*.
-Блок — набор инструкций, заключённый между фигурными скобками `{}`.
-Кроме того, допускается [затенение переменных](https://en.wikipedia.org/wiki/Variable_shadowing).
+Связывание переменных происходит в локальной области видимости — они ограничены существованием внутри *блока*. Блок — это набор инструкций, заключённый между фигурными скобками `{}`.
 
 ```rust,editable,ignore,mdbook-runnable
 fn main() {
@@ -33,5 +31,27 @@ fn main() {
     let long_lived_binding = 'a';
 
     println!("outer long: {}", long_lived_binding);
+}
+```
+
+Also, [variable shadowing](https://en.wikipedia.org/wiki/Variable_shadowing) is allowed.
+
+```rust,editable,ignore,mdbook-runnable
+fn main() {
+    let shadowed_binding = 1;
+
+    {
+        println!("before being shadowed: {}", shadowed_binding);
+
+        // This binding *shadows* the outer one
+        let shadowed_binding = "abc";
+
+        println!("shadowed in inner block: {}", shadowed_binding);
+    }
+    println!("outside inner block: {}", shadowed_binding);
+
+    // This binding *shadows* the previous binding
+    let shadowed_binding = 2;
+    println!("shadowed in outer block: {}", shadowed_binding);
 }
 ```

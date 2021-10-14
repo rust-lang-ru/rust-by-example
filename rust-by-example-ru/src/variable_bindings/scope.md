@@ -13,11 +13,6 @@ fn main() {
         let short_lived_binding = 2;
 
         println!("inner short: {}", short_lived_binding);
-
-        // Эта переменная *затеняет* собой внешнюю
-        let long_lived_binding = 5_f32;
-
-        println!("inner long: {}", long_lived_binding);
     }
     // Конец блока
 
@@ -26,32 +21,30 @@ fn main() {
     // ИСПРАВЬТЕ ^ Закомментируйте строку
 
     println!("outer long: {}", long_lived_binding);
-
-    // Это связывание так же *скрывает* собой предыдущие
-    let long_lived_binding = 'a';
-
-    println!("outer long: {}", long_lived_binding);
 }
 ```
 
-Кроме того, допускается [затенение переменных](https://en.wikipedia.org/wiki/Variable_shadowing).
+Кроме того, допускается [затенение переменных].
 
 ```rust,editable,ignore,mdbook-runnable
 fn main() {
     let shadowed_binding = 1;
 
     {
-        println!("before being shadowed: {}", shadowed_binding);
+        println!("До затенения: {}", shadowed_binding);
 
-        // This binding *shadows* the outer one
+        // Эта переменная *затеняет* внешнюю
         let shadowed_binding = "abc";
 
-        println!("shadowed in inner block: {}", shadowed_binding);
+        println!("затенённая во внутреннем блоке: {}", shadowed_binding);
     }
-    println!("outside inner block: {}", shadowed_binding);
+    println!("во внешнем блоке: {}", shadowed_binding);
 
-    // This binding *shadows* the previous binding
+    // Эта привязка *затеняет* предыдущую
     let shadowed_binding = 2;
-    println!("shadowed in outer block: {}", shadowed_binding);
+    println!("затенённая во внешнем блоке: {}", shadowed_binding);
 }
 ```
+
+
+[затенение переменных]: https://en.wikipedia.org/wiki/Variable_shadowing

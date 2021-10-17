@@ -31,4 +31,4 @@ fn main() {
 
 ### Смотрите также:
 
-[](../attribute.md)[Атрибуты](../attribute.md)
+[Атрибуты](../attribute.md)

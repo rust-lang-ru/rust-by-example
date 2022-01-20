@@ -42,9 +42,9 @@
 
 - [Преобразования](conversion.md)
 
-    - [](conversion/from_into.md)[`From` и `Into`](conversion/from_into.md)[`From` and `Into`](conversion/from_into.md)
-    - [](conversion/try_from_try_into.md)[`TryFrom` и `TryInto`](conversion/try_from_try_into.md)[`TryFrom` and `TryInto`](conversion/try_from_try_into.md)
-    - [](conversion/string.md)[`FromStr` и `ToString`](conversion/string.md)[To and from `String`s](conversion/string.md)
+    - [`From` и `Into`](conversion/from_into.md)
+    - [`TryFrom` и `TryInto`](conversion/try_from_try_into.md)
+    - [`FromStr` и `ToString`](conversion/string.md)
 
 - [Выражения](expression.md)
 
@@ -76,7 +76,7 @@
         - [Анонимность типов](fn/closures/anonymity.md)
         - [Входные функции](fn/closures/input_functions.md)
         - [Как выходные параметры](fn/closures/output_parameters.md)
-        - [](fn/closures/closure_examples.md)[Примеры из стандартной библиотеки](fn/closures/closure_examples.md)[Examples in `std`](fn/closures/closure_examples.md)
+        - [Примеры из стандартной библиотеки](fn/closures/closure_examples.md)
             - [Iterator::any](fn/closures/closure_examples/iter_any.md)
             - [Поиск через итераторы](fn/closures/closure_examples/iter_find.md)
     - [Функции высшего порядка](fn/hof.md)
@@ -86,8 +86,8 @@
 
     - [Видимость](mod/visibility.md)
     - [Видимость структуры](mod/struct_visibility.md)
-    - [](mod/use.md)[Декларация `use`](mod/use.md)[The `use` declaration](mod/use.md)
-    - [](mod/super.md)[`super` и `self`](mod/super.md)[`super` and `self`](mod/super.md)
+    - [Декларация `use`](mod/use.md)
+    - [`super` и `self`](mod/super.md)
     - [Иерархия файлов](mod/split.md)
 
 - [Контейнеры](crates.md)
@@ -148,7 +148,7 @@
 - [Типажи](trait.md)
 
     - [Атрибут `Derive`](trait/derive.md)
-    - [](trait/dyn.md)[Возврат типажа с `dyn`](trait/dyn.md)[Returning Traits with `dyn`](trait/dyn.md)
+    - [Возврат типажа с `dyn`](trait/dyn.md)
     - [Перегрузка операторов](trait/ops.md)
     - [Типаж `Drop`](trait/drop.md)
     - [Итераторы](trait/iter.md)
@@ -170,22 +170,22 @@
 - [Обработка ошибок](error.md)
 
     - [`panic`](error/panic.md)
-    - [](error/option_unwrap.md)[`Option` & `unwrap`](error/option_unwrap.md)[`Option` & `unwrap`](error/option_unwrap.md)
-        - [](error/option_unwrap/question_mark.md)[Разворачивание `Option` с `?`](error/option_unwrap/question_mark.md)[Unpacking options with `?`](error/option_unwrap/question_mark.md)
-        - [](error/option_unwrap/map.md)[Комбинаторы: `map`](error/option_unwrap/map.md)[Combinators: `map`](error/option_unwrap/map.md)
-        - [](error/option_unwrap/and_then.md)[Комбинаторы: `and_then`](error/option_unwrap/and_then.md)[Combinators: `and_then`](error/option_unwrap/and_then.md)
+    - [`Option` & `unwrap`](error/option_unwrap.md)
+        - [Разворачивание `Option` с `?`](error/option_unwrap/question_mark.md)
+        - [Комбинаторы: `map`](error/option_unwrap/map.md)
+        - [Комбинаторы: `and_then`](error/option_unwrap/and_then.md)
     - [`Result`](error/result.md)
-        - [](error/result/result_map.md)[`map` для `Result`](error/result/result_map.md)[`map` for `Result`](error/result/result_map.md)
-        - [](error/result/result_alias.md)[Псевдонимы для `Result`](error/result/result_alias.md)[aliases for `Result`](error/result/result_alias.md)
+        - [`map` для `Result`](error/result/result_map.md)
+        - [Псевдонимы для `Result`](error/result/result_alias.md)
         - [Преждевременный выход](error/result/early_returns.md)
-        - [](error/result/enter_question_mark.md)[Введение `?`](error/result/enter_question_mark.md)[Introducing `?`](error/result/enter_question_mark.md)
+        - [Введение `?`](error/result/enter_question_mark.md)
     - [Несколько типов ошибок](error/multiple_error_types.md)
-        - [](error/multiple_error_types/option_result.md)[Получение `Result` из `Option`](error/multiple_error_types/option_result.md)[Pulling `Result`s out of `Option`s](error/multiple_error_types/option_result.md)
+        - [Получение `Result` из `Option`](error/multiple_error_types/option_result.md)
         - [Объявление типа ошибки](error/multiple_error_types/define_error_type.md)
-        - [](error/multiple_error_types/boxing_errors.md)[Упаковка ошибок (`Box`)](error/multiple_error_types/boxing_errors.md)[`Box`ing errors](error/multiple_error_types/boxing_errors.md)
-        - [](error/multiple_error_types/reenter_question_mark.md)[Другие способы использования `?`](error/multiple_error_types/reenter_question_mark.md)[Other uses of `?`](error/multiple_error_types/reenter_question_mark.md)
+        - [Упаковка ошибок (`Box`)](error/multiple_error_types/boxing_errors.md)
+        - [Другие способы использования `?`](error/multiple_error_types/reenter_question_mark.md)
         - [Оборачивание ошибок](error/multiple_error_types/wrap_error.md)
-    - [](error/iter_result.md)[Итерирование по `Result`](error/iter_result.md)[Iterating over `Result`s](error/iter_result.md)
+    - [Итерирование по `Result`](error/iter_result.md)
 
 - [Типы стандартной библиотеки](std.md)
 

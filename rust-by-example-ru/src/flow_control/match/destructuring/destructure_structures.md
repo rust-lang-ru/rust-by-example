@@ -29,4 +29,4 @@ fn main() {
 
 ### Смотрите также:
 
-[структуры](../../../custom_types/structs.md), [шаблон ref](../../../scope/borrow/ref.md)
+[Структуры](../../../custom_types/structs.md)

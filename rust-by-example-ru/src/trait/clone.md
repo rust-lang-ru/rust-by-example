@@ -14,38 +14,38 @@ struct Unit;
 struct Pair(Box<i32>, Box<i32>);
 
 fn main() {
-    // Объявим экземпляр `Unit`
+    // Создадим экземпляр `Unit`
     let unit = Unit;
     // Скопируем `Unit`, который не имеет ресурсов для перемещения
     let copied_unit = unit;
 
     // Оба `Unit` могут быть использованы независимо
-    println!("оригинал: {:?}", unit);
-    println!("копия: {:?}", copied_unit);
+    println!("original: {:?}", unit);
+    println!("copy: {:?}", copied_unit);
 
-    // Объявим экземпляр `Pair`
+    // Создадим экземпляр `Pair`
     let pair = Pair(Box::new(1), Box::new(2));
-    println!("оригинал: {:?}", pair);
+    println!("original: {:?}", pair);
 
-    // Скопируем `pair` в `moved_pair`, перенаправляя ресурсы
+    // Переместим `pair` в `moved_pair`, перемещая и ресурсы
     let moved_pair = pair;
-    println!("копия: {:?}", moved_pair);
+    println!("moved: {:?}", moved_pair);
 
-    // Ошибка! `pair` потеряла свои ресурсы
-    //println!("оригинал: {:?}", pair);
+    // Ошибка! Переменная `pair` потеряла свои ресурсы
+    //println!("original: {:?}", pair);
     // ЗАДАНИЕ ^ Попробуйте раскомментировать эту строку
 
-    // Скопируем `moved_pair` в `cloned_pair` (включая ресурсы)
+    // Клонируем `moved_pair` в `cloned_pair` (включая ресурсы)
     let cloned_pair = moved_pair.clone();
-    // Сбросим оригинальную пару используя std::mem::drop
+    // Удалим исходную пару, используя std::mem::drop
     drop(moved_pair);
 
-    // Ошибка! `moved_pair` была сброшена
-    //println!("копия: {:?}", moved_pair);
+    // Ошибка! `moved_pair` была удалена
+    //println!("copy: {:?}", moved_pair);
     // ЗАДАНИЕ ^ Попробуйте раскомментировать эту строку
 
-    // Полученный результат из .clone() все ещё можно использовать!
-    println!("клон: {:?}", cloned_pair);
+    // Результат, полученный из .clone(), все ещё можно использовать!
+    println!("clone: {:?}", cloned_pair);
 }
 ```
 

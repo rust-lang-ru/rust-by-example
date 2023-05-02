@@ -1,27 +1,26 @@
 # Иерархия файлов
 
-Модули могут быть отображены на иерархию файлов и директорий.
-Давайте разобьём [пример с видимостью модулей][visibility] на файлы:
+Модули могут быть отображены на иерархию файлов и директорий. Давайте разобьём [пример с видимостью модулей](mod/visibility.html) на файлы:
 
-```bash
+```shell
 $ tree .
 .
-|-- my
-|   |-- inaccessible.rs
-|   |-- mod.rs
-|   `-- nested.rs
-`-- split.rs
+├── my
+│   ├── inaccessible.rs
+│   └── nested.rs
+├── my.rs
+└── split.rs
 ```
 
 В `split.rs`:
 
 ```rust,ignore
-// Эта декларация найдёт файл с именем `my.rs` или `my/mod.rs` и вставит
-// его содержимое внутрь модуля с именем `my` в этой области видимости
+// Это объявление запустит поиск файла с именем `my.rs` и
+// вставит его содержимое в модуль с именем `my` под текущей областью видимости
 mod my;
 
 fn function() {
-    println!("вызвана `function()`");
+    println!("вызвали `function()`");
 }
 
 fn main() {
@@ -36,7 +35,7 @@ fn main() {
 
 ```
 
-В `my/mod.rs`:
+В `my.rs` :
 
 ```rust,ignore
 // Точно так же, `mod inaccessible` и `mod nested` обнаружат файлы `nested.rs`
@@ -84,7 +83,7 @@ pub fn public_function() {
 
 Давайте проверим, что все ещё работает, как раньше:
 
-```bash
+```shell
 $ rustc split.rs && ./split
 вызвана `my::function()`
 вызвана `function()`
@@ -93,4 +92,4 @@ $ rustc split.rs && ./split
 вызвана `my::nested::function()`
 ```
 
-[visibility]: mod/visibility.html
+

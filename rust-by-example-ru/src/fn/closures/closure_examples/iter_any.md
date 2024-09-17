@@ -34,8 +34,8 @@ fn main() {
 
     // `iter()` для массивов даёт `&i32`.
     println!("2 в array1: {}", array1.iter()     .any(|&x| x == 2));
-    // `into_iter()` для массивов неожиданно даёт `&i32`.
-    println!("2 в array2: {}", array2.into_iter().any(|&x| x == 2));
+    // `into_iter()` для массивов даёт `i32`.
+    println!("2 в array2: {}", array2.into_iter().any(|x| x == 2));
 }
 ```
 

@@ -26,15 +26,15 @@ fn main() {
     // Try removing the slashes above and running the code again.
 
     /*
-     * Block comments are useful for temporarily disabling code.
-     * They can also be nested: /* like this */ which makes it easy
-     * to comment out large sections quickly.
+      Block comments are useful for temporarily disabling code.
+      They can also be nested: /* like this */ which makes it easy
+      to comment out large sections quickly.
      */
 
     /*
-    Note: The asterisk column on the left is just for style - 
-    it's not required by the language.
-    */
+     * Note: The asterisk column on the left is just for style - 
+     * it's not required by the language.
+     */
 
     // Block comments make it easy to toggle code on/off by adding
     // or removing just one slash:

@@ -8,7 +8,7 @@ However, unlike macros in C and other languages, Rust macros are expanded into
 abstract syntax trees, rather than string preprocessing, so you don't get
 unexpected precedence bugs.
 
-Macros are created using the `macro_rules!` macro.
+Macros can be created using the `macro_rules!` macro.
 
 ```rust,editable
 // This is a simple macro named `say_hello`.

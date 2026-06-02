@@ -800,7 +800,7 @@ msgstr ""
 "más de estos ejemplos, no olvide [instalar Rust localmente](https://www.rust-"
 "lang.org/tools/install) y consulte los [documentos oficiales](https://doc."
 "rust-lang.org/std/). Además, para la gente curiosa, también puede [ver el "
-"código fuentepara este sitio](https://github.com/rust-lang/rust-by-example)."
+"código fuente para este sitio](https://github.com/rust-lang/rust-by-example)."
 
 #: src/index.md:12
 msgid "Now let's begin!"
@@ -918,8 +918,8 @@ msgid ""
 "[Macros](macros.md) - Macros are a way of writing code that writes other "
 "code, which is known as metaprogramming."
 msgstr ""
-"[Macros](macros.md) - Las macros son una forma de escribir código que "
-"escribe a otroscódigos, lo cual se conoce como metaprogramación."
+"[Macros](macros.md) - Las macros son una forma de escribir código que escribe otro "
+"código, lo cual se conoce como metaprogramación."
 
 #: src/index.md:48
 msgid "[Error handling](error.md) - Learn Rust way of handling failures."

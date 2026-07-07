@@ -1,8 +1,9 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Rust By Example\n"
-"POT-Creation-Date: 2025-08-08T08:55:44+08:00\n"
-"PO-Revision-Date: 2024-08-17 22:13+0800\n"
+"POT-Creation-Date: 2026-07-05T09:41:29+08:00\n"
+"PO-Revision-Date: 2026-07-05 10:00+0800\n"
 "Last-Translator: Binlogo <binboy@live.com>\n"
 "Language-Team: Chinese\n"
 "Language: zh\n"
@@ -486,7 +487,7 @@ msgstr "迭代器"
 msgid "`impl Trait`"
 msgstr "`impl Trait`"
 
-#: src/SUMMARY.md:144 src/trait/clone.md:1
+#: src/SUMMARY.md:144
 msgid "Clone"
 msgstr "克隆"
 
@@ -988,8 +989,8 @@ msgstr "可以使用 Rust 编译器 `rustc` 来生成可执行文件。"
 msgid "`rustc` will produce a `hello` binary that can be executed."
 msgstr "`rustc` 将生成一个名为 `hello` 的可执行文件。"
 
-#: src/hello.md:39 src/hello/print/print_display.md:107
-#: src/hello/print/print_display/testcase_list.md:53 src/hello/print/fmt.md:70
+#: src/hello.md:39 src/hello/print/print_display.md:108
+#: src/hello/print/print_display/testcase_list.md:52 src/hello/print/fmt.md:70
 #: src/primitives/tuples.md:64 src/custom_types/structs.md:89
 msgid "Activity"
 msgstr "练习"
@@ -1008,151 +1009,150 @@ msgid ""
 msgstr "每个程序都需要注释，Rust 支持几种不同类型的注释："
 
 #: src/hello/comment.md:6
-msgid "_Regular comments_ which are ignored by the compiler:"
-msgstr "**普通注释**：编译器会忽略这些注释"
-
-#: src/hello/comment.md:7
-msgid "`// Line comments which go to the end of the line.`"
-msgstr "`// 行注释，从双斜杠开始到行尾。`"
+msgid "Regular Comments"
+msgstr "普通注释"
 
 #: src/hello/comment.md:8
-msgid "`/* Block comments which go to the closing delimiter. */`"
-msgstr "`/* 块注释，从开始符号到结束符号。 */`"
-
-#: src/hello/comment.md:9
-msgid ""
-"_Doc comments_ which are parsed into HTML library [documentation](../meta/"
-"doc.md):"
-msgstr "**文档注释**：这些注释会被解析成 HTML 格式的[库文档](../meta/doc.md)"
+msgid "These are ignored by the compiler:"
+msgstr "编译器会忽略这些注释："
 
 #: src/hello/comment.md:10
-msgid "`/// Generate library docs for the following item.`"
-msgstr "`/// 为接下来的项生成库文档。`"
+msgid "**Line comments**: Start with `//` and continue to the end of the line"
+msgstr "**行注释**：以 `//` 开头，一直延续到行尾"
 
 #: src/hello/comment.md:11
-msgid "`//! Generate library docs for the enclosing item.`"
-msgstr "`//! 为当前项（如 crate、模块或函数）生成库文档。`"
+msgid "**Block comments**: Enclosed in `/* ... */` and can span multiple lines"
+msgstr "**块注释**：使用 `/* ... */` 包裹，可以跨越多行"
+
+#: src/hello/comment.md:13
+msgid ""
+"Documentation Comments (Doc Comments) which are parsed into HTML library "
+"[documentation](../meta/doc.md):"
+msgstr ""
+"文档注释（Doc Comments）会被解析成 HTML 格式的[库文档](../meta/doc.md)："
 
 #: src/hello/comment.md:15
+msgid "`///` - Generates docs for the item that follows it"
+msgstr "`///` - 为紧随其后的项生成文档"
+
+#: src/hello/comment.md:16
 msgid ""
-"// This is an example of a line comment.\n"
-"    // There are two slashes at the beginning of the line.\n"
-"    // And nothing written after these will be read by the compiler.\n"
+"`//!` - Generates docs for the enclosing item (typically used at the top of "
+"a file or module)"
+msgstr "`//!` - 为其所在的项生成文档（通常用于文件或模块的顶部）"
+
+#: src/hello/comment.md:20
+msgid ""
+"// Line comments start with two slashes.\n"
+"    // Everything after the slashes is ignored by the compiler.\n"
 msgstr ""
-"// 这是行注释的一个例子。\n"
-"    // 在行首有两个斜杠。\n"
-"    // 斜杠后面的内容编译器不会读取。\n"
-
-#: src/hello/comment.md:19
-msgid "// println!(\"Hello, world!\");\n"
-msgstr "// println!(\"Hello, world!\");\n"
-
-#: src/hello/comment.md:21
-msgid "// Run it. See? Now try deleting the two slashes, and run it again.\n"
-msgstr "// 运行看看。明白了吗？现在试着删除这两个斜杠，再运行一次。\n"
+"// 行注释以两个斜杠开头。\n"
+"    // 斜杠之后的所有内容都会被编译器忽略。\n"
 
 #: src/hello/comment.md:23
 msgid ""
+"// Example: This line won't execute\n"
+"    // println!(\"Hello, world!\");\n"
+msgstr ""
+"// 示例：这一行不会执行\n"
+"    // println!(\"Hello, world!\");\n"
+
+#: src/hello/comment.md:26
+msgid "// Try removing the slashes above and running the code again.\n"
+msgstr "// 试着删除上面的斜杠，然后再次运行代码。\n"
+
+#: src/hello/comment.md:28
+msgid ""
 "/*\n"
-"     * This is another type of comment, a block comment. In general,\n"
-"     * line comments are the recommended comment style. But block comments\n"
-"     * are extremely useful for temporarily disabling chunks of code.\n"
-"     * /* Block comments can be /* nested, */ */ so it takes only a few\n"
-"     * keystrokes to comment out everything in this main() function.\n"
-"     * /*/*/* Try it yourself! */*/*/\n"
+"      Block comments are useful for temporarily disabling code.\n"
+"      They can also be nested: /* like this */ which makes it easy\n"
+"      to comment out large sections quickly.\n"
 "     */"
 msgstr ""
 "/*\n"
-"     * 这是另一种类型的注释，称为块注释。一般来说，推荐使用行注释。\n"
-"     * 但是块注释在临时禁用大段代码时非常有用。\n"
-"     * /* 块注释可以 /* 嵌套， */ */ 因此只需几次按键就能\n"
-"     * 注释掉 main() 函数中的所有内容。\n"
-"     * /*/*/* 你可以自己试试！ */*/*/\n"
+"      块注释可用于临时禁用代码。\n"
+"      它们也可以嵌套：/* 像这样 */ 这让快速\n"
+"      注释掉大段代码变得很容易。\n"
 "     */"
 
-#: src/hello/comment.md:32
+#: src/hello/comment.md:34
 msgid ""
 "/*\n"
-"    Note: The previous column of `*` was entirely for style. There's\n"
-"    no actual need for it.\n"
-"    */"
+"     * Note: The asterisk column on the left is just for style - \n"
+"     * it's not required by the language.\n"
+"     */"
 msgstr ""
 "/*\n"
-"    注意：前面的 `*` 列纯粹是为了样式美观。实际上并不需要。\n"
-"    */"
+"     * 注意：左侧的星号列纯粹是为了样式美观，\n"
+"     * 语言本身并不要求这么写。\n"
+"     */"
 
-#: src/hello/comment.md:37
+#: src/hello/comment.md:39
 msgid ""
-"// Here's another powerful use of block comments: you can uncomment\n"
-"    // and comment a whole block by simply adding or removing a single\n"
-"    // '/' character:\n"
+"// Block comments make it easy to toggle code on/off by adding\n"
+"    // or removing just one slash:\n"
 msgstr ""
-"// 这里展示块注释的另一个强大用途：你可以通过添加或删除单个\n"
-"    // '/' 字符来取消注释或注释整个代码块：\n"
+"// 块注释使得只需添加或删除一个斜杠\n"
+"    // 就能轻松地开关代码：\n"
 
-#: src/hello/comment.md:41
+#: src/hello/comment.md:42
 msgid ""
-"/* <- add another '/' before the 1st one to uncomment the whole block\n"
+"/* <- Add a '/' here to uncomment the entire block below\n"
 "\n"
 "    println!(\"Now\");\n"
 "    println!(\"everything\");\n"
 "    println!(\"executes!\");\n"
-"    // line comments inside are not affected by either state\n"
+"    // Line comments inside remain unaffected\n"
 "\n"
 "    // */"
 msgstr ""
-"/* <- 在第一个字符前再添加一个 '/' 来取消注释整个代码块\n"
+"/* <- 在此处添加一个 '/' 即可取消注释下面整个代码块\n"
 "\n"
 "    println!(\"Now\");\n"
 "    println!(\"everything\");\n"
 "    println!(\"executes!\");\n"
-"    // 内部的行注释不受任何状态影响\n"
+"    // 内部的行注释不受影响\n"
 "\n"
 "    // */"
 
-#: src/hello/comment.md:50
-msgid ""
-"// You can manipulate expressions more easily with block comments\n"
-"    // than with line comments. Try deleting the comment delimiters\n"
-"    // to change the result:\n"
-msgstr ""
-"// 块注释比行注释更方便地操作表达式\n"
-"    // 试试删除注释符号，看看结果会有什么变化：\n"
+#: src/hello/comment.md:51
+msgid "// Block comments can also be used within expressions:\n"
+msgstr "// 块注释也可以在表达式内部使用：\n"
 
-#: src/hello/comment.md:53
+#: src/hello/comment.md:52
 msgid "/* 90 + */"
 msgstr "/* 90 + */"
 
-#: src/hello/comment.md:54
+#: src/hello/comment.md:53
 msgid "\"Is `x` 10 or 100? x = {}\""
 msgstr "\"`x` 是 10 还是 100？x = {}\""
 
-#: src/hello/comment.md:58 src/hello/print.md:103
-#: src/hello/print/print_debug.md:75 src/hello/print/print_display.md:128
-#: src/hello/print/print_display/testcase_list.md:62 src/hello/print/fmt.md:89
+#: src/hello/comment.md:57 src/hello/print.md:103
+#: src/hello/print/print_debug.md:75 src/hello/print/print_display.md:129
+#: src/hello/print/print_display/testcase_list.md:61 src/hello/print/fmt.md:94
 #: src/primitives.md:64 src/custom_types/enum.md:100
 #: src/custom_types/enum/enum_use.md:45 src/custom_types/enum/c_like.md:33
 #: src/custom_types/enum/testcase_linked_list.md:78
 #: src/custom_types/constants.md:35 src/types/alias.md:30
-#: src/flow_control/for.md:121
+#: src/flow_control/for.md:135 src/flow_control/match/destructuring.md:17
 #: src/flow_control/match/destructuring/destructure_tuple.md:25
 #: src/flow_control/match/destructuring/destructure_slice.md:46
 #: src/flow_control/match/destructuring/destructure_enum.md:48
 #: src/flow_control/match/destructuring/destructure_pointers.md:63
 #: src/flow_control/match/destructuring/destructure_structures.md:45
-#: src/flow_control/match/guard.md:43 src/flow_control/match/binding.md:61
+#: src/flow_control/match/guard.md:43 src/flow_control/match/binding.md:63
 #: src/flow_control/if_let.md:118 src/flow_control/let_else.md:55
 #: src/flow_control/while_let.md:56 src/fn/closures/capture.md:110
 #: src/fn/closures/input_parameters.md:84 src/fn/closures/anonymity.md:47
 #: src/fn/closures/input_functions.md:32
 #: src/fn/closures/output_parameters.md:49
-#: src/fn/closures/closure_examples/iter_any.md:50
-#: src/fn/closures/closure_examples/iter_find.md:68
+#: src/fn/closures/closure_examples/iter_any.md:51
+#: src/fn/closures/closure_examples/iter_find.md:74
 #: src/mod/struct_visibility.md:53 src/attribute/cfg.md:39 src/generics.md:59
 #: src/generics/gen_fn.md:54 src/generics/impl.md:48
 #: src/generics/gen_trait.md:39 src/generics/bounds.md:73
 #: src/generics/bounds/testcase_empty.md:37 src/generics/multi_bounds.md:32
-#: src/generics/where.md:49 src/generics/new_types.md:54
+#: src/generics/where.md:49 src/generics/new_types.md:53
 #: src/generics/assoc_items.md:10 src/generics/assoc_items/the_problem.md:62
 #: src/generics/phantom.md:56 src/generics/phantom/testcase_units.md:75
 #: src/scope/raii.md:92 src/scope/move/partial_move.md:57
@@ -1161,7 +1161,7 @@ msgstr "\"`x` 是 10 还是 100？x = {}\""
 #: src/scope/lifetime/struct.md:41 src/scope/lifetime/trait.md:28
 #: src/scope/lifetime/lifetime_bounds.md:46
 #: src/scope/lifetime/static_lifetime.md:133 src/scope/lifetime/elision.md:39
-#: src/trait/derive.md:65 src/trait/supertraits.md:40
+#: src/trait/derive.md:65 src/trait/supertraits.md:81
 #: src/trait/disambiguating.md:60 src/error/option_unwrap/map.md:79
 #: src/error/option_unwrap/and_then.md:73
 #: src/error/option_unwrap/defaults.md:115 src/error/result/result_alias.md:41
@@ -1169,12 +1169,12 @@ msgstr "\"`x` 是 10 还是 100？x = {}\""
 #: src/error/multiple_error_types/reenter_question_mark.md:74
 #: src/error/multiple_error_types/wrap_error.md:91 src/std.md:12
 #: src/std/rc.md:55 src/std_misc.md:12
-#: src/std_misc/threads/testcase_mapreduce.md:127 src/std_misc/path.md:53
+#: src/std_misc/threads/testcase_mapreduce.md:127 src/std_misc/path.md:52
 #: src/std_misc/fs.md:149 src/meta/doc.md:109 src/meta/playground.md:49
 msgid "See also:"
 msgstr "另请参阅："
 
-#: src/hello/comment.md:60
+#: src/hello/comment.md:59
 msgid "[Library documentation](../meta/doc.md)"
 msgstr "[库文档](../meta/doc.md)"
 
@@ -1245,11 +1245,12 @@ msgid "\"{0}, this is {1}. {1}, this is {0}\""
 msgstr "\"{0}，这是 {1}。{1}，这是 {0}\""
 
 #: src/hello/print.md:26 src/scope/move/partial_move.md:31
+#: src/trait/supertraits.md:70
 msgid "\"Alice\""
 msgstr "\"Alice\""
 
-#: src/hello/print.md:26 src/flow_control/for.md:65 src/flow_control/for.md:85
-#: src/flow_control/for.md:104
+#: src/hello/print.md:26 src/flow_control/for.md:78 src/flow_control/for.md:98
+#: src/flow_control/for.md:118
 msgid "\"Bob\""
 msgstr "\"Bob\""
 
@@ -1456,10 +1457,10 @@ msgstr ""
 #: src/hello/print.md:90
 msgid ""
 "In _line 43_, `#[allow(dead_code)]` is an [attribute](../attribute.md) which "
-"only applies to the module after it."
+"only applies to the item after it."
 msgstr ""
-"在 _43 行_，`#[allow(dead_code)]`是一个 [属性(attribute)](../attribute.md)，"
-"它只适用于它之后的模块。"
+"在 _第 43 行_，`#[allow(dead_code)]` 是一个[属性（attribute）](../"
+"attribute.md)，它只作用于紧随其后的项。"
 
 #: src/hello/print.md:92
 msgid "Activities"
@@ -1676,19 +1677,19 @@ msgstr ""
 
 #: src/hello/print/print_display.md:25
 #: src/hello/print/print_display/testcase_list.md:13
-#: src/hello/print/print_display/testcase_list.md:39
-#: src/hello/print/print_display/testcase_list.md:49 src/hello/print/fmt.md:53
+#: src/hello/print/print_display/testcase_list.md:38
+#: src/hello/print/print_display/testcase_list.md:48 src/hello/print/fmt.md:53
 #: src/custom_types/enum/testcase_linked_list.md:74 src/conversion/string.md:25
 #: src/flow_control/loop.md:26 src/flow_control/while.md:21
 #: src/flow_control/for.md:23 src/flow_control/for.md:43 src/fn.md:40
 #: src/fn/closures/capture.md:96 src/fn/closures/capture.md:97
 #: src/fn/closures/anonymity.md:41 src/generics/bounds.md:12
-#: src/macros/repeat.md:24 src/macros/repeat.md:25 src/macros/repeat.md:26
-#: src/error/result.md:73 src/std/str.md:92 src/std/str.md:102
-#: src/std/str.md:106 src/std/str.md:111 src/std/result.md:72
-#: src/std/result/question_mark.md:57 src/std/result/question_mark.md:65
-#: src/std_misc/file/read_lines.md:60 src/std_misc/arg/matching.md:9
-#: src/std_misc/arg/matching.md:13
+#: src/trait/supertraits.md:77 src/macros/repeat.md:24 src/macros/repeat.md:25
+#: src/macros/repeat.md:26 src/error/result.md:73 src/std/str.md:92
+#: src/std/str.md:102 src/std/str.md:106 src/std/str.md:111
+#: src/std/result.md:72 src/std/result/question_mark.md:57
+#: src/std/result/question_mark.md:65 src/std_misc/file/read_lines.md:60
+#: src/std_misc/arg/matching.md:9 src/std_misc/arg/matching.md:13
 msgid "\"{}\""
 msgstr "\"{}\""
 
@@ -1792,15 +1793,17 @@ msgstr "\"比较点：\""
 
 #: src/hello/print/print_display.md:97
 msgid ""
-"// Error. Both `Debug` and `Display` were implemented, but `{:b}`\n"
-"    // requires `fmt::Binary` to be implemented. This will not work.\n"
+"// The following line would not compile: both `Debug` and `Display`\n"
+"    // were implemented, but `{:b}` requires `fmt::Binary` to be\n"
+"    // implemented, which it hasn't been for `Point2D`.\n"
 "    // println!(\"What does Point2D look like in binary: {:b}?\", point);\n"
 msgstr ""
-"// 错误。虽然实现了 `Debug` 和 `Display`，但 `{:b}` 需要\n"
-"    // 实现 `fmt::Binary`。这行代码无法工作。\n"
+"// 下面这行代码无法编译：虽然 `Debug` 和 `Display`\n"
+"    // 都已实现，但 `{:b}` 需要实现 `fmt::Binary`，\n"
+"    // 而 `Point2D` 尚未实现它。\n"
 "    // println!(\"Point2D 的二进制表示是什么：{:b}？\", point);\n"
 
-#: src/hello/print/print_display.md:103
+#: src/hello/print/print_display.md:104
 msgid ""
 "So, `fmt::Display` has been implemented but `fmt::Binary` has not, and "
 "therefore cannot be used. `std::fmt` has many such [`traits`](https://"
@@ -1813,7 +1816,7 @@ msgstr ""
 "#formatting-traits)，每个都需要单独实现。更多详情请参阅 [`std::fmt`](https://"
 "doc.rust-lang.org/std/fmt/)。"
 
-#: src/hello/print/print_display.md:109
+#: src/hello/print/print_display.md:110
 msgid ""
 "After checking the output of the above example, use the `Point2D` struct as "
 "a guide to add a `Complex` struct to the example. When printed in the same "
@@ -1822,15 +1825,15 @@ msgstr ""
 "查看上述示例的输出后，参考 `Point2D` 结构体，向示例中添加一个 `Complex` 结构"
 "体。以相同方式打印时，输出应为："
 
-#: src/hello/print/print_display.md:121
-msgid "Bonus: Add a space before the `+`/`-` signs."
-msgstr "额外练习：在 `+`/`-` 符号前添加一个空格。"
+#: src/hello/print/print_display.md:122
+msgid "Bonus: Add a space after the `+`/`-` signs."
+msgstr "额外练习：在 `+`/`-` 符号后面添加一个空格。"
 
-#: src/hello/print/print_display.md:123
+#: src/hello/print/print_display.md:124
 msgid "Hints in case you get stuck:"
 msgstr "如果你遇到困难，这里有三个提示："
 
-#: src/hello/print/print_display.md:125
+#: src/hello/print/print_display.md:126
 msgid ""
 "Check the documentation for [`Sign/#/0`](https://doc.rust-lang.org/std/fmt/"
 "#sign0) in `std::fmt`."
@@ -1838,7 +1841,7 @@ msgstr ""
 "你可以使用 `:0>2` [用零填充到宽度为 2](https://doc.rust-lang.org/std/fmt/"
 "#width)。"
 
-#: src/hello/print/print_display.md:126
+#: src/hello/print/print_display.md:127
 msgid ""
 "Bonus: Check [`if`\\-`else`](../../flow_control/if_else.md) branching and "
 "the [`abs`](https://doc.rust-lang.org/std/primitive.f64.html#method.abs) "
@@ -1847,7 +1850,7 @@ msgstr ""
 "额外练习：查看 [`if`\\-`else`](../../flow_control/if_else.md) 分支语句以及 "
 "[`abs`](https://doc.rust-lang.org/std/primitive.f64.html#method.abs) 函数。"
 
-#: src/hello/print/print_display.md:130
+#: src/hello/print/print_display.md:131
 msgid ""
 "[`derive`](../../trait/derive.md), [`std::fmt`](https://doc.rust-lang.org/"
 "std/fmt/), [`macros`](../../macros.md), [`struct`](../../custom_types/"
@@ -1897,24 +1900,20 @@ msgid "// Define a structure named `List` containing a `Vec`.\n"
 msgstr "// 定义一个名为 `List` 的结构体，包含一个 `Vec`。\n"
 
 #: src/hello/print/print_display/testcase_list.md:27
-msgid ""
-"// Extract the value using tuple indexing,\n"
-"        // and create a reference to `vec`.\n"
-msgstr ""
-"// 使用元组索引提取值，\n"
-"        // 并创建一个指向 `vec` 的引用。\n"
+msgid "// Create a reference to the Vec<i32> stored in the List struct.\n"
+msgstr "// 创建一个指向存储在 List 结构体中的 Vec<i32> 的引用。\n"
 
-#: src/hello/print/print_display/testcase_list.md:31
+#: src/hello/print/print_display/testcase_list.md:30
 msgid "\"[\""
 msgstr "\"[\""
 
-#: src/hello/print/print_display/testcase_list.md:33
+#: src/hello/print/print_display/testcase_list.md:32
 msgid ""
 "// Iterate over `v` in `vec` while enumerating the iteration\n"
 "        // index in `index`.\n"
 msgstr "// 遍历 `vec` 中的 `v`，同时用 `index` 枚举迭代索引。\n"
 
-#: src/hello/print/print_display/testcase_list.md:36
+#: src/hello/print/print_display/testcase_list.md:35
 msgid ""
 "// For every element except the first, add a comma.\n"
 "            // Use the ? operator to return on errors.\n"
@@ -1922,26 +1921,26 @@ msgstr ""
 "// 除第一个元素外，为每个元素添加逗号。\n"
 "            // 使用 ? 运算符在出错时返回。\n"
 
-#: src/hello/print/print_display/testcase_list.md:38 src/std/str.md:36
+#: src/hello/print/print_display/testcase_list.md:37 src/std/str.md:36
 msgid "\", \""
 msgstr "\", \""
 
-#: src/hello/print/print_display/testcase_list.md:42
+#: src/hello/print/print_display/testcase_list.md:41
 msgid "// Close the opened bracket and return a fmt::Result value.\n"
 msgstr "// 闭合左括号并返回 fmt::Result 值\n"
 
-#: src/hello/print/print_display/testcase_list.md:43
+#: src/hello/print/print_display/testcase_list.md:42
 msgid "\"]\""
 msgstr "\"]\""
 
-#: src/hello/print/print_display/testcase_list.md:55
+#: src/hello/print/print_display/testcase_list.md:54
 msgid ""
 "Try changing the program so that the index of each element in the vector is "
 "also printed. The new output should look like this:"
 msgstr ""
 "尝试修改程序，使向量中每个元素的索引也被打印出来。新的输出应该如下所示："
 
-#: src/hello/print/print_display/testcase_list.md:64
+#: src/hello/print/print_display/testcase_list.md:63
 msgid ""
 "[`for`](../../../flow_control/for.md), [`ref`](../../../scope/borrow/"
 "ref.md), [`Result`](../../../std/result.md), [`struct`](../../../"
@@ -2077,21 +2076,10 @@ msgid ""
 msgstr "为上面的 `Color` 结构体实现 `fmt::Display` trait，使输出显示如下："
 
 #: src/hello/print/fmt.md:81
-msgid "Three hints if you get stuck:"
-msgstr "如果你遇到困难，这里有三个提示："
+msgid "Two hints if you get stuck:"
+msgstr "如果你遇到困难，这里有两个提示："
 
 #: src/hello/print/fmt.md:83
-msgid ""
-"The formula for calculating a color in the RGB color space is: `RGB = "
-"(R*65536)+(G*256)+B , (when R is RED, G is GREEN and B is BLUE)`. For more "
-"see [RGB color format & calculation](https://www.rapidtables.com/web/color/"
-"RGB_Color.html#rgb-format)."
-msgstr ""
-"RGB 颜色空间中颜色的计算公式是：`RGB = (R*65536)+(G*256)+B，（其中 R 是红色，"
-"G 是绿色，B 是蓝色）`。更多信息请参见 [RGB 颜色格式和计算](https://"
-"www.rapidtables.com/web/color/RGB_Color.html#rgb-format)。"
-
-#: src/hello/print/fmt.md:86
 msgid ""
 "You [may need to list each color more than once](https://doc.rust-lang.org/"
 "std/fmt/#named-parameters)."
@@ -2099,15 +2087,34 @@ msgstr ""
 "你[可能需要多次列出每种颜色](https://doc.rust-lang.org/std/fmt/#named-"
 "parameters)。"
 
-#: src/hello/print/fmt.md:87
+#: src/hello/print/fmt.md:84
 msgid ""
 "You can [pad with zeros to a width of 2](https://doc.rust-lang.org/std/fmt/"
-"#width) with `:0>2`."
+"#width) with `:0>2`. For hexadecimals, you can use `:02X`."
 msgstr ""
-"你可以使用 `:0>2` [用零填充到宽度为 2](https://doc.rust-lang.org/std/fmt/"
-"#width)。"
+"你可以使用 `:0>2` 来[用零填充到宽度为 2](https://doc.rust-lang.org/std/fmt/"
+"#width)。对于十六进制数，可以使用 `:02X`。"
 
-#: src/hello/print/fmt.md:91
+#: src/hello/print/fmt.md:87
+msgid "Bonus:"
+msgstr "额外练习："
+
+#: src/hello/print/fmt.md:89
+msgid ""
+"If you would like to experiment with [type casting](../../types/cast.md) in "
+"advance, the formula for [calculating a color in the RGB color space]"
+"(https://www.rapidtables.com/web/color/RGB_Color.html#rgb-format) is `RGB = "
+"(R * 65_536) + (G * 256) + B`, where `R is RED, G is GREEN, and B is BLUE`. "
+"An unsigned 8-bit integer (`u8`) can only hold numbers up to 255. To cast "
+"`u8` to `u32`, you can write `variable_name as u32`."
+msgstr ""
+"如果你想提前体验[类型转换](../../types/cast.md)，[在 RGB 色彩空间中计算颜色]"
+"(https://www.rapidtables.com/web/color/RGB_Color.html#rgb-format)的公式为 "
+"`RGB = (R * 65_536) + (G * 256) + B`，其中 `R is RED, G is GREEN, and B is "
+"BLUE`。无符号 8 位整数（`u8`）最多只能存储到 255 的数值。要把 `u8` 转换为 "
+"`u32`，可以写成 `variable_name as u32`。"
+
+#: src/hello/print/fmt.md:96
 msgid "[`std::fmt`](https://doc.rust-lang.org/std/fmt/)"
 msgstr "[`std::fmt`](https://doc.rust-lang.org/std/fmt/)"
 
@@ -2959,8 +2966,10 @@ msgstr ""
 "type-alias-enum-variants.html)"
 
 #: src/custom_types/enum/enum_use.md:3
-msgid "The `use` declaration can be used so manual scoping isn't needed:"
-msgstr "`use` 声明可以用来避免手动作用域限定："
+msgid ""
+"The `use` declaration can be used to avoid typing the full module path to "
+"access a name:"
+msgstr "`use` 声明可以用来避免为访问某个名称而手动输入完整的模块路径："
 
 #: src/custom_types/enum/enum_use.md:20
 msgid ""
@@ -3110,12 +3119,12 @@ msgstr ""
 msgid ""
 "// Can't take ownership of the tail, because `self` is borrowed;\n"
 "            // instead take a reference to the tail\n"
-"            // And it'a a non-tail recursive call which may cause stack "
+"            // And it's a non-tail recursive call which may cause stack "
 "overflow for long lists.\n"
 msgstr ""
 "// 无法获取 tail 的所有权，因为 `self` 是借用的；\n"
-"            // 所以取 tail 的引用\n"
-"            // 这是一个非尾递归调用，对于长列表可能导致栈溢出。\n"
+"            // 所以改为获取 tail 的引用\n"
+"            // 而且这是一个非尾递归调用，对于长列表可能导致栈溢出。\n"
 
 #: src/custom_types/enum/testcase_linked_list.md:43
 msgid "// Base Case: An empty list has zero length\n"
@@ -3188,7 +3197,7 @@ msgstr ""
 msgid "// Globals are declared outside all other scopes.\n"
 msgstr "// 全局变量在所有其他作用域之外声明。\n"
 
-#: src/custom_types/constants.md:13
+#: src/custom_types/constants.md:13 src/trait/supertraits.md:72
 msgid "\"Rust\""
 msgstr "\"Rust\""
 
@@ -3226,9 +3235,9 @@ msgstr "// 错误！不能修改 `const`。\n"
 
 #: src/custom_types/constants.md:31 src/variable_bindings/scope.md:22
 #: src/variable_bindings/declare.md:27 src/variable_bindings/freeze.md:16
-#: src/types/cast.md:19 src/types/cast.md:28 src/flow_control/for.md:95
-#: src/scope/borrow.md:41 src/scope/borrow/mut.md:52 src/std/vec.md:32
-#: src/std/vec.md:45 src/std/hash/hashset.md:48
+#: src/types/cast.md:19 src/types/cast.md:28 src/scope/borrow.md:41
+#: src/scope/borrow/mut.md:52 src/std/vec.md:32 src/std/vec.md:45
+#: src/std/hash/hashset.md:48
 msgid "// FIXME ^ Comment out this line\n"
 msgstr "// 修复：^ 注释掉此行\n"
 
@@ -3262,12 +3271,12 @@ msgid "// copy `an_integer` into `copied_integer`\n"
 msgstr "// 将 `an_integer` 复制到 `copied_integer`\n"
 
 #: src/variable_bindings.md:19
-msgid "\"An integer: {:?}\""
-msgstr "\"整数：{:?}\""
+msgid "\"An integer: {}\""
+msgstr "\"整数：{}\""
 
 #: src/variable_bindings.md:20
-msgid "\"A boolean: {:?}\""
-msgstr "\"布尔值：{:?}\""
+msgid "\"A boolean: {}\""
+msgstr "\"布尔值：{}\""
 
 #: src/variable_bindings.md:21
 msgid "\"Meet the unit value: {:?}\""
@@ -3497,8 +3506,8 @@ msgstr ""
 "在 Rust 中，所有整数类型之间的转换行为都有明确定义。"
 
 #: src/types/cast.md:11
-msgid "// Suppress all warnings from casts which overflow.\n"
-msgstr "// 抑制所有由溢出转换引起的警告。\n"
+msgid "// Suppress all errors from casts which overflow.\n"
+msgstr "// 抑制所有由溢出转换引起的错误。\n"
 
 #: src/types/cast.md:17
 msgid "// Error! No implicit conversion\n"
@@ -3524,21 +3533,25 @@ msgstr "\"类型转换：{} -> {} -> {}\""
 msgid ""
 "// when casting any value to an unsigned type, T,\n"
 "    // T::MAX + 1 is added or subtracted until the value\n"
-"    // fits into the new type\n"
+"    // fits into the new type ONLY when the #![allow(overflowing_literals)]\n"
+"    // lint is specified like above. Otherwise there will be a compiler "
+"error.\n"
 msgstr ""
-"// 当将任何值转换为无符号类型 T 时，\n"
+"// 当把任意值转换为无符号类型 T 时，\n"
 "    // 会反复加上或减去 T::MAX + 1，直到该值\n"
-"    // 适合新类型\n"
+"    // 适合新类型——但这仅在像上面那样指定了\n"
+"    // #![allow(overflowing_literals)] lint 时才会发生。否则会产生编译错"
+"误。\n"
 
-#: src/types/cast.md:36
+#: src/types/cast.md:37
 msgid "// 1000 already fits in a u16\n"
 msgstr "// 1000 已经适合 u16\n"
 
-#: src/types/cast.md:37
+#: src/types/cast.md:38
 msgid "\"1000 as a u16 is: {}\""
 msgstr "\"1000 转换为 u16 是：{}\""
 
-#: src/types/cast.md:39
+#: src/types/cast.md:40
 msgid ""
 "// 1000 - 256 - 256 - 256 = 232\n"
 "    // Under the hood, the first 8 least significant bits (LSB) are kept,\n"
@@ -3548,27 +3561,27 @@ msgstr ""
 "    // 实际上，保留了最低有效位（LSB）的前 8 位，\n"
 "    // 而朝最高有效位（MSB）方向的其余位被截断。\n"
 
-#: src/types/cast.md:42 src/types/cast.md:61
+#: src/types/cast.md:43 src/types/cast.md:62
 msgid "\"1000 as a u8 is : {}\""
 msgstr "\"1000 转换为 u8 是：{}\""
 
-#: src/types/cast.md:43
+#: src/types/cast.md:44
 msgid "// -1 + 256 = 255\n"
 msgstr "// -1 + 256 = 255\n"
 
-#: src/types/cast.md:44
+#: src/types/cast.md:45
 msgid "\"  -1 as a u8 is : {}\""
 msgstr "\"  -1 转换为 u8 是：{}\""
 
-#: src/types/cast.md:46
+#: src/types/cast.md:47
 msgid "// For positive numbers, this is the same as the modulus\n"
 msgstr "// 对于正数，这等同于取模运算\n"
 
-#: src/types/cast.md:47
+#: src/types/cast.md:48
 msgid "\"1000 mod 256 is : {}\""
 msgstr "\"1000 对 256 取模是：{}\""
 
-#: src/types/cast.md:49
+#: src/types/cast.md:50
 msgid ""
 "// When casting to a signed type, the (bitwise) result is the same as\n"
 "    // first casting to the corresponding unsigned type. If the most "
@@ -3579,25 +3592,25 @@ msgstr ""
 "    // 先转换为对应的无符号类型。如果该值的最高有效位\n"
 "    // 为 1，则该值为负数。\n"
 
-#: src/types/cast.md:53
+#: src/types/cast.md:54
 msgid "// Unless it already fits, of course.\n"
 msgstr "// 当然，如果已经适合的话就不需要转换。\n"
 
-#: src/types/cast.md:54
+#: src/types/cast.md:55
 msgid "\" 128 as a i16 is: {}\""
 msgstr "\" 128 转换为 i16 是：{}\""
 
-#: src/types/cast.md:56
+#: src/types/cast.md:57
 msgid ""
 "// In boundary case 128 value in 8-bit two's complement representation is "
 "-128\n"
 msgstr "// 边界情况：128 在 8 位二进制补码表示中为 -128\n"
 
-#: src/types/cast.md:57
+#: src/types/cast.md:58
 msgid "\" 128 as a i8 is : {}\""
 msgstr "\" 128 转换为 i8 是：{}\""
 
-#: src/types/cast.md:59
+#: src/types/cast.md:60
 msgid ""
 "// repeating the example above\n"
 "    // 1000 as u8 -> 232\n"
@@ -3605,16 +3618,16 @@ msgstr ""
 "// 重复上面的例子\n"
 "    // 1000 转换为 u8 -> 232\n"
 
-#: src/types/cast.md:62
+#: src/types/cast.md:63
 msgid ""
 "// and the value of 232 in 8-bit two's complement representation is -24\n"
 msgstr "// 而 232 在 8 位二进制补码表示中为 -24\n"
 
-#: src/types/cast.md:63
+#: src/types/cast.md:64
 msgid "\" 232 as a i8 is : {}\""
 msgstr "\" 232 转换为 i8 是：{}\""
 
-#: src/types/cast.md:65
+#: src/types/cast.md:66
 msgid ""
 "// Since Rust 1.45, the `as` keyword performs a *saturating cast*\n"
 "    // when casting from float to int. If the floating point value exceeds\n"
@@ -3625,31 +3638,31 @@ msgstr ""
 "    // 如果浮点值超出上界或低于下界，返回值\n"
 "    // 将等于所越过的边界值。\n"
 
-#: src/types/cast.md:70
+#: src/types/cast.md:71
 msgid "// 300.0 as u8 is 255\n"
 msgstr "// 300.0 转换为 u8 是 255\n"
 
-#: src/types/cast.md:71 src/types/cast.md:82
+#: src/types/cast.md:72 src/types/cast.md:83
 msgid "\" 300.0 as u8 is : {}\""
 msgstr "\" 300.0 转换为 u8 是：{}\""
 
-#: src/types/cast.md:72
+#: src/types/cast.md:73
 msgid "// -100.0 as u8 is 0\n"
 msgstr "// -100.0 转换为 u8 是 0\n"
 
-#: src/types/cast.md:73 src/types/cast.md:84
+#: src/types/cast.md:74 src/types/cast.md:85
 msgid "\"-100.0 as u8 is : {}\""
 msgstr "\"-100.0 转换为 u8 是：{}\""
 
-#: src/types/cast.md:74 src/types/cast.md:85
+#: src/types/cast.md:75 src/types/cast.md:86
 msgid "// nan as u8 is 0\n"
 msgstr "// NaN 转换为 u8 是 0\n"
 
-#: src/types/cast.md:75 src/types/cast.md:86
+#: src/types/cast.md:76 src/types/cast.md:87
 msgid "\"   nan as u8 is : {}\""
 msgstr "\"   NaN 转换为 u8 是：{}\""
 
-#: src/types/cast.md:77
+#: src/types/cast.md:78
 msgid ""
 "// This behavior incurs a small runtime cost and can be avoided\n"
 "    // with unsafe methods, however the results might overflow and\n"
@@ -3658,11 +3671,11 @@ msgstr ""
 "// 这种行为会产生少量运行时开销，可以通过不安全方法避免，\n"
 "    // 但结果可能溢出并返回**不可靠的值**。请谨慎使用这些方法：\n"
 
-#: src/types/cast.md:81
+#: src/types/cast.md:82
 msgid "// 300.0 as u8 is 44\n"
 msgstr "// 300.0 转换为 u8 是 44\n"
 
-#: src/types/cast.md:83
+#: src/types/cast.md:84
 msgid "// -100.0 as u8 is 156\n"
 msgstr "// -100.0 转换为 u8 是 156\n"
 
@@ -4276,7 +4289,8 @@ msgid "// Loop while `n` is less than 101\n"
 msgstr "// 当 `n` 小于 101 时继续循环\n"
 
 #: src/flow_control/while.md:15 src/flow_control/for.md:17
-#: src/flow_control/for.md:37 src/fn.md:34
+#: src/flow_control/for.md:37 src/flow_control/for.md:53
+#: src/flow_control/for.md:59 src/fn.md:34
 msgid "\"fizzbuzz\""
 msgstr "\"fizzbuzz\""
 
@@ -4322,10 +4336,20 @@ msgid ""
 msgstr "另外，可以使用 `a..=b` 表示两端都包含的范围。上面的代码可以改写为："
 
 #: src/flow_control/for.md:49
+msgid ""
+"Just remember that even though you can compile the code when a>b, the loop "
+"gets never executed."
+msgstr "请记住，即使在 a>b 时代码依然能够编译，循环体也永远不会执行。"
+
+#: src/flow_control/for.md:56
+msgid "If you want to count down, you need to use .rev() instead"
+msgstr "如果你想倒序计数，则需要使用 .rev()"
+
+#: src/flow_control/for.md:62
 msgid "for and iterators"
 msgstr "for 与迭代器"
 
-#: src/flow_control/for.md:51
+#: src/flow_control/for.md:64
 msgid ""
 "The `for in` construct is able to interact with an `Iterator` in several "
 "ways. As discussed in the section on the [Iterator](../trait/iter.md) trait, "
@@ -4337,7 +4361,7 @@ msgstr ""
 "iter.md) 特质一节中讨论的那样，默认情况下 `for` 循环会对集合应用 `into_iter` "
 "函数。然而，这并不是将集合转换为迭代器的唯一方法。"
 
-#: src/flow_control/for.md:56
+#: src/flow_control/for.md:69
 msgid ""
 "`into_iter`, `iter` and `iter_mut` all handle the conversion of a collection "
 "into an iterator in different ways, by providing different views on the data "
@@ -4346,7 +4370,7 @@ msgstr ""
 "`into_iter`、`iter` 和 `iter_mut` 都以不同的方式处理集合到迭代器的转换，通过"
 "提供对数据的不同视图。"
 
-#: src/flow_control/for.md:60
+#: src/flow_control/for.md:73
 msgid ""
 "`iter` - This borrows each element of the collection through each iteration. "
 "Thus leaving the collection untouched and available for reuse after the loop."
@@ -4354,36 +4378,35 @@ msgstr ""
 "`iter` - 在每次迭代中借用集合的每个元素。因此，集合保持不变，并且在循环之后可"
 "以重复使用。"
 
-#: src/flow_control/for.md:65 src/flow_control/for.md:85
-#: src/flow_control/for.md:104
+#: src/flow_control/for.md:78 src/flow_control/for.md:98
+#: src/flow_control/for.md:118
 msgid "\"Frank\""
 msgstr "\"Frank\""
 
-#: src/flow_control/for.md:65 src/flow_control/for.md:69
-#: src/flow_control/for.md:85 src/flow_control/for.md:89
-#: src/flow_control/for.md:104 src/flow_control/for.md:108
+#: src/flow_control/for.md:78 src/flow_control/for.md:82
+#: src/flow_control/for.md:98 src/flow_control/for.md:102
+#: src/flow_control/for.md:118 src/flow_control/for.md:122
 msgid "\"Ferris\""
 msgstr "\"Ferris\""
 
-#: src/flow_control/for.md:69 src/flow_control/for.md:89
-#: src/flow_control/for.md:108
+#: src/flow_control/for.md:82 src/flow_control/for.md:102
+#: src/flow_control/for.md:122
 msgid "\"There is a rustacean among us!\""
 msgstr "\"我们中间有一个 Rustacean！\""
 
-#: src/flow_control/for.md:70
+#: src/flow_control/for.md:83
 msgid "// TODO ^ Try deleting the & and matching just \"Ferris\"\n"
 msgstr "// TODO ^ 尝试删除 & 并只匹配 \"Ferris\"\n"
 
-#: src/flow_control/for.md:71 src/flow_control/for.md:90
+#: src/flow_control/for.md:84 src/flow_control/for.md:103
 msgid "\"Hello {}\""
 msgstr "\"你好 {}\""
 
-#: src/flow_control/for.md:75 src/flow_control/for.md:94
-#: src/flow_control/for.md:113
+#: src/flow_control/for.md:88 src/flow_control/for.md:127
 msgid "\"names: {:?}\""
 msgstr "\"names: {:?}\""
 
-#: src/flow_control/for.md:79
+#: src/flow_control/for.md:92
 msgid ""
 "`into_iter` - This consumes the collection so that on each iteration the "
 "exact data is provided. Once the collection has been consumed it is no "
@@ -4392,17 +4415,27 @@ msgstr ""
 "`into_iter` - 这会消耗集合，使得在每次迭代中提供确切的数据。一旦集合被消耗，"
 "它就不再可用于重复使用，因为它已经在循环中被\"移动\"了。"
 
-#: src/flow_control/for.md:99
+#: src/flow_control/for.md:107
+msgid ""
+"// `names` has been 'moved' and can no longer be used.\n"
+"    // Try uncommenting the line below to see the compiler error:\n"
+"    // println!(\"names: {:?}\", names);\n"
+msgstr ""
+"// `names` 已经被“移动”，无法再被使用。\n"
+"    // 试着取消下面这行的注释，看看编译器错误：\n"
+"    // println!(\"names: {:?}\", names);\n"
+
+#: src/flow_control/for.md:113
 msgid ""
 "`iter_mut` - This mutably borrows each element of the collection, allowing "
 "for the collection to be modified in place."
 msgstr "`iter_mut` - 这会可变地借用集合的每个元素，允许在原地修改集合。"
 
-#: src/flow_control/for.md:109
+#: src/flow_control/for.md:123
 msgid "\"Hello\""
 msgstr "\"你好\""
 
-#: src/flow_control/for.md:117
+#: src/flow_control/for.md:131
 msgid ""
 "In the above snippets note the type of `match` branch, that is the key "
 "difference in the types of iteration. The difference in type then of course "
@@ -4411,7 +4444,7 @@ msgstr ""
 "在上面的代码片段中，注意 `match` 分支的类型，这是迭代类型的关键区别。类型的差"
 "异意味着可以执行不同的操作。"
 
-#: src/flow_control/for.md:123
+#: src/flow_control/for.md:137
 msgid "[Iterator](../trait/iter.md)"
 msgstr "[迭代器](../trait/iter.md)"
 
@@ -4507,6 +4540,14 @@ msgstr "[解构指针](destructuring/destructure_pointers.md)"
 #: src/flow_control/match/destructuring.md:9
 msgid "[Destructuring Structures](destructuring/destructure_structures.md)"
 msgstr "[解构结构体](destructuring/destructure_structures.md)"
+
+#: src/flow_control/match/destructuring.md:19
+msgid ""
+"[The Rust Reference for Destructuring](https://doc.rust-lang.org/reference/"
+"patterns.html#r-patterns.destructure)"
+msgstr ""
+"[Rust 参考手册中关于解构的章节](https://doc.rust-lang.org/reference/"
+"patterns.html#r-patterns.destructure)"
 
 #: src/flow_control/match/destructuring/destructure_tuple.md:3
 msgid "Tuples can be destructured in a `match` as follows:"
@@ -4978,32 +5019,36 @@ msgstr ""
 msgid "\"I'm a child of age {:?}\""
 msgstr "\"我是 {:?} 岁的儿童\""
 
-#: src/flow_control/match/binding.md:27
+#: src/flow_control/match/binding.md:27 src/flow_control/match/binding.md:29
 msgid "\"I'm a teen of age {:?}\""
 msgstr "\"我是 {:?} 岁的青少年\""
 
 #: src/flow_control/match/binding.md:28
+msgid "// A similar binding can be done when matching several values.\n"
+msgstr "// 匹配多个值时也可以进行类似的绑定。\n"
+
+#: src/flow_control/match/binding.md:30
 msgid "// Nothing bound. Return the result.\n"
 msgstr "// 没有绑定。直接返回结果。\n"
 
-#: src/flow_control/match/binding.md:29
+#: src/flow_control/match/binding.md:31
 msgid "\"I'm an old person of age {:?}\""
 msgstr "\"我是 {:?} 岁的成年人\""
 
-#: src/flow_control/match/binding.md:34
+#: src/flow_control/match/binding.md:36
 msgid ""
 "You can also use binding to \"destructure\" `enum` variants, such as "
 "`Option`:"
 msgstr "你也可以使用绑定来\"解构\" `enum` 变体，例如 `Option`："
 
-#: src/flow_control/match/binding.md:43
+#: src/flow_control/match/binding.md:45
 msgid ""
 "// Got `Some` variant, match if its value, bound to `n`,\n"
 "        // is equal to 42.\n"
-"        // Could also use `Some(42)` and print `\"The Awnser: 42!\"`\n"
+"        // Could also use `Some(42)` and print `\"The Answer: 42!\"`\n"
 "        // but that would require changing `42` in 2 spots should\n"
 "        // you ever wish to change it.\n"
-"        // Could also use `Some(n) if n == 42` and print `\"The Awnser: {n}!"
+"        // Could also use `Some(n) if n == 42` and print `\"The Answer: {n}!"
 "\"`\n"
 "        // but that would not contribute to exhaustiveness checks.\n"
 "        // (Although in this case that would not matter since\n"
@@ -5011,30 +5056,31 @@ msgid ""
 msgstr ""
 "// 匹配到 `Some` 变体，检查其绑定到 `n` 的值\n"
 "        // 是否等于 42。\n"
-"        // 也可以使用 `Some(42)` 并打印 `\"答案是: 42!\"`\n"
-"        // 但如果想要改变这个值，就需要在两个地方修改 `42`。\n"
-"        // 也可以使用 `Some(n) if n == 42` 并打印 `\"答案是: {n}!\"`\n"
-"        // 但这不是穷尽性检查。\n"
-"        // （虽然在这种情况下无关紧要，因为\n"
-"        // 下一个分支是\"兜底\"模式）\n"
+"        // 也可以使用 `Some(42)` 并打印 `\"The Answer: 42!\"`，\n"
+"        // 但这样一来，若以后想修改这个值，就得在两个地方\n"
+"        // 修改 `42`。\n"
+"        // 也可以使用 `Some(n) if n == 42` 并打印 `\"The Answer: {n}!\"`，\n"
+"        // 但那样就无法参与穷尽性检查了。\n"
+"        // （尽管在本例中这无关紧要，因为\n"
+"        // 下一个分支是一个“兜底”模式）\n"
 
-#: src/flow_control/match/binding.md:52
+#: src/flow_control/match/binding.md:54
 msgid "\"The Answer: {}!\""
 msgstr "\"答案是：{}！\""
 
-#: src/flow_control/match/binding.md:53
+#: src/flow_control/match/binding.md:55
 msgid "// Match any other number.\n"
 msgstr "// 匹配任何其他数字\n"
 
-#: src/flow_control/match/binding.md:54
+#: src/flow_control/match/binding.md:56
 msgid "\"Not interesting... {}\""
 msgstr "\"不感兴趣... {}\""
 
-#: src/flow_control/match/binding.md:55
+#: src/flow_control/match/binding.md:57
 msgid "// Match anything else (`None` variant).\n"
 msgstr "// 匹配其他任何情况（`None` 变体）\n"
 
-#: src/flow_control/match/binding.md:63
+#: src/flow_control/match/binding.md:65
 msgid ""
 "[`functions`](../../fn.md), [`enums`](../../custom_types/enum.md) and "
 "[`Option`](../../std/option.md)"
@@ -6189,42 +6235,46 @@ msgstr ""
 #: src/fn/closures/closure_examples/iter_any.md:15
 msgid ""
 "// `FnMut` meaning any captured variable may at most be\n"
-"        // modified, not consumed. `Self::Item` states it takes\n"
-"        // arguments to the closure by value.\n"
+"        // modified, not consumed. `Self::Item` is the closure parameter "
+"type,\n"
+"        // which is determined by the iterator (e.g., `&T` for `.iter()`,\n"
+"        // `T` for `.into_iter()`).\n"
 msgstr ""
-"// `FnMut` 表示任何捕获的变量最多只能被修改，不能被消耗\n"
-"        // `Self::Item` 表示它通过值将参数传递给闭包\n"
+"// `FnMut` 表示任何被捕获的变量最多只能被修改，\n"
+"        // 而不能被消耗。`Self::Item` 是闭包参数的类型，\n"
+"        // 它由迭代器决定（例如 `.iter()` 为 `&T`，\n"
+"        // `.into_iter()` 为 `T`）。\n"
 
-#: src/fn/closures/closure_examples/iter_any.md:27
+#: src/fn/closures/closure_examples/iter_any.md:28
 msgid "// `iter()` for vecs yields `&i32`. Destructure to `i32`.\n"
 msgstr "// 对 vec 使用 `iter()` 产生 `&i32`，解构为 `i32`\n"
 
-#: src/fn/closures/closure_examples/iter_any.md:28
+#: src/fn/closures/closure_examples/iter_any.md:29
 msgid "\"2 in vec1: {}\""
 msgstr "\"2 在 vec1 中：{}\""
 
-#: src/fn/closures/closure_examples/iter_any.md:29
+#: src/fn/closures/closure_examples/iter_any.md:30
 msgid "// `into_iter()` for vecs yields `i32`. No destructuring required.\n"
 msgstr "// 对 vec 使用 `into_iter()` 产生 `i32`，无需解构\n"
 
-#: src/fn/closures/closure_examples/iter_any.md:30
+#: src/fn/closures/closure_examples/iter_any.md:31
 msgid "\"2 in vec2: {}\""
 msgstr "\"2 在 vec2 中：{}\""
 
-#: src/fn/closures/closure_examples/iter_any.md:32
+#: src/fn/closures/closure_examples/iter_any.md:33
 msgid ""
 "// `iter()` only borrows `vec1` and its elements, so they can be used again\n"
 msgstr "// `iter()` 只借用 `vec1` 及其元素，所以它们可以再次使用\n"
 
-#: src/fn/closures/closure_examples/iter_any.md:33
+#: src/fn/closures/closure_examples/iter_any.md:34
 msgid "\"vec1 len: {}\""
 msgstr "\"vec1 长度：{}\""
 
-#: src/fn/closures/closure_examples/iter_any.md:34
+#: src/fn/closures/closure_examples/iter_any.md:35
 msgid "\"First element of vec1 is: {}\""
 msgstr "\"vec1 的第一个元素是：{}\""
 
-#: src/fn/closures/closure_examples/iter_any.md:35
+#: src/fn/closures/closure_examples/iter_any.md:36
 msgid ""
 "// `into_iter()` does move `vec2` and its elements, so they cannot be used "
 "again\n"
@@ -6237,23 +6287,23 @@ msgstr ""
 "    // println!(\"vec2 长度：{}\", vec2.len());\n"
 "    // TODO：取消上面两行的注释，观察编译器错误\n"
 
-#: src/fn/closures/closure_examples/iter_any.md:43
+#: src/fn/closures/closure_examples/iter_any.md:44
 msgid "// `iter()` for arrays yields `&i32`.\n"
 msgstr "// 对数组使用 `iter()` 产生 `&i32`\n"
 
-#: src/fn/closures/closure_examples/iter_any.md:44
+#: src/fn/closures/closure_examples/iter_any.md:45
 msgid "\"2 in array1: {}\""
 msgstr "\"2 在 array1 中：{}\""
 
-#: src/fn/closures/closure_examples/iter_any.md:45
+#: src/fn/closures/closure_examples/iter_any.md:46
 msgid "// `into_iter()` for arrays yields `i32`.\n"
 msgstr "// 对数组使用 `into_iter()` 产生 `i32`\n"
 
-#: src/fn/closures/closure_examples/iter_any.md:46
+#: src/fn/closures/closure_examples/iter_any.md:47
 msgid "\"2 in array2: {}\""
 msgstr "\"2 在 array2 中：{}\""
 
-#: src/fn/closures/closure_examples/iter_any.md:52
+#: src/fn/closures/closure_examples/iter_any.md:53
 msgid ""
 "[`std::iter::Iterator::any`](https://doc.rust-lang.org/std/iter/"
 "trait.Iterator.html#method.any)"
@@ -6290,54 +6340,69 @@ msgstr ""
 "        // `&Self::Item` 表示它通过引用将参数传递给闭包。\n"
 
 #: src/fn/closures/closure_examples/iter_find.md:27
-msgid "// `iter()` for vecs yields `&i32`.\n"
-msgstr "// 对 vec 使用 `iter()` 会产生 `&i32`。\n"
+msgid "// `vec1.iter()` yields `&i32`.\n"
+msgstr "// `vec1.iter()` 产生 `&i32`。\n"
 
 #: src/fn/closures/closure_examples/iter_find.md:29
-msgid "// `into_iter()` for vecs yields `i32`.\n"
-msgstr "// 对 vec 使用 `into_iter()` 会产生 `i32`。\n"
+msgid "// `vec2.into_iter()` yields `i32`.\n"
+msgstr "// `vec2.into_iter()` 产生 `i32`。\n"
 
 #: src/fn/closures/closure_examples/iter_find.md:32
 msgid ""
-"// `iter()` for vecs yields `&i32`, and we want to reference one of its\n"
-"    // items, so we have to destructure `&&i32` to `i32`\n"
+"// `iter()` yields `&i32`, and `find` passes `&Item` to the predicate.\n"
+"    // Since `Item = &i32`, the closure argument has type `&&i32`,\n"
+"    // which we pattern-match to dereference down to `i32`.\n"
 msgstr ""
-"// 对 vec 使用 `iter()` 会产生 `&i32`，而我们想要引用其中的一个\n"
-"    // 元素，所以我们必须将 `&&i32` 解构为 `i32`\n"
+"// `iter()` 产生 `&i32`，`find` 会把 `&Item` 传给闭包。\n"
+"    // 由于 `Item = &i32`，闭包参数的类型为 `&&i32`，\n"
+"    // 我们通过模式匹配把它解引用到 `i32`。\n"
 
-#: src/fn/closures/closure_examples/iter_find.md:34
+#: src/fn/closures/closure_examples/iter_find.md:35
 msgid "\"Find 2 in vec1: {:?}\""
 msgstr "\"在 vec1 中查找 2：{:?}\""
 
-#: src/fn/closures/closure_examples/iter_find.md:35
-msgid ""
-"// `into_iter()` for vecs yields `i32`, and we want to reference one of\n"
-"    // its items, so we have to destructure `&i32` to `i32`\n"
-msgstr ""
-"// 对 vec 使用 `into_iter()` 会产生 `i32`，而我们想要引用其中的\n"
-"    // 一个元素，所以我们必须将 `&i32` 解构为 `i32`\n"
-
 #: src/fn/closures/closure_examples/iter_find.md:37
+msgid ""
+"// `into_iter()` yields `i32`, and `find` passes `&Item` to the predicate.\n"
+"    // Since `Item = i32`, the closure argument has type `&i32`,\n"
+"    // which we pattern-match to dereference down to `i32`.\n"
+msgstr ""
+"// `into_iter()` 产生 `i32`，`find` 会把 `&Item` 传给闭包。\n"
+"    // 由于 `Item = i32`，闭包参数的类型为 `&i32`，\n"
+"    // 我们通过模式匹配把它解引用到 `i32`。\n"
+
+#: src/fn/closures/closure_examples/iter_find.md:40
 msgid "\"Find 2 in vec2: {:?}\""
 msgstr "\"在 vec2 中查找 2：{:?}\""
 
-#: src/fn/closures/closure_examples/iter_find.md:42
-msgid "// `iter()` for arrays yields `&&i32`\n"
-msgstr "// 对数组使用 `iter()` 会产生 `&&i32`\n"
+#: src/fn/closures/closure_examples/iter_find.md:45
+msgid ""
+"// `array1.iter()` yields `&i32`, and `find` passes `&Item` to the\n"
+"    // predicate. Since `Item = &i32`, the closure argument has type "
+"`&&i32`.\n"
+msgstr ""
+"// `array1.iter()` 产生 `&i32`，`find` 会把 `&Item` 传给\n"
+"    // 闭包。由于 `Item = &i32`，闭包参数的类型为 `&&i32`。\n"
 
-#: src/fn/closures/closure_examples/iter_find.md:43
+#: src/fn/closures/closure_examples/iter_find.md:47
 msgid "\"Find 2 in array1: {:?}\""
 msgstr "\"在 array1 中查找 2：{:?}\""
 
-#: src/fn/closures/closure_examples/iter_find.md:44
-msgid "// `into_iter()` for arrays yields `&i32`\n"
-msgstr "// 对数组使用 `into_iter()` 会产生 `&i32`\n"
+#: src/fn/closures/closure_examples/iter_find.md:48
+msgid ""
+"// `array2.into_iter()` yields `i32` (since Rust 2021 edition), and\n"
+"    // `find` passes `&Item` to the predicate. Since `Item = i32`, the\n"
+"    // closure argument has type `&i32`.\n"
+msgstr ""
+"// `array2.into_iter()` 产生 `i32`（自 Rust 2021 版本起），\n"
+"    // `find` 会把 `&Item` 传给闭包。由于 `Item = i32`，\n"
+"    // 闭包参数的类型为 `&i32`。\n"
 
-#: src/fn/closures/closure_examples/iter_find.md:45
+#: src/fn/closures/closure_examples/iter_find.md:51
 msgid "\"Find 2 in array2: {:?}\""
 msgstr "\"在 array2 中查找 2：{:?}\""
 
-#: src/fn/closures/closure_examples/iter_find.md:49
+#: src/fn/closures/closure_examples/iter_find.md:55
 msgid ""
 "`Iterator::find` gives you a reference to the item. But if you want the "
 "_index_ of the item, use `Iterator::position`."
@@ -6345,25 +6410,23 @@ msgstr ""
 "`Iterator::find` 返回元素的引用。如果需获取元素的**索引**，则使用 "
 "`Iterator::position`。"
 
-#: src/fn/closures/closure_examples/iter_find.md:56
+#: src/fn/closures/closure_examples/iter_find.md:62
 msgid ""
-"// `iter()` for vecs yields `&i32` and `position()` does not take a "
-"reference, so\n"
-"    // we have to destructure `&i32` to `i32`\n"
+"// `position` passes the iterator’s `Item` by value to the predicate.\n"
+"    // `vec.iter()` yields `&i32`, so the predicate receives `&i32`,\n"
+"    // which we pattern-match to dereference to `i32`.\n"
 msgstr ""
-"// 对 vec 使用 `iter()` 会产生 `&i32`，而 `position()` 不接受引用，所以\n"
-"    // 我们必须将 `&i32` 解构为 `i32`\n"
+"// `position` 会把迭代器的 `Item` 按值传给闭包。\n"
+"    // `vec.iter()` 产生 `&i32`，因此闭包接收到 `&i32`，\n"
+"    // 我们通过模式匹配把它解引用到 `i32`。\n"
 
-#: src/fn/closures/closure_examples/iter_find.md:61
+#: src/fn/closures/closure_examples/iter_find.md:68
 msgid ""
-"// `into_iter()` for vecs yields `i32` and `position()` does not take a "
-"reference, so\n"
-"    // we do not have to destructure\n"
-msgstr ""
-"// 对 vec 使用 `into_iter()` 会产生 `i32`，而 `position()` 不接受引用，所以\n"
-"    // 我们不需要进行解构\n"
+"// `vec.into_iter()` yields `i32`, so the predicate receives `i32` "
+"directly.\n"
+msgstr "// `vec.into_iter()` 产生 `i32`，因此闭包直接接收 `i32`。\n"
 
-#: src/fn/closures/closure_examples/iter_find.md:70
+#: src/fn/closures/closure_examples/iter_find.md:76
 msgid ""
 "[`std::iter::Iterator::find`](https://doc.rust-lang.org/std/iter/"
 "trait.Iterator.html#method.find)"
@@ -6373,7 +6436,7 @@ msgstr ""
 "[`std::iter::Iterator::find`]: https://doc.rust-lang.org/std/iter/"
 "trait.Iterator.html#method.find"
 
-#: src/fn/closures/closure_examples/iter_find.md:72
+#: src/fn/closures/closure_examples/iter_find.md:78
 msgid ""
 "[`std::iter::Iterator::find_map`](https://doc.rust-lang.org/std/iter/"
 "trait.Iterator.html#method.find_map)"
@@ -6383,7 +6446,7 @@ msgstr ""
 "[`std::iter::Iterator::find_map`]: https://doc.rust-lang.org/std/iter/"
 "trait.Iterator.html#method.find_map"
 
-#: src/fn/closures/closure_examples/iter_find.md:74
+#: src/fn/closures/closure_examples/iter_find.md:80
 msgid ""
 "[`std::iter::Iterator::position`](https://doc.rust-lang.org/std/iter/"
 "trait.Iterator.html#method.position)"
@@ -6393,7 +6456,7 @@ msgstr ""
 "[`std::iter::Iterator::position`]: https://doc.rust-lang.org/std/iter/"
 "trait.Iterator.html#method.position"
 
-#: src/fn/closures/closure_examples/iter_find.md:76
+#: src/fn/closures/closure_examples/iter_find.md:82
 msgid ""
 "[`std::iter::Iterator::rposition`](https://doc.rust-lang.org/std/iter/"
 "trait.Iterator.html#method.rposition)"
@@ -6450,26 +6513,22 @@ msgid "// Functional approach\n"
 msgstr "// 函数式方法\n"
 
 #: src/fn/hof.md:36
-msgid "// All natural numbers squared\n"
-msgstr "// 所有自然数的平方\n"
-
-#: src/fn/hof.md:37
 msgid "// Below upper limit\n"
 msgstr "// 小于上限\n"
 
-#: src/fn/hof.md:38
+#: src/fn/hof.md:37
 msgid "// That are odd\n"
 msgstr "// 筛选奇数\n"
 
-#: src/fn/hof.md:39
+#: src/fn/hof.md:38
 msgid "// Sum them\n"
 msgstr "// 求和\n"
 
-#: src/fn/hof.md:40
+#: src/fn/hof.md:39
 msgid "\"functional style: {}\""
 msgstr "\"函数式风格：{}\""
 
-#: src/fn/hof.md:44
+#: src/fn/hof.md:43
 msgid ""
 "[Option](https://doc.rust-lang.org/core/option/enum.Option.html) and "
 "[Iterator](https://doc.rust-lang.org/core/iter/trait.Iterator.html) "
@@ -6881,7 +6940,7 @@ msgstr "你可以使用 `as` 关键字将导入绑定到不同的名称："
 msgid "// Bind the `deeply::nested::function` path to `other_function`.\n"
 msgstr "// 将 `deeply::nested::function` 路径绑定到 `other_function`。\n"
 
-#: src/mod/use.md:31
+#: src/mod/use.md:31 src/mod/use.md:64
 msgid "\"called `deeply::nested::function()`\""
 msgstr "\"调用了 `deeply::nested::function()`\""
 
@@ -6912,6 +6971,14 @@ msgstr ""
 #: src/mod/use.md:50
 msgid "\"Leaving block\""
 msgstr "\"离开代码块\""
+
+#: src/mod/use.md:57
+msgid ""
+"You can also use `pub use` to re-export an item from a module, so it can be "
+"accessed through the module's public interface:"
+msgstr ""
+"你还可以使用 `pub use` 从模块中重新导出一个项，使其可以通过模块的公共接口来访"
+"问："
 
 #: src/mod/super.md:3
 msgid ""
@@ -6997,14 +7064,13 @@ msgstr "在 `my.rs` 文件中："
 
 #: src/mod/split.md:42
 msgid ""
-"// Similarly `mod inaccessible` and `mod nested` will locate the "
-"`nested.rs`\n"
-"// and `inaccessible.rs` files and insert them here under their respective\n"
-"// modules\n"
+"// Similarly `mod inaccessible` and `mod nested` will locate the\n"
+"// `inaccessible.rs` and `nested.rs` files and insert them here under their\n"
+"// respective modules\n"
 msgstr ""
-"// 同样，`mod inaccessible` 和 `mod nested` 会分别定位到\n"
-"// `nested.rs` 和 `inaccessible.rs` 文件，\n"
-"// 并将它们的内容插入到这里对应的模块中\n"
+"// 同样，`mod inaccessible` 和 `mod nested` 会定位到\n"
+"// `inaccessible.rs` 和 `nested.rs` 文件，并把它们插入到这里\n"
+"// 各自对应的模块下\n"
 
 #: src/mod/split.md:53
 msgid "\"called `my::private_function()`\""
@@ -8472,46 +8538,41 @@ msgstr "`newtype` 模式在编译时保证了程序接收到正确类型的值�
 
 #: src/generics/new_types.md:6
 msgid ""
-"For example, an age verification function that checks age in years, _must_ "
-"be given a value of type `Years`."
+"For example, a function that measures distance in miles, _must_ be given a "
+"value of type `Miles`."
 msgstr ""
-"例如，一个检查年龄（以年为单位）的年龄验证函数，**必须**接收 `Years` 类型的"
-"值。"
+"例如，一个以英里为单位测量距离的函数，**必须**接收一个 `Miles` 类型的值。"
 
-#: src/generics/new_types.md:21
-msgid "/// truncates partial years\n"
-msgstr "/// 截断不足一年的部分\n"
+#: src/generics/new_types.md:33 src/generics/new_types.md:34
+msgid "\"Is a marathon? {}\""
+msgstr "\"是否是马拉松？{}\""
 
-#: src/generics/new_types.md:34 src/generics/new_types.md:35
-msgid "\"Is an adult? {}\""
-msgstr "\"是否成年？{}\""
+#: src/generics/new_types.md:35
+msgid "// println!(\"Is a marathon? {}\", is_a_marathon(&distance_km));\n"
+msgstr "// println!(\"是否是马拉松？{}\", is_a_marathon(&distance_km));\n"
 
-#: src/generics/new_types.md:36
-msgid "// println!(\"Is an adult? {}\", is_adult(&age_days));\n"
-msgstr "// println!(\"是否成年？{}\", is_adult(&age_days));\n"
-
-#: src/generics/new_types.md:40
+#: src/generics/new_types.md:39
 msgid ""
 "Uncomment the last print statement to observe that the type supplied must be "
-"`Years`."
-msgstr "取消最后一个 print 语句的注释，你会发现所提供的类型必须是 `Years`。"
+"`Miles`."
+msgstr "取消最后一个 print 语句的注释，你会发现所提供的类型必须是 `Miles`。"
 
-#: src/generics/new_types.md:42
+#: src/generics/new_types.md:41
 msgid ""
 "To obtain the `newtype`'s value as the base type, you may use the tuple or "
 "destructuring syntax like so:"
 msgstr ""
 "要获取 `newtype` 的基本类型值，你可以使用元组语法或解构语法，如下所示："
 
-#: src/generics/new_types.md:49
+#: src/generics/new_types.md:48
 msgid "// Tuple\n"
 msgstr "// 元组语法\n"
 
-#: src/generics/new_types.md:50
+#: src/generics/new_types.md:49
 msgid "// Destructuring\n"
 msgstr "// 解构语法\n"
 
-#: src/generics/new_types.md:56
+#: src/generics/new_types.md:55
 msgid "[`structs`](../custom_types/structs.md)"
 msgstr "[`struct`](../custom_types/structs.md)"
 
@@ -8794,10 +8855,10 @@ msgstr ""
 #: src/generics/phantom.md:58
 msgid ""
 "[Derive](../trait/derive.md), [struct](../custom_types/structs.md), and "
-"[TupleStructs](../custom_types/structs.md)"
+"[tuple](../primitives/tuples.html)."
 msgstr ""
 "[派生（Derive）](../trait/derive.md)、[结构体（struct）](../custom_types/"
-"structs.md)和[元组结构体（TupleStructs）](../custom_types/structs.md)"
+"structs.md) 和[元组（tuple）](../primitives/tuples.html)。"
 
 #: src/generics/phantom/testcase_units.md:3
 msgid ""
@@ -10727,58 +10788,73 @@ msgstr "// 注意：File::create() 会覆盖现有文件\n"
 #: src/trait/drop.md:77
 msgid ""
 "// When TempFile is dropped:\n"
-"// 1. First, the File will be automatically closed (Drop for File)\n"
-"// 2. Then our drop implementation will remove the file\n"
+"// 1. First, our custom drop implementation runs. The file is still open at "
+"this point,\n"
+"//    but we can remove it from the filesystem by path.\n"
+"// 2. Then, after our drop returns, Rust automatically drops each field,\n"
+"//    so File's drop runs and closes the file handle.\n"
 msgstr ""
-"// 当 TempFile 被丢弃时：\n"
-"// 1. 首先，File 会自动关闭（File 的 Drop 实现）\n"
-"// 2. 然后我们的 drop 实现会删除文件\n"
-
-#: src/trait/drop.md:83
-msgid "// Note: File is already closed at this point\n"
-msgstr "// 注意：文件在此时已经关闭\n"
+"// 当 TempFile 被丢弃（drop）时：\n"
+"// 1. 首先，我们自定义的 drop 实现会运行。此时文件仍处于打开状态，\n"
+"//    但我们可以通过路径把它从文件系统中删除。\n"
+"// 2. 然后，在我们的 drop 返回之后，Rust 会自动丢弃每个字段，\n"
+"//    于是 File 的 drop 运行并关闭文件句柄。\n"
 
 #: src/trait/drop.md:85
+msgid ""
+"// Note: the File is still open here — field destructors run after this "
+"method.\n"
+msgstr "// 注意：此处 File 仍处于打开状态 —— 字段的析构会在本方法之后运行。\n"
+
+#: src/trait/drop.md:87
 msgid "\"Failed to remove temporary file: {}\""
 msgstr "\"删除临时文件失败：{}\""
 
-#: src/trait/drop.md:87
+#: src/trait/drop.md:89
 msgid "\"> Dropped temporary file: {:?}\""
 msgstr "\"> 已丢弃临时文件：{:?}\""
 
-#: src/trait/drop.md:92
+#: src/trait/drop.md:90
+msgid ""
+"// After this method returns, Rust will drop each field (including `file`),\n"
+"        // which closes the underlying file handle.\n"
+msgstr ""
+"// 本方法返回后，Rust 会丢弃每个字段（包括 `file`），\n"
+"        // 从而关闭底层的文件句柄。\n"
+
+#: src/trait/drop.md:96
 msgid "// Create a new scope to demonstrate drop behavior\n"
 msgstr "// 创建新作用域来演示丢弃行为\n"
 
-#: src/trait/drop.md:94
+#: src/trait/drop.md:98
 msgid "\"test.txt\""
 msgstr "\"test.txt\""
 
-#: src/trait/drop.md:95
+#: src/trait/drop.md:99
 msgid "\"Temporary file created\""
 msgstr "\"已创建临时文件\""
 
-#: src/trait/drop.md:96
+#: src/trait/drop.md:100
 msgid "// File will be automatically cleaned up when temp goes out of scope\n"
 msgstr "// 当 temp 超出作用域时，文件会自动清理\n"
 
-#: src/trait/drop.md:98
+#: src/trait/drop.md:102
 msgid "\"End of scope - file should be cleaned up\""
 msgstr "\"作用域结束 - 文件应该被清理\""
 
-#: src/trait/drop.md:100
+#: src/trait/drop.md:104
 msgid "// We can also manually drop if needed\n"
 msgstr "// 如果需要，我们也可以手动丢弃\n"
 
-#: src/trait/drop.md:101
+#: src/trait/drop.md:105
 msgid "\"another_test.txt\""
 msgstr "\"another_test.txt\""
 
-#: src/trait/drop.md:102
+#: src/trait/drop.md:106
 msgid "// Explicitly drop the file\n"
 msgstr "// 显式丢弃文件\n"
 
-#: src/trait/drop.md:103
+#: src/trait/drop.md:107
 msgid "\"Manually dropped file\""
 msgstr "\"手动丢弃的文件\""
 
@@ -11048,6 +11124,10 @@ msgstr ""
 "使用 `map` 和 `filter` 更加容易。由于闭包类型没有名称，如果你的函数返回带有闭"
 "包的迭代器，你无法写出显式的返回类型。但使用 `impl Trait`，你可以轻松实现："
 
+#: src/trait/clone.md:1
+msgid "Clone and Copy"
+msgstr "Clone 与 Copy"
+
 #: src/trait/clone.md:3
 msgid ""
 "When dealing with resources, the default behavior is to transfer them during "
@@ -11066,47 +11146,103 @@ msgstr ""
 "[`Clone`](https://doc.rust-lang.org/std/clone/trait.Clone.html) trait 帮助我"
 "们实现这一点。最常见的是，我们可以使用 `Clone` trait 定义的 `.clone()` 方法。"
 
-#: src/trait/clone.md:11
-msgid "// A unit struct without resources\n"
-msgstr "// 一个不包含资源的单元结构体\n"
+#: src/trait/clone.md:10
+msgid "Copy: Implicit Cloning"
+msgstr "Copy：隐式克隆"
 
-#: src/trait/clone.md:14
-msgid "// A tuple struct with resources that implements the `Clone` trait\n"
-msgstr "// 一个包含资源并实现了 `Clone` trait 的元组结构体\n"
+#: src/trait/clone.md:12
+msgid ""
+"The [`Copy`](https://doc.rust-lang.org/std/marker/trait.Copy.html) trait "
+"allows a type to be duplicated simply by copying bits, with no additional "
+"logic required. When a type implements `Copy`, assignments and function "
+"calls will implicitly copy the value instead of moving it."
+msgstr ""
+"[`Copy`](https://doc.rust-lang.org/std/marker/trait.Copy.html) trait 允许一个"
+"类型仅通过复制其比特位来完成复制，无需任何额外逻辑。当一个类型实现了 `Copy` "
+"时，赋值和函数调用会隐式地复制该值，而不是移动它。"
 
-#: src/trait/clone.md:20
+#: src/trait/clone.md:16
+msgid ""
+"**Important:** `Copy` requires `Clone` - any type that implements `Copy` "
+"must also implement `Clone`. This is because `Copy` is defined as a "
+"subtrait: `trait Copy: Clone {}`. The `Clone` implementation for `Copy` "
+"types simply copies the bits."
+msgstr ""
+"**重要：** `Copy` 依赖 `Clone` —— 任何实现了 `Copy` 的类型都必须同时实现 "
+"`Clone`。这是因为 `Copy` 被定义为一个子 trait：`trait Copy: Clone {}`。"
+"`Copy` 类型的 `Clone` 实现只是简单地复制比特位。"
+
+#: src/trait/clone.md:21
+msgid "Not all types can implement `Copy`. A type can only be `Copy` if:"
+msgstr ""
+"并非所有类型都能实现 `Copy`。一个类型只有满足以下条件时才能是 `Copy` 的："
+
+#: src/trait/clone.md:22
+msgid "All of its components are `Copy`"
+msgstr "它的所有组成部分都是 `Copy` 的"
+
+#: src/trait/clone.md:23
+msgid ""
+"It doesn't manage external resources (like heap memory, file handles, etc.)"
+msgstr "它不管理外部资源（如堆内存、文件句柄等）"
+
+#: src/trait/clone.md:26
+msgid ""
+"// A unit struct without resources\n"
+"// Note: Copy requires Clone, so we must derive both\n"
+msgstr ""
+"// 一个不包含资源的单元结构体\n"
+"// 注意：Copy 依赖 Clone，所以我们必须同时派生两者\n"
+
+#: src/trait/clone.md:30
+msgid ""
+"// A tuple struct with resources that implements the `Clone` trait\n"
+"// This CANNOT be Copy because Box<T> is not Copy\n"
+msgstr ""
+"// 一个包含资源、并实现了 `Clone` trait 的元组结构体\n"
+"// 它不能是 Copy 的，因为 Box<T> 不是 Copy\n"
+
+#: src/trait/clone.md:37
 msgid "// Instantiate `Unit`\n"
 msgstr "// 实例化 `Unit`\n"
 
-#: src/trait/clone.md:22
-msgid "// Copy `Unit`, there are no resources to move\n"
-msgstr "// 复制 `Unit`，没有资源需要移动\n"
+#: src/trait/clone.md:39
+msgid ""
+"// Copy `Unit` - this is an implicit copy, not a move!\n"
+"    // Because Unit implements Copy, the value is duplicated automatically\n"
+msgstr ""
+"// 复制 `Unit` —— 这是一次隐式复制，而不是移动！\n"
+"    // 因为 Unit 实现了 Copy，该值会被自动复制\n"
 
-#: src/trait/clone.md:25
+#: src/trait/clone.md:43
 msgid "// Both `Unit`s can be used independently\n"
 msgstr "// 两个 `Unit` 可以独立使用\n"
 
-#: src/trait/clone.md:26 src/trait/clone.md:31
+#: src/trait/clone.md:44 src/trait/clone.md:49
 msgid "\"original: {:?}\""
 msgstr "\"原始: {:?}\""
 
-#: src/trait/clone.md:27
+#: src/trait/clone.md:45
 msgid "\"copy: {:?}\""
 msgstr "\"复制: {:?}\""
 
-#: src/trait/clone.md:29
+#: src/trait/clone.md:47
 msgid "// Instantiate `Pair`\n"
 msgstr "// 实例化 `Pair`\n"
 
-#: src/trait/clone.md:33
-msgid "// Move `pair` into `moved_pair`, moves resources\n"
-msgstr "// 将 `pair` 移动到 `moved_pair`，资源也随之移动\n"
+#: src/trait/clone.md:51
+msgid ""
+"// Move `pair` into `moved_pair`, moves resources\n"
+"    // Pair does not implement Copy, so this is a move\n"
+msgstr ""
+"// 把 `pair` 移动到 `moved_pair`，资源也随之移动\n"
+"    // Pair 没有实现 Copy，所以这是一次移动\n"
 
-#: src/trait/clone.md:35
+#: src/trait/clone.md:54
 msgid "\"moved: {:?}\""
 msgstr "\"已移动: {:?}\""
 
-#: src/trait/clone.md:37
+#: src/trait/clone.md:56
 msgid ""
 "// Error! `pair` has lost its resources\n"
 "    //println!(\"original: {:?}\", pair);\n"
@@ -11116,15 +11252,19 @@ msgstr ""
 "    //println!(\"原始: {:?}\", pair);\n"
 "    // TODO ^ 尝试取消注释此行\n"
 
-#: src/trait/clone.md:41
-msgid "// Clone `moved_pair` into `cloned_pair` (resources are included)\n"
-msgstr "// 将 `moved_pair` 克隆到 `cloned_pair`（包括资源）\n"
+#: src/trait/clone.md:60
+msgid ""
+"// Clone `moved_pair` into `cloned_pair` (resources are included)\n"
+"    // Unlike Copy, Clone is explicit - we must call .clone()\n"
+msgstr ""
+"// 把 `moved_pair` 克隆到 `cloned_pair`（包含其资源）\n"
+"    // 与 Copy 不同，Clone 是显式的——我们必须调用 .clone()\n"
 
-#: src/trait/clone.md:43
+#: src/trait/clone.md:63
 msgid "// Drop the moved original pair using std::mem::drop\n"
 msgstr "// 使用 std::mem::drop 丢弃已移动的原始对\n"
 
-#: src/trait/clone.md:46
+#: src/trait/clone.md:66
 msgid ""
 "// Error! `moved_pair` has been dropped\n"
 "    //println!(\"moved and dropped: {:?}\", moved_pair);\n"
@@ -11134,11 +11274,11 @@ msgstr ""
 "    //println!(\"已移动并丢弃: {:?}\", moved_pair);\n"
 "    // TODO ^ 尝试取消注释此行\n"
 
-#: src/trait/clone.md:50
+#: src/trait/clone.md:70
 msgid "// The result from .clone() can still be used!\n"
 msgstr "// .clone() 的结果仍然可以使用！\n"
 
-#: src/trait/clone.md:51
+#: src/trait/clone.md:71
 msgid "\"clone: {:?}\""
 msgstr "\"克隆: {:?}\""
 
@@ -11174,7 +11314,15 @@ msgid ""
 msgstr ""
 "\"我的名字是 {}，我就读于 {}。我最喜欢的语言是 {}。我的 Git 用户名是 {}\""
 
-#: src/trait/supertraits.md:42
+#: src/trait/supertraits.md:71
+msgid "\"MIT\""
+msgstr "\"MIT\""
+
+#: src/trait/supertraits.md:73
+msgid "\"alice_codes\""
+msgstr "\"alice_codes\""
+
+#: src/trait/supertraits.md:83
 msgid ""
 "[The Rust Programming Language chapter on supertraits](https://doc.rust-"
 "lang.org/book/ch19-03-advanced-traits.html#using-supertraits-to-require-one-"
@@ -11269,8 +11417,8 @@ msgstr ""
 "象语法树，而不是进行字符串预处理，因此你不会遇到意外的优先级错误。"
 
 #: src/macros.md:11
-msgid "Macros are created using the `macro_rules!` macro."
-msgstr "宏是使用 `macro_rules!` 宏来创建的。"
+msgid "Macros can be created using the `macro_rules!` macro."
+msgstr "宏可以使用 `macro_rules!` 宏来创建。"
 
 #: src/macros.md:14
 msgid "// This is a simple macro named `say_hello`.\n"
@@ -11932,13 +12080,13 @@ msgstr "\"明年我将会 {} 岁\""
 msgid "You can chain many `?`s together to make your code much more readable."
 msgstr "你可以将多个 `?` 链接在一起，使你的代码更易读。"
 
-#: src/error/option_unwrap/question_mark.md:38
+#: src/error/option_unwrap/question_mark.md:39
 msgid ""
 "// Gets the area code of the phone number of the person's job, if it "
 "exists.\n"
 msgstr "// 如果存在，获取此人工作电话号码的区号。\n"
 
-#: src/error/option_unwrap/question_mark.md:40
+#: src/error/option_unwrap/question_mark.md:41
 msgid ""
 "// This would need many nested `match` statements without the `?` operator.\n"
 "        // It would take a lot more code - try writing it yourself and see "
@@ -12946,9 +13094,12 @@ msgid "// Change the alias to use `Box<dyn error::Error>`.\n"
 msgstr "// 将别名改为使用 `Box<dyn error::Error>`。\n"
 
 #: src/error/multiple_error_types/boxing_errors.md:31
+msgid "// Converts to Box using Into trait.\n"
+msgstr "// 使用 Into trait 转换为 Box。\n"
+
 #: src/error/multiple_error_types/boxing_errors.md:34
-msgid "// Converts to Box\n"
-msgstr "// 转换为 Box\n"
+msgid "// Converts to Box using From::from fn pointer.\n"
+msgstr "// 通过 From::from 函数指针转换为 Box。\n"
 
 #: src/error/multiple_error_types/boxing_errors.md:59
 msgid ""
@@ -14919,14 +15070,14 @@ msgstr "// 显示消息发送的顺序\n"
 
 #: src/std_misc/path.md:3
 msgid ""
-"The `Path` struct represents file paths in the underlying filesystem. There "
-"are two flavors of `Path`: `posix::Path`, for UNIX-like systems, and "
-"`windows::Path`, for Windows. The prelude exports the appropriate platform-"
-"specific `Path` variant."
+"The `Path` type represents file paths in the underlying filesystem. Across "
+"all platforms there is a single `std::path::Path` that abstracts over "
+"platform-specific path semantics and separators. Bring it into scope with "
+"`use std::path::Path;` when needed."
 msgstr ""
-"`Path` 结构体表示底层文件系统中的文件路径。`Path` 有两种变体：用于类 UNIX 系"
-"统的 `posix::Path` 和用于 Windows 的 `windows::Path`。prelude 会导出适合特定"
-"平台的 `Path` 变体。"
+"`Path` 类型表示底层文件系统中的文件路径。在所有平台上都只有唯一的 "
+"`std::path::Path`，它对特定平台的路径语义与分隔符做了抽象。需要时可用 `use "
+"std::path::Path;` 将其引入作用域。"
 
 #: src/std_misc/path.md:8
 msgid ""
@@ -15009,14 +15160,10 @@ msgid "\"new path is {}\""
 msgstr "\"新路径是 {}\""
 
 #: src/std_misc/path.md:50
-msgid ""
-"Be sure to check at other `Path` methods (`posix::Path` or `windows::Path`) "
-"and the `Metadata` struct."
-msgstr ""
-"请务必查看其他 `Path` 方法（`posix::Path` 或 `windows::Path`）以及 "
-"`Metadata` 结构体。"
+msgid "Be sure to check other `Path` methods and the `Metadata` struct."
+msgstr "请务必查看其他 `Path` 方法以及 `Metadata` 结构体。"
 
-#: src/std_misc/path.md:55
+#: src/std_misc/path.md:54
 msgid ""
 "[OsStr](https://doc.rust-lang.org/std/ffi/struct.OsStr.html) and [Metadata]"
 "(https://doc.rust-lang.org/std/fs/struct.Metadata.html)."
@@ -16023,11 +16170,11 @@ msgid ""
 msgstr ""
 "要运行多个测试，可以指定测试名称的一部分，该部分匹配所有应该运行的测试。"
 
-#: src/testing/unit_testing.md:209
+#: src/testing/unit_testing.md:210
 msgid "Ignoring tests"
 msgstr "忽略测试"
 
-#: src/testing/unit_testing.md:211
+#: src/testing/unit_testing.md:212
 msgid ""
 "Tests can be marked with the `#[ignore]` attribute to exclude some tests. Or "
 "to run them with command `cargo test -- --ignored`"
@@ -17302,12 +17449,12 @@ msgstr "你可以使用原始标识符这样写："
 
 #: src/meta.md:3
 msgid ""
-"Some topics aren't exactly relevant to how you program runs but provide you "
+"Some topics aren't exactly relevant to how your program runs but provide you "
 "tooling or infrastructure support which just makes things better for "
 "everyone. These topics include:"
 msgstr ""
-"有些主题虽然与程序如何运行不直接相关，但它们提供了工具或基础设施支持，使得整"
-"个开发生态变得更好。这些主题包括："
+"有些主题与程序如何运行并不直接相关，但它们提供了工具或基础设施方面的支持，让"
+"一切对每个人来说都变得更好。这些主题包括："
 
 #: src/meta.md:7
 msgid ""

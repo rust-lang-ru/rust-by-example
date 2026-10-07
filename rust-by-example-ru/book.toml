@@ -1,11 +1,15 @@
 [book]
 title = "Rust By Example"
 description = "A description"
-author = "The Rust Community"
+authors = ["The Rust Community"]
 
 [output.html]
-google-analytics="UA-142155799-3"
+# google-analytics="UA-142155799-3"
+git-repository-url = "https://github.com/rust-lang-ru/rust-by-example"
+edit-url-template = "https://github.com/rust-lang-ru/rust-by-example/edit/master/{path}"
+hash-files = true
+
 
 [output.html.playpen]
 editable = true
-editor = "ace"
+# editor = "ace"
